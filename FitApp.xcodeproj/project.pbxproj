@@ -34,7 +34,6 @@
 		1F73C40B1BEB16C600AE339C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F73C40A1BEB16C600AE339C /* libz.tbd */; };
 		1F73C40D1BEB16E200AE339C /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F73C40C1BEB16E200AE339C /* libstdc++.6.0.9.dylib */; };
 		1F73C40F1BEB170700AE339C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F73C40E1BEB170700AE339C /* libsqlite3.dylib */; };
-		1F73C4151BEB26AE00AE339C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F73C4141BEB26AE00AE339C /* Launch Screen.storyboard */; };
 		1F7E27D71BF7D4D2005F94F6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7E27D61BF7D4D2005F94F6 /* LoginViewController.swift */; };
 		1F7E27D91BF7D4E6005F94F6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7E27D81BF7D4E6005F94F6 /* HomeViewController.swift */; };
 		1F7E27DB1BF7D4FA005F94F6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7E27DA1BF7D4FA005F94F6 /* SignUpViewController.swift */; };
@@ -44,6 +43,7 @@
 		1F9F3D561C0524C200F2515D /* Reset Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F3D521C0524C200F2515D /* Reset Button.png */; };
 		1F9F3D571C0524C200F2515D /* Start Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F3D531C0524C200F2515D /* Start Button.png */; };
 		1F9F3D581C0524C200F2515D /* Stop Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F3D541C0524C200F2515D /* Stop Button.png */; };
+		1FB816E41C34A337009EFCDA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB816E31C34A337009EFCDA /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,7 +76,6 @@
 		1F73C40A1BEB16C600AE339C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		1F73C40C1BEB16E200AE339C /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "/usr/lib/libstdc++.6.0.9.dylib"; sourceTree = "<absolute>"; };
 		1F73C40E1BEB170700AE339C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = /usr/lib/libsqlite3.dylib; sourceTree = "<absolute>"; };
-		1F73C4141BEB26AE00AE339C /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1F7E27D61BF7D4D2005F94F6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1F7E27D81BF7D4E6005F94F6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1F7E27DA1BF7D4FA005F94F6 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +85,7 @@
 		1F9F3D521C0524C200F2515D /* Reset Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reset Button.png"; sourceTree = "<group>"; };
 		1F9F3D531C0524C200F2515D /* Start Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start Button.png"; sourceTree = "<group>"; };
 		1F9F3D541C0524C200F2515D /* Stop Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stop Button.png"; sourceTree = "<group>"; };
+		1FB816E31C34A337009EFCDA /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +190,7 @@
 				1F1801141BFD6DF300E5379F /* Maps/BMI */,
 				1F73C3DD1BEB152E00AE339C /* Main.storyboard */,
 				1F73C3E01BEB152E00AE339C /* Assets.xcassets */,
-				1F73C4141BEB26AE00AE339C /* Launch Screen.storyboard */,
+				1FB816E31C34A337009EFCDA /* Launch Screen.storyboard */,
 				1F73C3E51BEB152E00AE339C /* Info.plist */,
 				1F73C3FF1BEB162200AE339C /* Frameworks */,
 				1F73C3D71BEB152E00AE339C /* Products */,
@@ -295,9 +295,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F73C4151BEB26AE00AE339C /* Launch Screen.storyboard in Resources */,
 				1F9F3D571C0524C200F2515D /* Start Button.png in Resources */,
 				1F9F3D561C0524C200F2515D /* Reset Button.png in Resources */,
+				1FB816E41C34A337009EFCDA /* Launch Screen.storyboard in Resources */,
 				1F73C3E11BEB152E00AE339C /* Assets.xcassets in Resources */,
 				1F9F3D581C0524C200F2515D /* Stop Button.png in Resources */,
 				1F9F3D551C0524C200F2515D /* Lap Button.png in Resources */,

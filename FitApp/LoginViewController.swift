@@ -15,12 +15,20 @@ class LoginViewController: UIViewController{
     @IBOutlet var usernameField: UITextField!
     @IBOutlet var passwordField: UITextField!
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+      
+    }
     @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {
         
     }
     @IBAction func loginAction(sender: AnyObject) {
         let usernametext = self.usernameField.text
         let passwordtext = self.passwordField.text
+       
         
         // Validate the text fields
         if usernametext?.utf16.count < 5 {
@@ -58,6 +66,12 @@ class LoginViewController: UIViewController{
                 }
             })
         }
+        
+    }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
 }

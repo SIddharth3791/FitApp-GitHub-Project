@@ -15,7 +15,15 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
-    @IBAction func signUpAction(sender: AnyObject) {
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
+    
+    @IBAction func signUpAction(sender: AnyObject)
+    {
         
         let username = self.usernameField.text
         let password = self.passwordField.text
@@ -67,5 +75,11 @@ class SignUpViewController: UIViewController {
             })
         }
     }
+    func dismissKeyboard()
+    {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+
     
 }
