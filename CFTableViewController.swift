@@ -8,11 +8,50 @@
 
 import Foundation
 import UIKit
+import Parse
+import ParseUI
 
 class CFTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var MySegmentedControl: UISegmentedControl!
     @IBOutlet weak var MyTableView: UITableView!
     
+    var WodArray = [String]()
+    
+    //Marks : - ViewDidLoad....................
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let query  = PFQuery(className: "CF_WOD")
+        let runKey = query.orderByAscending("WorkOut_Name")
+       runKey.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?)-> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]!
+                {
+                    for object in objects
+                    {
+                        let load = object.objectForKey("WorkOut_Name") as! String
+                        self.WodArray.append(load)
+                        
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (3)
+            self.do_table_refresh()
+            
+        }
+    }
+    func do_table_refresh()
+    {
+        dispatch_async(dispatch_get_main_queue(), { self.MyTableView.reloadData()
+            return
+        })
+
+            }
     let WOD:[String] = ["Fran","Annie","Grace","murphy"]
     let AboutWod:[String] = ["Functional Movement","Constanly Varying","Varying time"]
     let TimeKeeper:[String] = ["Timer","Tabata","EMOM","Custom"]
@@ -27,7 +66,7 @@ class CFTableViewController: UIViewController, UITableViewDataSource, UITableVie
         switch(MySegmentedControl.selectedSegmentIndex)
         {
         case 0:
-            returnvaule = WOD.count
+            returnvaule = WodArray.count
             break
         case 1:
             returnvaule = TimeKeeper.count
@@ -54,7 +93,7 @@ class CFTableViewController: UIViewController, UITableViewDataSource, UITableVie
         switch(MySegmentedControl.selectedSegmentIndex)
         {
         case 0:
-            mycell.textLabel?.text = WOD[indexPath.row]
+            mycell.textLabel?.text = WodArray[indexPath.row]
             break
         case 1:
              mycell.textLabel?.text  = TimeKeeper[indexPath.row]

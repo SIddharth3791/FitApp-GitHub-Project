@@ -12,10 +12,14 @@ import ParseUI
 
 class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewDataSource
 {
+    @IBOutlet weak var MySegmentedControl: UISegmentedControl!
+    @IBOutlet weak var WodTableView: UITableView!
     
-    @IBOutlet var WodTableView: UITableView!
+    var GirlArray = [String]()
+    var HeroArray = [String]()
+    var HybridArray = [String]()
+    var OpenArray = [String]()
     
-    var WodArray = [String]()
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -26,14 +30,12 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
         runkey.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?)-> Void in
             if error == nil{
-                
                 if let objects = objects as [PFObject]!
                 {
                     for object in objects
                     {
                         let load = object.objectForKey("WorkOut_Name") as! String
-                        self.WodArray.append(load)
-                        
+                        self.GirlArray.append(load)
                     }
                 }
                 else
@@ -43,7 +45,6 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             }
             sleep (3)
             self.do_table_refresh()
-            
             }
     }
     func do_table_refresh()
@@ -52,31 +53,77 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             return
         })
     }
-
-
+    
     
 
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
     }
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int
-    {
-        return 1
-    }
+    
+    // Marks: display rows depening on data
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return WodArray.count
+        var returnvaule = 0
+        
+        switch(MySegmentedControl.selectedSegmentIndex)
+        {
+            case 0:
+                returnvaule = GirlArray.count
+                break
+            case 1:
+                returnvaule = HeroArray.count
+                break
+            case 2:
+                returnvaule = HybridArray.count
+                break
+                case 3:
+                    returnvaule = OpenArray.count
+                break
+            default:
+                break
+        
+        }
+        return returnvaule
+
     }
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    
     {
     
-        let cell = WodTableView.dequeueReusableCellWithIdentifier("CellWod", forIndexPath: indexPath) as! WODTableViewCell
-        cell.titleLabel.text = self.WodArray[indexPath.row]
-        return cell
+        let cell = WodTableView.dequeueReusableCellWithIdentifier("CFWOD", forIndexPath: indexPath)
+        
+        switch(MySegmentedControl.selectedSegmentIndex)
+        {
+            case 0:
+                cell.textLabel!.text = GirlArray[indexPath.row]
+                break
+            case 1:
+                cell.textLabel!.text  = HeroArray[indexPath.row]
+                break
+            case 2:
+                cell.textLabel!.text = HybridArray[indexPath.row]
+                break
+            case 3:
+                cell.textLabel!.text = OpenArray[indexPath.row]
+                break
+            default:
+                break
+            
+        }
+           return cell
     }
+    
+    
+   
+    
+    @IBAction func CFListControl(sender: AnyObject)
+    {
+        WodTableView.reloadData()
+
+    }
+    
 }
 
 
@@ -163,4 +210,3 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
     }
 
  }**/
-
