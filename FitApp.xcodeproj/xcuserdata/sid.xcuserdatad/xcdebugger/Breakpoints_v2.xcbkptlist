@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitApp/WODTableViewController.swift"
-            timestampString = "473634804.251108"
+            timestampString = "474151173.877705"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139">
+            startingLineNumber = "222"
+            endingLineNumber = "222">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -312,11 +312,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitApp/WODTableViewController.swift"
-            timestampString = "473634804.251108"
+            timestampString = "474151173.877705"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141">
+            startingLineNumber = "224"
+            endingLineNumber = "224">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -326,11 +326,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitApp/WODTableViewController.swift"
-            timestampString = "473634804.251108"
+            timestampString = "474151173.877705"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203">
+            startingLineNumber = "286"
+            endingLineNumber = "286">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

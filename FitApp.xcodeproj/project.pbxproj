@@ -12,7 +12,6 @@
 		1F1801401BFFBDF900E5379F /* TimeKeeperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F18013F1BFFBDF900E5379F /* TimeKeeperView.swift */; };
 		1F1801421BFFBE3800E5379F /* PRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1801411BFFBE3800E5379F /* PRView.swift */; };
 		1F18014B1C01578300E5379F /* WODTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F18014A1C01578300E5379F /* WODTableViewController.swift */; };
-		1F18014D1C0157BA00E5379F /* WODTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F18014C1C0157BA00E5379F /* WODTableViewCell.swift */; };
 		1F73C3DA1BEB152E00AE339C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73C3D91BEB152E00AE339C /* AppDelegate.swift */; };
 		1F73C3DF1BEB152E00AE339C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F73C3DD1BEB152E00AE339C /* Main.storyboard */; };
 		1F73C3E11BEB152E00AE339C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F73C3E01BEB152E00AE339C /* Assets.xcassets */; };
@@ -44,6 +43,7 @@
 		1F9F3D571C0524C200F2515D /* Start Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F3D531C0524C200F2515D /* Start Button.png */; };
 		1F9F3D581C0524C200F2515D /* Stop Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F3D541C0524C200F2515D /* Stop Button.png */; };
 		1FB816E41C34A337009EFCDA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB816E31C34A337009EFCDA /* Launch Screen.storyboard */; };
+		1FB816E81C3E0093009EFCDA /* CFWODTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB816E71C3E0092009EFCDA /* CFWODTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +52,6 @@
 		1F18013F1BFFBDF900E5379F /* TimeKeeperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeKeeperView.swift; path = ../TimeKeeperView.swift; sourceTree = "<group>"; };
 		1F1801411BFFBE3800E5379F /* PRView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRView.swift; sourceTree = "<group>"; };
 		1F18014A1C01578300E5379F /* WODTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WODTableViewController.swift; sourceTree = "<group>"; };
-		1F18014C1C0157BA00E5379F /* WODTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WODTableViewCell.swift; sourceTree = "<group>"; };
 		1F73C3D61BEB152E00AE339C /* FitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F73C3D91BEB152E00AE339C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F73C3DE1BEB152E00AE339C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,6 +85,7 @@
 		1F9F3D531C0524C200F2515D /* Start Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start Button.png"; sourceTree = "<group>"; };
 		1F9F3D541C0524C200F2515D /* Stop Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stop Button.png"; sourceTree = "<group>"; };
 		1FB816E31C34A337009EFCDA /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		1FB816E71C3E0092009EFCDA /* CFWODTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFWODTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				1F18014A1C01578300E5379F /* WODTableViewController.swift */,
-				1F18014C1C0157BA00E5379F /* WODTableViewCell.swift */,
 			);
 			name = "Workout of day";
 			sourceTree = "<group>";
@@ -195,6 +194,7 @@
 				1F73C3FF1BEB162200AE339C /* Frameworks */,
 				1F73C3D71BEB152E00AE339C /* Products */,
 				1F9F3D501C05247E00F2515D /* Button Images */,
+				1FB816E71C3E0092009EFCDA /* CFWODTableViewController.swift */,
 			);
 			path = FitApp;
 			sourceTree = "<group>";
@@ -314,12 +314,12 @@
 			files = (
 				1F1801421BFFBE3800E5379F /* PRView.swift in Sources */,
 				1F7E27D71BF7D4D2005F94F6 /* LoginViewController.swift in Sources */,
-				1F18014D1C0157BA00E5379F /* WODTableViewCell.swift in Sources */,
 				1F1801161BFD7CBE00E5379F /* CFViewController.swift in Sources */,
 				1F1801401BFFBDF900E5379F /* TimeKeeperView.swift in Sources */,
 				1F93910B1BED7DF6007F7E0E /* MapView.swift in Sources */,
 				1F73C3DA1BEB152E00AE339C /* AppDelegate.swift in Sources */,
 				1F18014B1C01578300E5379F /* WODTableViewController.swift in Sources */,
+				1FB816E81C3E0093009EFCDA /* CFWODTableViewController.swift in Sources */,
 				1F7E27DD1BF7D517005F94F6 /* ResetPasswordViewController.swift in Sources */,
 				1F7E27D91BF7D4E6005F94F6 /* HomeViewController.swift in Sources */,
 				1F1800DE1BFAB6A300E5379F /* CFTableViewController.swift in Sources */,

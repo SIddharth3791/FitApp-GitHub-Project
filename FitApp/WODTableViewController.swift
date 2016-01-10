@@ -19,14 +19,19 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
     var HeroArray = [String]()
     var HybridArray = [String]()
     var OpenArray = [String]()
+    var GirlArrayDetails = [String]()
+    var HeroArrayDetails = [String]()
+    
+    
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        // Parse Query to populate table cell
-        let query = PFQuery(className: "CF_WOD")
-        let runkey = query.orderByAscending("WorkOut_Name")
+// Parse Query to populate Girls workout table cell
+        let query0 = PFQuery(className: "CF_WOD")
+        let girls = ["The New Girls", "The Benchmark Girls"]
+        let runkey = query0.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: girls)
+        //runkey.whereKeyExists("The New Girls")
         runkey.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?)-> Void in
             if error == nil{
@@ -34,7 +39,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("WorkOut_Name") as! String
+                        let load = object.valueForKey("WorkOut_Name") as! String
                         self.GirlArray.append(load)
                     }
                 }
@@ -46,16 +51,92 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             sleep (3)
             self.do_table_refresh()
             }
+        
+// marks:- Parse query to get detail text
+        
+        let query2 = PFQuery(className: "CF_WOD")
+        let subkey = query2.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: girls)
+      //  let subkey = query2.whereKeyExists("Workout_Type")
+        subkey.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?)-> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]?
+                {
+                    for object in objects
+                    {
+                        let load = object.objectForKey("Workout_Type") as! String
+                        self.GirlArrayDetails.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (3)
+            self.do_table_refresh()
+        }
+        
+      // marks: Parse query to get hero 
+        
+        let query3 = PFQuery(className: "CF_WOD")
+        var herotype = ["Hero"]
+        let heroKey = query3.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: herotype)
+        heroKey.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?)-> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]?
+                {
+                    for object in objects
+                    {
+                        let load = object.objectForKey("WorkOut_Name") as! String
+                        self.HeroArray.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (3)
+            self.do_table_refresh()
+        }
+        //marks: - 
+        let query4 = PFQuery(className: "CF_WOD")
+        let heroDkey = query4.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: herotype)
+        //  let subkey = query2.whereKeyExists("Workout_Type")
+        heroDkey.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?)-> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]?
+                {
+                    for object in objects
+                    {
+                        let load = object.objectForKey("Workout_Type") as! String
+                        self.HeroArrayDetails.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (3)
+            self.do_table_refresh()
+        }
+
+
     }
     func do_table_refresh()
     {
-        dispatch_async(dispatch_get_main_queue(), { self.WodTableView.reloadData()
+        dispatch_async(dispatch_get_main_queue(),
+        {
+            self.WodTableView.reloadData()
             return
         })
+        
     }
     
-    
-
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -92,21 +173,23 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
     
-        let cell = WodTableView.dequeueReusableCellWithIdentifier("CFWOD", forIndexPath: indexPath)
+        var cell = WodTableView.dequeueReusableCellWithIdentifier("CFWOD", forIndexPath: indexPath)
         
         switch(MySegmentedControl.selectedSegmentIndex)
         {
             case 0:
-                cell.textLabel!.text = GirlArray[indexPath.row]
+                cell.textLabel?.text = GirlArray[indexPath.row]
+               cell.detailTextLabel?.text = GirlArrayDetails[indexPath.row]
                 break
             case 1:
-                cell.textLabel!.text  = HeroArray[indexPath.row]
+                cell.textLabel?.text  = HeroArray[indexPath.row]
+                cell.detailTextLabel?.text = HeroArrayDetails[indexPath.row]
                 break
             case 2:
-                cell.textLabel!.text = HybridArray[indexPath.row]
+                cell.textLabel?.text = HybridArray[indexPath.row]
                 break
             case 3:
-                cell.textLabel!.text = OpenArray[indexPath.row]
+                cell.textLabel?.text = OpenArray[indexPath.row]
                 break
             default:
                 break
