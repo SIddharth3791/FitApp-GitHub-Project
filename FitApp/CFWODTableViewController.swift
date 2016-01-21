@@ -72,5 +72,16 @@ class CFWODTableViewController: PFQueryTableViewController {
    
         
     }
-   
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        
+        var detailscene = segue.destinationViewController as? WODDetailTableViewController
+        
+        if let indexpath = self.hello.indexPathForSelectedRow{
+            let row = Int(indexpath.row)
+           // detailscene?.currentObject = (objects?[row] as? PFObject)
+        }
+    }
+
 }

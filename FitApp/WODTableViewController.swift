@@ -23,10 +23,15 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
     var HybridArrayDetails = [String]()
     var OpenArray = [String]()
     var OpenArrayDetails = [String]()
+    
+    
    
+    var objects = [PFObject]()
     
-    
-    
+    @IBAction  func unwindForWodTableview(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+        
+    }
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -39,7 +44,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
         runkey.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?)-> Void in
             if error == nil{
-                if let objects = objects as [PFObject]!
+                if var objects = objects as [PFObject]!
                 {
                     for object in objects
                     {
@@ -299,6 +304,9 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
            return cell
     }
     
+   // func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+     //   self.performSegueWithIdentifier("showDetails", sender: tableView)
+    //}
     
    
     
@@ -308,6 +316,21 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
 
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var WodDetailsVC : WODDetailTableViewController = segue.destinationViewController as! WODDetailTableViewController
+        if let selectedArrayIndex = WodTableView.indexPathForSelectedRow?.row{
+            WodDetailsVC.WODnNameLabel = GirlArray[selectedArrayIndex]
+        }
+        
+        /**if segue.identifier == "ShowDetails"
+        {
+            let DetailTableViewController = ((segue.destinationViewController) as? WODDetailTableViewController)
+            let indexpath = self.WodTableView.indexPathForSelectedRow!
+            let WODselect = GirlArray[indexpath.row]
+
+            DetailTableViewController?.title = WODselect
+        }**/
+    }
 }
 
 

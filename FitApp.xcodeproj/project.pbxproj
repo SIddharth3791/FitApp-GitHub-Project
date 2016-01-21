@@ -44,6 +44,7 @@
 		1F9F3D581C0524C200F2515D /* Stop Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F3D541C0524C200F2515D /* Stop Button.png */; };
 		1FB816E41C34A337009EFCDA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB816E31C34A337009EFCDA /* Launch Screen.storyboard */; };
 		1FB816E81C3E0093009EFCDA /* CFWODTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB816E71C3E0092009EFCDA /* CFWODTableViewController.swift */; };
+		1FB816EA1C47257C009EFCDA /* WODDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB816E91C47257B009EFCDA /* WODDetailTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		1F9F3D541C0524C200F2515D /* Stop Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stop Button.png"; sourceTree = "<group>"; };
 		1FB816E31C34A337009EFCDA /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1FB816E71C3E0092009EFCDA /* CFWODTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFWODTableViewController.swift; sourceTree = "<group>"; };
+		1FB816E91C47257B009EFCDA /* WODDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WODDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				1F18014A1C01578300E5379F /* WODTableViewController.swift */,
+				1FB816E91C47257B009EFCDA /* WODDetailTableViewController.swift */,
 			);
 			name = "Workout of day";
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				1F1801161BFD7CBE00E5379F /* CFViewController.swift in Sources */,
 				1F1801401BFFBDF900E5379F /* TimeKeeperView.swift in Sources */,
 				1F93910B1BED7DF6007F7E0E /* MapView.swift in Sources */,
+				1FB816EA1C47257C009EFCDA /* WODDetailTableViewController.swift in Sources */,
 				1F73C3DA1BEB152E00AE339C /* AppDelegate.swift in Sources */,
 				1F18014B1C01578300E5379F /* WODTableViewController.swift in Sources */,
 				1FB816E81C3E0093009EFCDA /* CFWODTableViewController.swift in Sources */,
