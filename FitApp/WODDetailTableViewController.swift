@@ -22,14 +22,14 @@ class WODDetailTableViewController: UIViewController {
     
     @IBOutlet weak var DetailWOD: UITextView!
     
-    var WODnNameLabel = String()
+    var WODNameLabel = String()
     var WodLabel = String()
     var detailsWodText = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        WODName.text = WODnNameLabel
+        WODName.text = WODNameLabel
         WOD.text = WodLabel
         DetailWOD.text = detailsWodText
        

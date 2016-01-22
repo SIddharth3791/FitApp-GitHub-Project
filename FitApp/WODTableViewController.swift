@@ -319,19 +319,26 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var WodDetailsVC : WODDetailTableViewController = segue.destinationViewController as! WODDetailTableViewController
         if let selectedArrayIndex = WodTableView.indexPathForSelectedRow?.row{
-            WodDetailsVC.WODnNameLabel = GirlArray[selectedArrayIndex]
-        }
+        //WodDetailsVC.WODnNameLabel = GirlArray[selectedArrayIndex]
+            switch (MySegmentedControl.selectedSegmentIndex){
+            case 0:
+            WodDetailsVC.WODNameLabel = GirlArray[selectedArrayIndex]
+            break
+            case 1:
+            WodDetailsVC.WODNameLabel = HeroArray[selectedArrayIndex]
+            break
+            case 2:
+            WodDetailsVC.WODNameLabel = HybridArray[selectedArrayIndex]
+            break
+            case 3:
+            WodDetailsVC.WODNameLabel = OpenArray[selectedArrayIndex]
+            break
+            default:
+            break
+            }
         
-        /**if segue.identifier == "ShowDetails"
-        {
-            let DetailTableViewController = ((segue.destinationViewController) as? WODDetailTableViewController)
-            let indexpath = self.WodTableView.indexPathForSelectedRow!
-            let WODselect = GirlArray[indexpath.row]
-
-            DetailTableViewController?.title = WODselect
-        }**/
+        }
     }
 }
-
 
 
