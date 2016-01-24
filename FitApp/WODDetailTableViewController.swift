@@ -18,20 +18,24 @@ class WODDetailTableViewController: UIViewController {
     
     @IBOutlet weak var WODName: UILabel!
     
-    @IBOutlet weak var WOD: UILabel!
+    @IBOutlet weak var WODDetails: UILabel!
     
-    @IBOutlet weak var DetailWOD: UITextView!
+    @IBOutlet weak var DetailWOD: UILabel!
+    
+    @IBOutlet weak var WODReps: UILabel!
     
     var WODNameLabel = String()
-    var WodLabel = String()
-    var detailsWodText = String()
+    var WodDetailsLabel = String()
+    var detailLabel = String()
+    var WODrepsLabel = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         WODName.text = WODNameLabel
-        WOD.text = WodLabel
-        DetailWOD.text = detailsWodText
+        WODDetails.text = WodDetailsLabel
+        DetailWOD.text = detailLabel
+        WODReps.text = WODrepsLabel
        
        
     }

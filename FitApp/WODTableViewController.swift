@@ -17,6 +17,8 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
     
     var GirlArray = [String]()
     var GirlArrayDetails = [String]()
+    var GirlArrayWODDetails = [String]() //marks :- Workout details
+    var GirlArrayWODRep = [String]()    //Marks :- Workout Reps
     var HeroArray = [String]()
     var HeroArrayDetails = [String]()
     var HybridArray = [String]()
@@ -61,7 +63,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             self.do_table_refresh()
             }
         
-// marks:- Girls Parse query to get detail text
+// marks:-  Parse query to get Girl WOD type
         
         let query1 = PFQuery(className: "CF_WOD")
         let subkey = query1.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: girlsType)
@@ -85,6 +87,55 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             sleep (3)
             self.do_table_refresh()
         }
+        
+// Marks:- Parse Query to get Girl WOD Details
+        
+        let query01 = PFQuery(className: "CF_WOD")
+        let girlDetailKey = query01.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: girlsType)
+        //  let subkey = query2.whereKeyExists("Workout_Type")
+        girlDetailKey.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?)-> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]?
+                {
+                    for object in objects
+                    {
+                        let load = object.objectForKey("Workout_Details") as! String
+                        self.GirlArrayWODDetails.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (3)
+            self.do_table_refresh()
+        }
+// Marks: Parse query to get Girls Rep
+        let query001 = PFQuery(className: "CF_WOD")
+        let girlRepKey = query001.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: girlsType)
+        //  let subkey = query2.whereKeyExists("Workout_Type")
+        girlRepKey.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?)-> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]?
+                {
+                    for object in objects
+                    {
+                        let load = object.objectForKey("Workout_Reps") as! String
+                        self.GirlArrayWODRep.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (3)
+            self.do_table_refresh()
+        }
+
 // marks: Parse query to get hero
         
         let query2 = PFQuery(className: "CF_WOD")
@@ -323,15 +374,21 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             switch (MySegmentedControl.selectedSegmentIndex){
             case 0:
             WodDetailsVC.WODNameLabel = GirlArray[selectedArrayIndex]
+            WodDetailsVC.WodDetailsLabel = GirlArrayDetails[selectedArrayIndex]
+            WodDetailsVC.detailLabel = GirlArrayWODDetails[selectedArrayIndex]
+            WodDetailsVC.WODrepsLabel = GirlArrayWODRep[selectedArrayIndex]
             break
             case 1:
             WodDetailsVC.WODNameLabel = HeroArray[selectedArrayIndex]
+            WodDetailsVC.WodDetailsLabel = HeroArrayDetails[selectedArrayIndex]
             break
             case 2:
             WodDetailsVC.WODNameLabel = HybridArray[selectedArrayIndex]
+            WodDetailsVC.WodDetailsLabel = HybridArrayDetails[selectedArrayIndex]
             break
             case 3:
             WodDetailsVC.WODNameLabel = OpenArray[selectedArrayIndex]
+            WodDetailsVC.WodDetailsLabel = OpenArrayDetails[selectedArrayIndex]
             break
             default:
             break
