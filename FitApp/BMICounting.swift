@@ -21,7 +21,7 @@ class BMICounting{
     }
     
     func bmi() -> Double{
-        return weight/(height*height)
+        return Double(weight/(height*height))
     }
 }
 
