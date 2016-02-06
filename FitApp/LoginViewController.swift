@@ -22,9 +22,11 @@ class LoginViewController: UIViewController{
         view.addGestureRecognizer(tap)
       
     }
-    @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {
+   
+    @IBAction  func unwindToLogInScreen(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
         
     }
+
     @IBAction func loginAction(sender: AnyObject) {
         let usernametext = self.usernameField.text
         let passwordtext = self.passwordField.text
