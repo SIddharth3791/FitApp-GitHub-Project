@@ -436,79 +436,6 @@
             </objects>
             <point key="canvasLocation" x="1185" y="1443"/>
         </scene>
-        <!--CrossFit-->
-        <scene sceneID="baX-zA-L2M">
-            <objects>
-                <viewController id="dNe-e9-Elt" customClass="CFTableViewController" customModule="FitApp" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jWK-8I-bkG"/>
-                        <viewControllerLayoutGuide type="bottom" id="27F-OB-TTP"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="u0w-B3-jdu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UMR-wb-DJf">
-                                <rect key="frame" x="0.0" y="72" width="409" height="29"/>
-                                <segments>
-                                    <segment title="WOD"/>
-                                    <segment title="Time Keeper"/>
-                                    <segment title="About WODs"/>
-                                    <segment title="PR's"/>
-                                </segments>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="CFListAction:" destination="dNe-e9-Elt" eventType="valueChanged" id="xxO-yJ-bhF"/>
-                                </connections>
-                            </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="top" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="y8h-sV-s9E">
-                                <rect key="frame" x="0.0" y="100" width="414" height="628"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CFList" id="n5S-Z9-hxC">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n5S-Z9-hxC" id="LWW-bz-GE0">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="dNe-e9-Elt" id="k0W-tA-NXN"/>
-                                    <outlet property="delegate" destination="dNe-e9-Elt" id="G6G-oO-Bd6"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="y8h-sV-s9E" firstAttribute="top" secondItem="UMR-wb-DJf" secondAttribute="bottom" id="7vg-mO-dMS"/>
-                            <constraint firstItem="27F-OB-TTP" firstAttribute="top" secondItem="y8h-sV-s9E" secondAttribute="bottom" constant="8" symbolic="YES" id="90W-eY-5cy"/>
-                            <constraint firstItem="UMR-wb-DJf" firstAttribute="leading" secondItem="y8h-sV-s9E" secondAttribute="leading" id="Nic-qn-cEW"/>
-                            <constraint firstItem="UMR-wb-DJf" firstAttribute="top" secondItem="jWK-8I-bkG" secondAttribute="bottom" constant="8" symbolic="YES" id="RNt-fC-K8Z"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UMR-wb-DJf" secondAttribute="trailing" constant="-15" id="fzH-d0-XfZ"/>
-                            <constraint firstAttribute="trailing" secondItem="y8h-sV-s9E" secondAttribute="trailing" id="ubB-lN-aPW"/>
-                            <constraint firstItem="UMR-wb-DJf" firstAttribute="leading" secondItem="u0w-B3-jdu" secondAttribute="leading" id="ztE-oG-mHh"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="CrossFit" id="Wuf-Ib-vfa">
-                        <barButtonItem key="backBarButtonItem" title="Home Page" id="WPZ-2y-9f6"/>
-                        <barButtonItem key="leftBarButtonItem" title="Back" style="done" id="fBz-3C-yXA">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <connections>
-                        <outlet property="MySegmentedControl" destination="UMR-wb-DJf" id="JOl-UE-hAe"/>
-                        <outlet property="MyTableView" destination="y8h-sV-s9E" id="E3R-39-Zxo"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pmz-aP-kAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-72" y="1807"/>
-        </scene>
         <!--Map View Controller-->
         <scene sceneID="rHz-8d-hUc">
             <objects>
@@ -1036,17 +963,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABOUT WOD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPj-So-zBn">
-                                <rect key="frame" x="134" y="226" width="102" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crossfit 2" translatesAutoresizingMaskIntoConstraints="NO" id="hCu-51-cdh">
+                                <rect key="frame" x="0.0" y="113" width="210" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="zfK-2b-59n"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crossfit 1" translatesAutoresizingMaskIntoConstraints="NO" id="wGq-s5-ynv">
+                                <rect key="frame" x="218" y="113" width="196" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="196" id="cDJ-NY-7c7"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crossfit 3" translatesAutoresizingMaskIntoConstraints="NO" id="JnH-iz-TJw">
+                                <rect key="frame" x="118" y="249" width="192" height="133"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BPj-So-zBn" firstAttribute="top" secondItem="w4K-8u-dV6" secondAttribute="bottom" constant="182" id="YBo-V6-2C6"/>
-                            <constraint firstItem="BPj-So-zBn" firstAttribute="leading" secondItem="PqH-6w-SHL" secondAttribute="leading" constant="134" id="pc3-xq-oVL"/>
+                            <constraint firstItem="hCu-51-cdh" firstAttribute="top" secondItem="w4K-8u-dV6" secondAttribute="bottom" constant="69" id="2yU-el-5Xw"/>
+                            <constraint firstItem="0j8-nk-Yvd" firstAttribute="top" secondItem="JnH-iz-TJw" secondAttribute="bottom" constant="354" id="4X3-89-Yt7"/>
+                            <constraint firstItem="wGq-s5-ynv" firstAttribute="top" secondItem="hCu-51-cdh" secondAttribute="top" id="75C-FT-ZJ8"/>
+                            <constraint firstAttribute="trailing" secondItem="wGq-s5-ynv" secondAttribute="trailing" id="7RC-WE-A4Z"/>
+                            <constraint firstItem="hCu-51-cdh" firstAttribute="leading" secondItem="PqH-6w-SHL" secondAttribute="leading" id="JY1-ks-Tgr"/>
+                            <constraint firstItem="JnH-iz-TJw" firstAttribute="top" secondItem="wGq-s5-ynv" secondAttribute="bottom" constant="8" symbolic="YES" id="P3X-2b-90M"/>
+                            <constraint firstItem="JnH-iz-TJw" firstAttribute="leading" secondItem="PqH-6w-SHL" secondAttribute="leadingMargin" constant="98" id="WAV-xQ-CAJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JnH-iz-TJw" secondAttribute="trailing" constant="84" id="jP3-FI-nbZ"/>
+                            <constraint firstItem="JnH-iz-TJw" firstAttribute="top" secondItem="hCu-51-cdh" secondAttribute="bottom" constant="8" symbolic="YES" id="kOf-bh-CwL"/>
+                            <constraint firstItem="wGq-s5-ynv" firstAttribute="leading" secondItem="hCu-51-cdh" secondAttribute="trailing" constant="8" symbolic="YES" id="vcx-Nn-x84"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -1231,6 +1175,9 @@
         <image name="Lap Button.png" width="562" height="512"/>
         <image name="Start Button" width="562" height="512"/>
         <image name="Workout plan " width="206" height="196"/>
+        <image name="crossfit 1" width="280" height="270"/>
+        <image name="crossfit 2" width="276" height="269"/>
+        <image name="crossfit 3" width="271" height="269"/>
         <image name="diet image" width="242" height="274"/>
     </resources>
 </document>
