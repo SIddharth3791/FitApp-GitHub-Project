@@ -1,16 +1,16 @@
 {
   "images" : [
     {
-      "idiom" : "iphone",
-      "filename" : "Workout plan .png",
+      "idiom" : "universal",
+      "filename" : "180 degree.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "iphone",
+      "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
+      "idiom" : "universal",
       "scale" : "3x"
     }
   ],

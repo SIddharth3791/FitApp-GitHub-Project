@@ -35,11 +35,14 @@
 		1F73C40B1BEB16C600AE339C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F73C40A1BEB16C600AE339C /* libz.tbd */; };
 		1F73C40D1BEB16E200AE339C /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F73C40C1BEB16E200AE339C /* libstdc++.6.0.9.dylib */; };
 		1F73C40F1BEB170700AE339C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F73C40E1BEB170700AE339C /* libsqlite3.dylib */; };
+		1F7926A01C6AB375003136E7 /* WorkoutPlanFrontBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F79269F1C6AB375003136E7 /* WorkoutPlanFrontBack.swift */; };
+		1F7926A31C6AB864003136E7 /* FrontBody.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F7926A21C6AB864003136E7 /* FrontBody.png */; };
 		1F7E27D71BF7D4D2005F94F6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7E27D61BF7D4D2005F94F6 /* LoginViewController.swift */; };
 		1F7E27D91BF7D4E6005F94F6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7E27D81BF7D4E6005F94F6 /* HomeViewController.swift */; };
 		1F7E27DB1BF7D4FA005F94F6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7E27DA1BF7D4FA005F94F6 /* SignUpViewController.swift */; };
 		1F7E27DD1BF7D517005F94F6 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7E27DC1BF7D517005F94F6 /* ResetPasswordViewController.swift */; };
 		1F93910B1BED7DF6007F7E0E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F93910A1BED7DF6007F7E0E /* MapView.swift */; };
+		1F9B1AEF1C6ABC6200153E37 /* BackBody.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9B1AEE1C6ABC6200153E37 /* BackBody.png */; };
 		1F9F3D551C0524C200F2515D /* Lap Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F3D511C0524C200F2515D /* Lap Button.png */; };
 		1F9F3D561C0524C200F2515D /* Reset Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F3D521C0524C200F2515D /* Reset Button.png */; };
 		1F9F3D571C0524C200F2515D /* Start Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F3D531C0524C200F2515D /* Start Button.png */; };
@@ -80,11 +83,14 @@
 		1F73C40A1BEB16C600AE339C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		1F73C40C1BEB16E200AE339C /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "/usr/lib/libstdc++.6.0.9.dylib"; sourceTree = "<absolute>"; };
 		1F73C40E1BEB170700AE339C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = /usr/lib/libsqlite3.dylib; sourceTree = "<absolute>"; };
+		1F79269F1C6AB375003136E7 /* WorkoutPlanFrontBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutPlanFrontBack.swift; sourceTree = "<group>"; };
+		1F7926A21C6AB864003136E7 /* FrontBody.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FrontBody.png; sourceTree = "<group>"; };
 		1F7E27D61BF7D4D2005F94F6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1F7E27D81BF7D4E6005F94F6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1F7E27DA1BF7D4FA005F94F6 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1F7E27DC1BF7D517005F94F6 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		1F93910A1BED7DF6007F7E0E /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		1F9B1AEE1C6ABC6200153E37 /* BackBody.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackBody.png; sourceTree = "<group>"; };
 		1F9F3D511C0524C200F2515D /* Lap Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lap Button.png"; sourceTree = "<group>"; };
 		1F9F3D521C0524C200F2515D /* Reset Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reset Button.png"; sourceTree = "<group>"; };
 		1F9F3D531C0524C200F2515D /* Start Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start Button.png"; sourceTree = "<group>"; };
@@ -198,6 +204,7 @@
 		1F73C3D81BEB152E00AE339C /* FitApp */ = {
 			isa = PBXGroup;
 			children = (
+				1F79269E1C6AB33C003136E7 /* Workout Plan */,
 				1F73C3D91BEB152E00AE339C /* AppDelegate.swift */,
 				1F2656101C5F0A6200C885E4 /* BMI */,
 				1F1801111BFD6D8600E5379F /* Log In/ Out/sign Up */,
@@ -248,6 +255,24 @@
 				1F18013F1BFFBDF900E5379F /* TimeKeeperView.swift */,
 			);
 			name = TimeKeeper;
+			sourceTree = "<group>";
+		};
+		1F79269E1C6AB33C003136E7 /* Workout Plan */ = {
+			isa = PBXGroup;
+			children = (
+				1F7926A11C6AB850003136E7 /* images */,
+				1F79269F1C6AB375003136E7 /* WorkoutPlanFrontBack.swift */,
+			);
+			name = "Workout Plan";
+			sourceTree = "<group>";
+		};
+		1F7926A11C6AB850003136E7 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				1F9B1AEE1C6ABC6200153E37 /* BackBody.png */,
+				1F7926A21C6AB864003136E7 /* FrontBody.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		1F9F3D501C05247E00F2515D /* Button Images */ = {
@@ -327,6 +352,8 @@
 				1F9F3D581C0524C200F2515D /* Stop Button.png in Resources */,
 				1F9F3D551C0524C200F2515D /* Lap Button.png in Resources */,
 				1F73C3DF1BEB152E00AE339C /* Main.storyboard in Resources */,
+				1F7926A31C6AB864003136E7 /* FrontBody.png in Resources */,
+				1F9B1AEF1C6ABC6200153E37 /* BackBody.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +369,7 @@
 				1F7E27D71BF7D4D2005F94F6 /* LoginViewController.swift in Sources */,
 				1F1801161BFD7CBE00E5379F /* CFViewController.swift in Sources */,
 				1F1801401BFFBDF900E5379F /* TimeKeeperView.swift in Sources */,
+				1F7926A01C6AB375003136E7 /* WorkoutPlanFrontBack.swift in Sources */,
 				1F93910B1BED7DF6007F7E0E /* MapView.swift in Sources */,
 				1FB816EA1C47257C009EFCDA /* WODDetailTableViewController.swift in Sources */,
 				1F2656161C5F0BF800C885E4 /* BMICountViewController.swift in Sources */,
