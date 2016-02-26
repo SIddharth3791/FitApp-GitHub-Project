@@ -506,9 +506,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
            return cell
     }
     
-   // func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-     //   self.performSegueWithIdentifier("showDetails", sender: tableView)
-    //}
+
     
    
     
@@ -521,7 +519,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var WodDetailsVC : WODDetailTableViewController = segue.destinationViewController as! WODDetailTableViewController
         if let selectedArrayIndex = WodTableView.indexPathForSelectedRow?.row{
-        //WodDetailsVC.WODnNameLabel = GirlArray[selectedArrayIndex]
+       
             switch (MySegmentedControl.selectedSegmentIndex){
             case 0:
             WodDetailsVC.WODNameLabel = GirlArray[selectedArrayIndex]
