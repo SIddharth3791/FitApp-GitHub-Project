@@ -18,8 +18,11 @@ class ArmTableViewController: UIViewController,UITableViewDataSource,UITableView
     @IBOutlet weak var ArmSegment: UISegmentedControl!
     
     var BicepArray = [String]()
+        var BicepDetailsArray = [String]()
     var TricepArray = [String]()
+        var TricepDetailsArray = [String]()
     var ArmArray = [String]()
+        var ArmDetailsArray = [String]()
     
   
     
@@ -161,7 +164,27 @@ class ArmTableViewController: UIViewController,UITableViewDataSource,UITableView
         ArmTableView.reloadData()
     }
    
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var BodypartDetails: DetailBodyTableViewController = segue.destinationViewController as! DetailBodyTableViewController
+        if let selectArrayIndex = ArmTableView.indexPathForSelectedRow?.row{
+            switch(ArmSegment.selectedSegmentIndex)
+            {
+            case 0:
+                BodypartDetails.label = BicepArray[selectArrayIndex]
+            break
+            case 1:
+                BodypartDetails.label = TricepArray[selectArrayIndex]
+            break
+            case 2:
+                BodypartDetails.label = ArmArray[selectArrayIndex]
+            break
+            default:
+                break
+            }
+        }
+    }
+    
+    
     
     
 }

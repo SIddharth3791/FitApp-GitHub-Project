@@ -124,4 +124,24 @@ class ShoulderTableViewController: UIViewController, UITableViewDataSource, UITa
         ShoulderTableView.reloadData()
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var BodypartDetails: DetailBodyTableViewController = segue.destinationViewController as! DetailBodyTableViewController
+        if let selectArrayIndex = ShoulderTableView.indexPathForSelectedRow?.row{
+            switch(ShoulderSegment.selectedSegmentIndex)
+            {
+            case 0:
+                BodypartDetails.label = ShoulderArray[selectArrayIndex]
+                break
+            case 1:
+                BodypartDetails.label = TrapArray[selectArrayIndex]
+                break
+            default:
+                break
+            }
+        }
+        
+        
+    }
+
+    
 }

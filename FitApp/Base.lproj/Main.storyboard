@@ -311,10 +311,10 @@
             </objects>
             <point key="canvasLocation" x="1901" y="-632"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Body Table View Controller-->
         <scene sceneID="5J9-Jj-pla">
             <objects>
-                <viewController id="PpX-TC-qBj" sceneMemberID="viewController">
+                <viewController id="PpX-TC-qBj" customClass="DetailBodyTableViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="91J-z4-Qaf"/>
                         <viewControllerLayoutGuide type="bottom" id="smn-6G-JAa"/>
@@ -327,11 +327,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <items>
                                     <navigationItem id="Vlb-7b-vQF">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" style="done" id="wid-6S-2mF">
-                                            <connections>
-                                                <segue destination="Ko2-if-Daj" kind="unwind" unwindAction="unwindForSegueBodyWorkout:towardsViewController:" id="3Nh-Yz-czF"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" style="done" id="wid-6S-2mF"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -350,11 +346,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="TitleLabel" destination="8ga-8a-gpl" id="OJc-pX-IS7"/>
+                        <outlet property="workoutLabel" destination="bY4-rS-Msx" id="SSM-fo-ju7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sHR-Dv-orq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Ko2-if-Daj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-906" y="1330"/>
+            <point key="canvasLocation" x="-964" y="1493"/>
         </scene>
         <!--Arm Table View Controller-->
         <scene sceneID="qof-8p-TAQ">
@@ -380,7 +380,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="PpX-TC-qBj" kind="show" id="COo-xY-Gm1"/>
+                                            <segue destination="PpX-TC-qBj" kind="show" identifier="ArmDetails" id="COo-xY-Gm1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1666,7 +1666,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="PpX-TC-qBj" kind="show" id="CxP-A8-C9i"/>
+                                            <segue destination="PpX-TC-qBj" kind="show" id="8bm-XN-atq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1884,7 +1884,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="9VA-sT-nQt" kind="unwind" unwindAction="unwindForSegueCFView:towardsViewController:" id="Wpg-MN-69o"/>
+                                    <segue destination="9VA-sT-nQt" kind="unwind" unwindAction="unwindForWodTableview:towardsViewController:" id="YP1-fv-Ear"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="WOD Details" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrJ-dA-ny7">
@@ -1959,7 +1959,7 @@
         <image name="workout plan" width="206" height="196"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7PL-DN-rIf"/>
         <segue reference="COo-xY-Gm1"/>
+        <segue reference="7PL-DN-rIf"/>
     </inferredMetricsTieBreakers>
 </document>
