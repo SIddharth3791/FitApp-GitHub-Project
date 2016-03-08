@@ -165,7 +165,7 @@ class ArmTableViewController: UIViewController,UITableViewDataSource,UITableView
     }
    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var BodypartDetails: DetailBodyTableViewController = segue.destinationViewController as! DetailBodyTableViewController
+        let BodypartDetails: DetailBodyTableViewController = segue.destinationViewController as! DetailBodyTableViewController
         if let selectArrayIndex = ArmTableView.indexPathForSelectedRow?.row{
             switch(ArmSegment.selectedSegmentIndex)
             {

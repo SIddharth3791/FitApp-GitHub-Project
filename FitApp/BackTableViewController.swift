@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Parse
+import ParseUI
 
 class BackTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -119,6 +120,24 @@ class BackTableViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBAction func BackList(sender: AnyObject) {
         
         BackTableView.reloadData()
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var BodyVC: DetailBodyTableViewController = segue.destinationViewController as!
+        DetailBodyTableViewController
+       
+         if let selectedArrayIndex = BackTableView.indexPathForSelectedRow?.row{
+            switch(BackSegment.selectedSegmentIndex)
+                {
+                    case 0:
+                    BodyVC.label = UpperBackArray[selectedArrayIndex]
+                break
+            case 1:
+                BodyVC.label = LowerBackArray[selectedArrayIndex]
+                break
+            default:
+                break
+            }
+            }
     }
 
 }

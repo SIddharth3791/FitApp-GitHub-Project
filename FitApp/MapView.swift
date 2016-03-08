@@ -15,10 +15,11 @@ import CoreLocation
 
 class MapViewController:UIViewController,MKMapViewDelegate, CLLocationManagerDelegate {
     
-    
+    var mapItemData:MKMapItem!
     @IBOutlet weak var Map: MKMapView!
     let locationManger = CLLocationManager()
     
+    //var pinAnnotationView:MKPinAnnotationView!
     
     override func viewDidLoad()
     {
@@ -26,6 +27,7 @@ class MapViewController:UIViewController,MKMapViewDelegate, CLLocationManagerDel
         self.locationManger.delegate = self
         self.locationManger.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManger.requestWhenInUseAuthorization()
+        locationManger.requestLocation()
         self.locationManger.startUpdatingLocation()
         self.Map.showsUserLocation = true
     }
@@ -42,21 +44,23 @@ class MapViewController:UIViewController,MKMapViewDelegate, CLLocationManagerDel
 //Marks:- look for restaurant on Maps
         
         let request = MKLocalSearchRequest()
-        
-        request.naturalLanguageQuery = "mcdonalds";
-   
+        request.naturalLanguageQuery = "junk food ";
         request.region = Map.region
         let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         request.region = MKCoordinateRegion(center: center, span: span)
-        
         let Search = MKLocalSearch(request: request)
+       
         Search.startWithCompletionHandler{(response: MKLocalSearchResponse?,error: NSError?) in for item in response!.mapItems as! [MKMapItem]
             {
+                
                 print("Restaurants name = \(item.name)")
+                
                 self.addPinToMapView(item.name!, latitude: item.placemark.location!.coordinate.latitude, longitude: item.placemark.location!.coordinate.longitude)
             }
+            self.locationManger.stopUpdatingLocation()
+            var infoButton: UIButton = UIButton(type: .DetailDisclosure)
+            
         }
-        
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
@@ -73,7 +77,18 @@ class MapViewController:UIViewController,MKMapViewDelegate, CLLocationManagerDel
     
     func addPinToMapView(title: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees){
         let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        let annotation = RestroAnnotation(coordinate: location, title: title )
+        let annotation = RestroAnnotation(coordinate: location, title: title)
         Map.addAnnotation(annotation)
     }
+//Marks:- click button on pins on maps
+    func mapView(map: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        self.performSegueWithIdentifier("MapPinDetails", sender: self)
+        
+    }
+    
+    
 }
+
+
+
+

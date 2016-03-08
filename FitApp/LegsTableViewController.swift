@@ -126,7 +126,24 @@ class LegsTableViewController: UIViewController, UITableViewDelegate, UITableVie
         legTableView.reloadData()
     }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var BodypartDetails: DetailBodyTableViewController = segue.destinationViewController as! DetailBodyTableViewController
+        if let selectArrayIndex = legTableView.indexPathForSelectedRow?.row{
+            switch(legSegment.selectedSegmentIndex)
+            {
+            case 0:
+                BodypartDetails.label = QuadsArray[selectArrayIndex]
+                break
+            case 1:
+                BodypartDetails.label = HamstringArray[selectArrayIndex]
+                break
+            
+            default:
+                break
+            }
+        }
+    }
+
 
     
 }

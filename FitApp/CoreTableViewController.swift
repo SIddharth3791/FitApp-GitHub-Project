@@ -124,6 +124,27 @@ class CoreTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         Coretableview.reloadData()
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var BodyVC: DetailBodyTableViewController = segue.destinationViewController as!
+        DetailBodyTableViewController
+        
+        if let selectedArrayIndex = Coretableview.indexPathForSelectedRow?.row{
+            switch(coreSegment.selectedSegmentIndex)
+            {
+            case 0:
+                BodyVC.label = CoreArray[selectedArrayIndex]
+                break
+            case 1:
+                BodyVC.label = AbsArray[selectedArrayIndex]
+                break
+            default:
+                break
+            }
+        }
+    }
+    
+
 
     
 }

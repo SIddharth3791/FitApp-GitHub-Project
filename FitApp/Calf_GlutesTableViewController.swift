@@ -122,4 +122,22 @@ class Calf_GlutesTableViewcontroller: UIViewController, UITableViewDelegate, UIT
         Calf_GluTableView.reloadData()
     }
     
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var BodypartDetails: DetailBodyTableViewController = segue.destinationViewController as! DetailBodyTableViewController
+        if let selectArrayIndex = Calf_GluTableView.indexPathForSelectedRow?.row{
+            switch(CFSegment.selectedSegmentIndex)
+            {
+            case 0:
+                BodypartDetails.label = CalfArray[selectArrayIndex]
+                break
+            case 1:
+                BodypartDetails.label = GlutesArray[selectArrayIndex]
+                break
+                
+            default:
+                break
+            }
+        }
+    }
 }

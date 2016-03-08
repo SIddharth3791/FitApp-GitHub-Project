@@ -49,6 +49,7 @@
 		1F9F3D571C0524C200F2515D /* Start Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F3D531C0524C200F2515D /* Start Button.png */; };
 		1F9F3D581C0524C200F2515D /* Stop Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F3D541C0524C200F2515D /* Stop Button.png */; };
 		1FA4FB871C8007DF0052BF04 /* DetailBodyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4FB861C8007DE0052BF04 /* DetailBodyTableViewController.swift */; };
+		1FA4FBAA1C8BD5300052BF04 /* MapDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4FBA91C8BD52F0052BF04 /* MapDetailsTableViewController.swift */; };
 		1FB816E41C34A337009EFCDA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB816E31C34A337009EFCDA /* Launch Screen.storyboard */; };
 		1FB816E81C3E0093009EFCDA /* CFWODTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB816E71C3E0092009EFCDA /* CFWODTableViewController.swift */; };
 		1FB816EA1C47257C009EFCDA /* WODDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB816E91C47257B009EFCDA /* WODDetailTableViewController.swift */; };
@@ -105,6 +106,7 @@
 		1F9F3D531C0524C200F2515D /* Start Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start Button.png"; sourceTree = "<group>"; };
 		1F9F3D541C0524C200F2515D /* Stop Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stop Button.png"; sourceTree = "<group>"; };
 		1FA4FB861C8007DE0052BF04 /* DetailBodyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailBodyTableViewController.swift; sourceTree = "<group>"; };
+		1FA4FBA91C8BD52F0052BF04 /* MapDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDetailsTableViewController.swift; sourceTree = "<group>"; };
 		1FB816E31C34A337009EFCDA /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1FB816E71C3E0092009EFCDA /* CFWODTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFWODTableViewController.swift; sourceTree = "<group>"; };
 		1FB816E91C47257B009EFCDA /* WODDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WODDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				1F93910A1BED7DF6007F7E0E /* MapView.swift */,
 				1F0E58961C5D806F00C17B95 /* RestroAnnotation.swift */,
+				1FA4FBA91C8BD52F0052BF04 /* MapDetailsTableViewController.swift */,
 			);
 			name = Maps;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				1F7926A01C6AB375003136E7 /* WorkoutPlanFrontBack.swift in Sources */,
 				1FCB2C311C758939007DDDF9 /* ArmTableViewController.swift in Sources */,
 				1F93910B1BED7DF6007F7E0E /* MapView.swift in Sources */,
+				1FA4FBAA1C8BD5300052BF04 /* MapDetailsTableViewController.swift in Sources */,
 				1FB816EA1C47257C009EFCDA /* WODDetailTableViewController.swift in Sources */,
 				1F2656161C5F0BF800C885E4 /* BMICountViewController.swift in Sources */,
 				1FCB2C391C76F70D007DDDF9 /* Calf_GlutesTableViewController.swift in Sources */,
