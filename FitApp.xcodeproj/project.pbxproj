@@ -50,8 +50,8 @@
 		1F9F3D581C0524C200F2515D /* Stop Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F3D541C0524C200F2515D /* Stop Button.png */; };
 		1FA4FB871C8007DF0052BF04 /* DetailBodyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4FB861C8007DE0052BF04 /* DetailBodyTableViewController.swift */; };
 		1FA4FBAA1C8BD5300052BF04 /* MapDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4FBA91C8BD52F0052BF04 /* MapDetailsTableViewController.swift */; };
+		1FA4FBAE1C8FFC4A0052BF04 /* CountCalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4FBAD1C8FFC4A0052BF04 /* CountCalViewController.swift */; };
 		1FB816E41C34A337009EFCDA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB816E31C34A337009EFCDA /* Launch Screen.storyboard */; };
-		1FB816E81C3E0093009EFCDA /* CFWODTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB816E71C3E0092009EFCDA /* CFWODTableViewController.swift */; };
 		1FB816EA1C47257C009EFCDA /* WODDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB816E91C47257B009EFCDA /* WODDetailTableViewController.swift */; };
 		1FCB2C311C758939007DDDF9 /* ArmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB2C301C758939007DDDF9 /* ArmTableViewController.swift */; };
 		1FCB2C351C764C15007DDDF9 /* LegsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB2C341C764C15007DDDF9 /* LegsTableViewController.swift */; };
@@ -107,8 +107,8 @@
 		1F9F3D541C0524C200F2515D /* Stop Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stop Button.png"; sourceTree = "<group>"; };
 		1FA4FB861C8007DE0052BF04 /* DetailBodyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailBodyTableViewController.swift; sourceTree = "<group>"; };
 		1FA4FBA91C8BD52F0052BF04 /* MapDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDetailsTableViewController.swift; sourceTree = "<group>"; };
+		1FA4FBAD1C8FFC4A0052BF04 /* CountCalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountCalViewController.swift; sourceTree = "<group>"; };
 		1FB816E31C34A337009EFCDA /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		1FB816E71C3E0092009EFCDA /* CFWODTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CFWODTableViewController.swift; sourceTree = "<group>"; };
 		1FB816E91C47257B009EFCDA /* WODDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WODDetailTableViewController.swift; sourceTree = "<group>"; };
 		1FCB2C301C758939007DDDF9 /* ArmTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArmTableViewController.swift; sourceTree = "<group>"; };
 		1FCB2C341C764C15007DDDF9 /* LegsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegsTableViewController.swift; sourceTree = "<group>"; };
@@ -170,29 +170,28 @@
 			children = (
 				1F1801151BFD7CBE00E5379F /* CFViewController.swift */,
 				1F79269D1C65B424003136E7 /* TimeKeeper */,
-				1F1801491C01255F00E5379F /* Workout of day */,
+				1F1801491C01255F00E5379F /* CrossFit (WOD) */,
 				1F1801411BFFBE3800E5379F /* PRView.swift */,
 			);
 			name = "CrossFit Tab";
 			sourceTree = "<group>";
 		};
-		1F1801141BFD6DF300E5379F /* Maps */ = {
+		1F1801141BFD6DF300E5379F /* Cal Counter/Maps */ = {
 			isa = PBXGroup;
 			children = (
-				1F93910A1BED7DF6007F7E0E /* MapView.swift */,
-				1F0E58961C5D806F00C17B95 /* RestroAnnotation.swift */,
-				1FA4FBA91C8BD52F0052BF04 /* MapDetailsTableViewController.swift */,
+				1FA4FBAC1C8FFC240052BF04 /* Cal Counter */,
+				1FA4FBAB1C8FFC180052BF04 /* Maps */,
 			);
-			name = Maps;
+			name = "Cal Counter/Maps";
 			sourceTree = "<group>";
 		};
-		1F1801491C01255F00E5379F /* Workout of day */ = {
+		1F1801491C01255F00E5379F /* CrossFit (WOD) */ = {
 			isa = PBXGroup;
 			children = (
 				1F18014A1C01578300E5379F /* WODTableViewController.swift */,
 				1FB816E91C47257B009EFCDA /* WODDetailTableViewController.swift */,
 			);
-			name = "Workout of day";
+			name = "CrossFit (WOD)";
 			sourceTree = "<group>";
 		};
 		1F2656101C5F0A6200C885E4 /* BMI */ = {
@@ -229,14 +228,13 @@
 				1F1801111BFD6D8600E5379F /* Log In/ Out/sign Up */,
 				1F1801121BFD6DC200E5379F /* HomePage */,
 				1F1801131BFD6DE400E5379F /* CrossFit Tab */,
-				1F1801141BFD6DF300E5379F /* Maps */,
+				1F1801141BFD6DF300E5379F /* Cal Counter/Maps */,
 				1F73C3DD1BEB152E00AE339C /* Main.storyboard */,
 				1F73C3E01BEB152E00AE339C /* Assets.xcassets */,
 				1FB816E31C34A337009EFCDA /* Launch Screen.storyboard */,
 				1F73C3E51BEB152E00AE339C /* Info.plist */,
 				1F73C3FF1BEB162200AE339C /* Frameworks */,
 				1F73C3D71BEB152E00AE339C /* Products */,
-				1FB816E71C3E0092009EFCDA /* CFWODTableViewController.swift */,
 			);
 			path = FitApp;
 			sourceTree = "<group>";
@@ -313,6 +311,24 @@
 				1F9F3D541C0524C200F2515D /* Stop Button.png */,
 			);
 			name = "Button Images";
+			sourceTree = "<group>";
+		};
+		1FA4FBAB1C8FFC180052BF04 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				1F93910A1BED7DF6007F7E0E /* MapView.swift */,
+				1F0E58961C5D806F00C17B95 /* RestroAnnotation.swift */,
+				1FA4FBA91C8BD52F0052BF04 /* MapDetailsTableViewController.swift */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		1FA4FBAC1C8FFC240052BF04 /* Cal Counter */ = {
+			isa = PBXGroup;
+			children = (
+				1FA4FBAD1C8FFC4A0052BF04 /* CountCalViewController.swift */,
+			);
+			name = "Cal Counter";
 			sourceTree = "<group>";
 		};
 		1FCB2C3D1C770292007DDDF9 /* Body Part Table View */ = {
@@ -424,11 +440,11 @@
 				1F73C3DA1BEB152E00AE339C /* AppDelegate.swift in Sources */,
 				1FA4FB871C8007DF0052BF04 /* DetailBodyTableViewController.swift in Sources */,
 				1F18014B1C01578300E5379F /* WODTableViewController.swift in Sources */,
-				1FB816E81C3E0093009EFCDA /* CFWODTableViewController.swift in Sources */,
 				1FCB2C3F1C7702B9007DDDF9 /* BackTableViewController.swift in Sources */,
 				1F7E27DD1BF7D517005F94F6 /* ResetPasswordViewController.swift in Sources */,
 				1F7E27D91BF7D4E6005F94F6 /* HomeViewController.swift in Sources */,
 				1F7E27DB1BF7D4FA005F94F6 /* SignUpViewController.swift in Sources */,
+				1FA4FBAE1C8FFC4A0052BF04 /* CountCalViewController.swift in Sources */,
 				1FCB2C351C764C15007DDDF9 /* LegsTableViewController.swift in Sources */,
 				1F933CF81C7FC61200059E83 /* CoreTableViewController.swift in Sources */,
 				1F0E58971C5D806F00C17B95 /* RestroAnnotation.swift in Sources */,

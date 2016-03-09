@@ -23,30 +23,33 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Guru FitApp" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guru FitApp" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-Yh-RWb">
                                 <rect key="frame" x="20" y="278" width="560" height="102"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="102" id="qEo-no-btI"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="76"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="launch screen " translatesAutoresizingMaskIntoConstraints="NO" id="t18-Rg-HlU">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch screen " translatesAutoresizingMaskIntoConstraints="NO" id="t18-Rg-HlU">
                                 <rect key="frame" x="161" y="81" width="279" height="182"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="279" id="ych-TJ-2af"/>
+                                    <constraint firstAttribute="width" constant="279" id="5ZY-WM-Gbu"/>
+                                    <constraint firstAttribute="height" constant="182" id="hbM-Sg-bFE"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" symbolic="YES" id="0iz-Ae-25z"/>
-                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="6zK-Df-gtq"/>
-                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerX" secondItem="t18-Rg-HlU" secondAttribute="centerX" id="8pn-9a-L16"/>
-                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="top" secondItem="t18-Rg-HlU" secondAttribute="bottom" constant="15" id="J1L-vw-FVb"/>
-                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="TdT-RU-x1C"/>
-                            <constraint firstItem="t18-Rg-HlU" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="61" id="li2-uJ-eBT"/>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="trailing" secondItem="GJd-Yh-RWb" secondAttribute="trailing" id="meF-lA-apY"/>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="GJd-Yh-RWb" secondAttribute="leading" id="sZA-go-Een"/>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="waX-zO-DxK"/>
+                            <constraint firstItem="t18-Rg-HlU" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="61" id="3np-5H-znj"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="GJd-Yh-RWb" secondAttribute="leading" id="3ry-0w-yN3"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="41M-87-UMJ"/>
+                            <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" symbolic="YES" id="CmE-cv-tbZ"/>
+                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="trailing" secondItem="obG-Y5-kRd" secondAttribute="trailing" id="Inq-oX-JEg"/>
+                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="top" secondItem="t18-Rg-HlU" secondAttribute="bottom" constant="15" id="KOm-6v-8kD"/>
+                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerX" secondItem="t18-Rg-HlU" secondAttribute="centerX" id="bNw-xe-a1L"/>
+                            <constraint firstItem="GJd-Yh-RWb" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="btw-E3-Cn8"/>
                         </constraints>
                     </view>
                 </viewController>
