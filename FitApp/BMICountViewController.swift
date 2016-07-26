@@ -17,9 +17,15 @@ class BMICountViewController: UIViewController {
     @IBOutlet weak var Bmi1InfoTxt: UILabel!
     @IBOutlet weak var Bmi2InfoTxt: UILabel!
     @IBOutlet weak var Bmi3InfoTxt: UILabel!
+    @IBOutlet weak var previousBMI: UILabel!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()  {
         super.viewDidLoad()
+        var currentUser = PFUser.currentUser()
+        var query = PFQuery(className: "_User")
+        
+       
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +34,8 @@ class BMICountViewController: UIViewController {
     }
     
     @IBAction func CountBMI(sender: AnyObject) {
+        
+        
 //marks:- Get Height and weight from textField
         let h = Double(HeightTxt.text!)
         let w = Double(WeightTxt.text!)
@@ -39,19 +47,19 @@ class BMICountViewController: UIViewController {
 // Marks:- Anything under 18 BMI..
             if (BMImodel.bmi() < 18.5)
             {
-                self.Bmi1InfoTxt.text = pUserName + " You Fall Under";
+                self.Bmi1InfoTxt.text = " You Fall Under";
                 Bmi2InfoTxt.text = "UNDERWEIGHT";
                 Bmi3InfoTxt.text = "Category";
             }else if (BMImodel.bmi() >= 18.6 && BMImodel.bmi() <= 24.9)
 // Marks:- Anything under 18 to 24.9 BMI..
             {
-                self.Bmi1InfoTxt.text = pUserName + " You Fall Under";
+                self.Bmi1InfoTxt.text = " You Fall Under";
                 Bmi2InfoTxt.text = "NORMAL WEIGHT";
                 Bmi3InfoTxt.text = "Category";
             } else if (BMImodel.bmi() >= 25 && BMImodel.bmi() <= 29.9)
 // Marks:- Anything under 25 to 29.9 BMI..
             {
-                self.Bmi1InfoTxt.text = pUserName + " You Fall Under";
+                self.Bmi1InfoTxt.text = " You Fall Under";
                 Bmi2InfoTxt.text = "OVER WEIGHT";
                 Bmi3InfoTxt.text = "Category";
             }else
@@ -61,6 +69,11 @@ class BMICountViewController: UIViewController {
                 Bmi2InfoTxt.text = "OBESITY";
                 Bmi3InfoTxt.text = "Category";
             }
+            
+           
+            let User = PFUser.currentUser()
+            User!["BMI"] = ResultBMITxt.text
+            User?.saveInBackground()
         }
     }
     

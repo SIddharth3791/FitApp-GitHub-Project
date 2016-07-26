@@ -17,7 +17,7 @@
                BlueprintIdentifier = "1F73C3D51BEB152E00AE339C"
                BuildableName = "FitApp.app"
                BlueprintName = "FitApp"
-               ReferencedContainer = "container:FitApp.xcodeproj">
+               ReferencedContainer = "container:GuruFitApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "1F73C3D51BEB152E00AE339C"
             BuildableName = "FitApp.app"
             BlueprintName = "FitApp"
-            ReferencedContainer = "container:FitApp.xcodeproj">
+            ReferencedContainer = "container:GuruFitApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -58,7 +58,7 @@
             BlueprintIdentifier = "1F73C3D51BEB152E00AE339C"
             BuildableName = "FitApp.app"
             BlueprintName = "FitApp"
-            ReferencedContainer = "container:FitApp.xcodeproj">
+            ReferencedContainer = "container:GuruFitApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,7 +81,7 @@
             BlueprintIdentifier = "1F73C3D51BEB152E00AE339C"
             BuildableName = "FitApp.app"
             BlueprintName = "FitApp"
-            ReferencedContainer = "container:FitApp.xcodeproj">
+            ReferencedContainer = "container:GuruFitApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

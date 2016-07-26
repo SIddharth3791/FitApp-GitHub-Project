@@ -28,7 +28,7 @@ class Calf_GlutesTableViewcontroller: UIViewController, UITableViewDelegate, UIT
         runkey.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?)-> Void in
             if error == nil{
-                if var objects = objects as [PFObject]!
+                if let objects = objects as [PFObject]!
                 {
                     for object in objects
                     {
@@ -52,7 +52,7 @@ class Calf_GlutesTableViewcontroller: UIViewController, UITableViewDelegate, UIT
         Glukey.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?)-> Void in
             if error == nil{
-                if var objects = objects as [PFObject]!
+                if let objects = objects as [PFObject]!
                 {
                     for object in objects
                     {
@@ -100,7 +100,7 @@ class Calf_GlutesTableViewcontroller: UIViewController, UITableViewDelegate, UIT
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var cell = Calf_GluTableView.dequeueReusableCellWithIdentifier("Calf&Glutes", forIndexPath: indexPath)
+        let cell = Calf_GluTableView.dequeueReusableCellWithIdentifier("Calf&Glutes", forIndexPath: indexPath)
         
         switch(CFSegment.selectedSegmentIndex)
         {
@@ -124,7 +124,7 @@ class Calf_GlutesTableViewcontroller: UIViewController, UITableViewDelegate, UIT
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var BodypartDetails: DetailBodyTableViewController = segue.destinationViewController as! DetailBodyTableViewController
+        let BodypartDetails: DetailBodyTableViewController = segue.destinationViewController as! DetailBodyTableViewController
         if let selectArrayIndex = Calf_GluTableView.indexPathForSelectedRow?.row{
             switch(CFSegment.selectedSegmentIndex)
             {

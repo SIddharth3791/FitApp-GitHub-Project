@@ -29,7 +29,7 @@ class BackTableViewController: UIViewController, UITableViewDelegate, UITableVie
         runkey.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?)-> Void in
             if error == nil{
-                if var objects = objects as [PFObject]!
+                if let objects = objects as [PFObject]!
                 {
                     for object in objects
                     {
@@ -53,7 +53,7 @@ class BackTableViewController: UIViewController, UITableViewDelegate, UITableVie
         Glukey.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?)-> Void in
             if error == nil{
-                if var objects = objects as [PFObject]!
+                if let objects = objects as [PFObject]!
                 {
                     for object in objects
                     {

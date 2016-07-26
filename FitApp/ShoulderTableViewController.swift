@@ -28,7 +28,7 @@ class ShoulderTableViewController: UIViewController, UITableViewDataSource, UITa
         runkey.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?)-> Void in
             if error == nil{
-                if var objects = objects as [PFObject]!
+                if let objects = objects as [PFObject]!
                 {
                     for object in objects
                     {
@@ -52,7 +52,7 @@ class ShoulderTableViewController: UIViewController, UITableViewDataSource, UITa
         Trapkey.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?)-> Void in
             if error == nil{
-                if var objects = objects as [PFObject]!
+                if let objects = objects as [PFObject]!
                 {
                     for object in objects
                     {
@@ -103,7 +103,7 @@ class ShoulderTableViewController: UIViewController, UITableViewDataSource, UITa
         }
         func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
         {
-            var cell = ShoulderTableView.dequeueReusableCellWithIdentifier("Shoulder", forIndexPath: indexPath)
+            let cell = ShoulderTableView.dequeueReusableCellWithIdentifier("Shoulder", forIndexPath: indexPath)
             
             switch(ShoulderSegment.selectedSegmentIndex)
             {
@@ -125,7 +125,7 @@ class ShoulderTableViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var BodypartDetails: DetailBodyTableViewController = segue.destinationViewController as! DetailBodyTableViewController
+        let BodypartDetails: DetailBodyTableViewController = segue.destinationViewController as! DetailBodyTableViewController
         if let selectArrayIndex = ShoulderTableView.indexPathForSelectedRow?.row{
             switch(ShoulderSegment.selectedSegmentIndex)
             {

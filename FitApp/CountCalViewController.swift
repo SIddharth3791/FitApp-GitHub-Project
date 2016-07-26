@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 import UIKit
 
 class CountCalViewController: UIViewController {
@@ -36,6 +37,9 @@ class CountCalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let pUserName = PFUser.currentUser()?["username"] as? String
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -43,19 +47,19 @@ class CountCalViewController: UIViewController {
     
     
     @IBAction func BreakFastSlider(sender: AnyObject) {
-        var MaxCal = (MaxCalTextField.text! as NSString).floatValue
+        let MaxCal = (MaxCalTextField.text! as NSString).floatValue
         
-        var sliderBreakfast = BreakFastSlider.value
-        var slideLunch = LunchSlider.value
-        var slideDinner = DinnerSlider.value
-        var slideSnacks = SnacksSlider.value
+        let sliderBreakfast = BreakFastSlider.value
+        let slideLunch = LunchSlider.value
+        let slideDinner = DinnerSlider.value
+        let slideSnacks = SnacksSlider.value
         
         //Marks:- This show Cal consumed overall
         
-        var SumOfAllSliderCal = sliderBreakfast + slideDinner + slideLunch + slideSnacks
-        var GrandSumOfAllCal = SumOfAllSliderCal - MaxCal
+        let SumOfAllSliderCal = sliderBreakfast + slideDinner + slideLunch + slideSnacks
+        let GrandSumOfAllCal = SumOfAllSliderCal - MaxCal
        
-        var SumOfAllSliderCalFormat: NSString = NSString(format: "%0.2f", GrandSumOfAllCal)
+        let SumOfAllSliderCalFormat: NSString = NSString(format: "%0.2f", GrandSumOfAllCal)
         TotalCalLabel.text = "\(SumOfAllSliderCalFormat)"
         
         if ( GrandSumOfAllCal > 0)
@@ -69,79 +73,105 @@ class CountCalViewController: UIViewController {
         }
         //Marks:- This show Cal consumed in Breakfast only
         
-        var BreakFastCaloriesConsumed = sliderBreakfast
-        var totalCalFormat : NSString = NSString(format: "%00.02f", BreakFastCaloriesConsumed)
+        let BreakFastCaloriesConsumed = sliderBreakfast
+        let totalCalFormat : NSString = NSString(format: "%00.02f", BreakFastCaloriesConsumed)
         
        BreakFastCalLabel.text = "\(totalCalFormat)"
     }
     
     @IBAction func LunchSlider(sender: AnyObject) {
-        var MaxCal = (MaxCalTextField.text! as NSString).floatValue
+        let MaxCal = (MaxCalTextField.text! as NSString).floatValue
         
-        var sliderBreakfast = BreakFastSlider.value
-        var slideLunch = LunchSlider.value
-        var slideDinner = DinnerSlider.value
-        var slideSnacks = SnacksSlider.value
+        let sliderBreakfast = BreakFastSlider.value
+        let slideLunch = LunchSlider.value
+        let slideDinner = DinnerSlider.value
+        let slideSnacks = SnacksSlider.value
         
         //Marks:- This show Cal consumed overall
         
-        var SumOfAllSliderCal = sliderBreakfast + slideDinner + slideLunch + slideSnacks
-        var GrandSumOfAllCal = SumOfAllSliderCal - MaxCal
-        var SumOfAllSliderCalFormat: NSString = NSString(format: "%0.2f", GrandSumOfAllCal)
+        let SumOfAllSliderCal = sliderBreakfast + slideDinner + slideLunch + slideSnacks
+        let GrandSumOfAllCal = SumOfAllSliderCal - MaxCal
+        let SumOfAllSliderCalFormat: NSString = NSString(format: "%0.2f", GrandSumOfAllCal)
         TotalCalLabel.text = "\(SumOfAllSliderCalFormat)"
         
+        // Add StatuLabel code from Breakfast section to update status if you crossed your total cal limit.
+        if ( GrandSumOfAllCal > 0)
+        {
+            let info = "Crossed Your Daily Max Calories"
+            StatusLabel.text = info
+        }else
+        {
+            let info1 = ""
+            StatusLabel.text = info1
+        }
         //Marks:- This show Cal consumed in Breakfast only
         
-        var caloriesConsumed = slideLunch
-        var totalCalFormat: NSString = NSString(format: "%0.2f", caloriesConsumed)
+        let caloriesConsumed = slideLunch
+        let totalCalFormat: NSString = NSString(format: "%0.2f", caloriesConsumed)
         LunchCalLabel.text = "\(totalCalFormat)"
         
     }
     
     @IBAction func DinnerSlider(sender: AnyObject) {
         
-        var MaxCal = (MaxCalTextField.text! as NSString).floatValue
+        let MaxCal = (MaxCalTextField.text! as NSString).floatValue
         
-        var sliderBreakfast = BreakFastSlider.value
-        var slideLunch = LunchSlider.value
-        var slideDinner = DinnerSlider.value
-        var slideSnacks = SnacksSlider.value
+        let sliderBreakfast = BreakFastSlider.value
+        let slideLunch = LunchSlider.value
+        let slideDinner = DinnerSlider.value
+        let slideSnacks = SnacksSlider.value
         
         //Marks:- This show Cal consumed overall
         
-        var SumOfAllSliderCal = sliderBreakfast + slideDinner + slideLunch + slideSnacks
-        var GrandSumOfAllCal = SumOfAllSliderCal - MaxCal
-        var SumOfAllSliderCalFormat: NSString = NSString(format: "%0.2f", GrandSumOfAllCal)
+        let SumOfAllSliderCal = sliderBreakfast + slideDinner + slideLunch + slideSnacks
+        let GrandSumOfAllCal = SumOfAllSliderCal - MaxCal
+        let SumOfAllSliderCalFormat: NSString = NSString(format: "%0.2f", GrandSumOfAllCal)
         TotalCalLabel.text = "\(SumOfAllSliderCalFormat)"
         
         //Marks:- This show Cal consumed in Breakfast only
-        
-        var caloriesConsumed = slideDinner
-        var totalCalFormat: NSString = NSString(format: "%0.2f", caloriesConsumed)
+        if ( GrandSumOfAllCal > 0)
+        {
+            let info = "Crossed Your Daily Max Calories"
+            StatusLabel.text = info
+        }else
+        {
+            let info1 = ""
+            StatusLabel.text = info1
+        }
+        let caloriesConsumed = slideDinner
+        let totalCalFormat: NSString = NSString(format: "%0.2f", caloriesConsumed)
         DinnerCalLabel.text = "\(totalCalFormat)"
         
     }
     
     @IBAction func SnacksSlider(sender: AnyObject) {
         
-        var MaxCal = (MaxCalTextField.text! as NSString).floatValue
+        let MaxCal = (MaxCalTextField.text! as NSString).floatValue
         
-        var sliderBreakfast = BreakFastSlider.value
-        var slideLunch = LunchSlider.value
-        var slideDinner = DinnerSlider.value
-        var slideSnacks = SnacksSlider.value
+        let sliderBreakfast = BreakFastSlider.value
+        let slideLunch = LunchSlider.value
+        let slideDinner = DinnerSlider.value
+        let slideSnacks = SnacksSlider.value
         
         //Marks:- This show Cal consumed overall
         
-        var SumOfAllSliderCal = sliderBreakfast + slideDinner + slideLunch + slideSnacks
-        var GrandSumOfAllCal = SumOfAllSliderCal - MaxCal
-        var SumOfAllSliderCalFormat: NSString = NSString(format: "%0.2f", GrandSumOfAllCal)
+        let SumOfAllSliderCal = sliderBreakfast + slideDinner + slideLunch + slideSnacks
+        let GrandSumOfAllCal = SumOfAllSliderCal - MaxCal
+        let SumOfAllSliderCalFormat: NSString = NSString(format: "%0.2f", GrandSumOfAllCal)
         TotalCalLabel.text = "\(SumOfAllSliderCalFormat)"
         
         //Marks:- This show Cal consumed in Breakfast only
-        
-        var caloriesConsumed = slideSnacks
-        var totalCalFormat: NSString = NSString(format: "%0.2f", caloriesConsumed)
+        if ( GrandSumOfAllCal > 0)
+        {
+            let info = "Crossed Your Daily Max Calories"
+            StatusLabel.text = info
+        }else
+        {
+            let info1 = ""
+            StatusLabel.text = info1
+        }
+        let caloriesConsumed = slideSnacks
+        let totalCalFormat: NSString = NSString(format: "%0.2f", caloriesConsumed)
         SnacksCalLabel.text = "\(totalCalFormat)"
     }
     

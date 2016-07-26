@@ -19,7 +19,8 @@ class MapViewController:UIViewController,MKMapViewDelegate, CLLocationManagerDel
     @IBOutlet weak var Map: MKMapView!
     let locationManger = CLLocationManager()
     
-    //var pinAnnotationView:MKPinAnnotationView!
+    //let annotation = MKPointAnnotation()
+    
     
     override func viewDidLoad()
     {
@@ -56,6 +57,7 @@ class MapViewController:UIViewController,MKMapViewDelegate, CLLocationManagerDel
                 print("Restaurants name = \(item.name)")
                 
                 self.addPinToMapView(item.name!, latitude: item.placemark.location!.coordinate.latitude, longitude: item.placemark.location!.coordinate.longitude)
+                
             }
             self.locationManger.stopUpdatingLocation()
             var infoButton: UIButton = UIButton(type: .DetailDisclosure)
@@ -79,14 +81,14 @@ class MapViewController:UIViewController,MKMapViewDelegate, CLLocationManagerDel
         let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let annotation = RestroAnnotation(coordinate: location, title: title)
         Map.addAnnotation(annotation)
+        self.Map.addAnnotation(annotation)
     }
 //Marks:- click button on pins on maps
     func mapView(map: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        self.performSegueWithIdentifier("MapPinDetails", sender: self)
+        self.performSegueWithIdentifier("MapPinDetails", sender: view)
         
     }
-    
-    
+        
 }
 
 

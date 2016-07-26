@@ -55,7 +55,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
         runkey.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?)-> Void in
             if error == nil{
-                if var objects = objects as [PFObject]!
+                if let objects = objects as [PFObject]!
                 {
                     for object in objects
                     {
@@ -479,7 +479,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
     
-        var cell = WodTableView.dequeueReusableCellWithIdentifier("CFWOD", forIndexPath: indexPath)
+        let cell = WodTableView.dequeueReusableCellWithIdentifier("CFWOD", forIndexPath: indexPath)
         
         switch(MySegmentedControl.selectedSegmentIndex)
         {
@@ -517,7 +517,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var WodDetailsVC : WODDetailTableViewController = segue.destinationViewController as! WODDetailTableViewController
+        let WodDetailsVC : WODDetailTableViewController = segue.destinationViewController as! WODDetailTableViewController
         if let selectedArrayIndex = WodTableView.indexPathForSelectedRow?.row{
        
             switch (MySegmentedControl.selectedSegmentIndex){
