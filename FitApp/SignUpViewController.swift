@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Parse
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -65,6 +65,12 @@ class SignUpViewController: UIViewController {
                     alert.show()
                     
                 } else {
+                    //Trying ACL --------------> ACL is used to make CurrentUser retrieve own data.
+                    
+                    PFACL.setDefaultACL(PFACL(), withAccessForCurrentUser: true )
+                    PFUser.currentUser()!.saveInBackground()
+                    
+                    
                     let alert = UIAlertView(title: "Success", message: "Signed Up", delegate: self, cancelButtonTitle: "OK")
                     alert.show()
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -80,6 +86,9 @@ class SignUpViewController: UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
 }

@@ -21,11 +21,8 @@ class BMICountViewController: UIViewController {
     
     override func viewDidLoad()  {
         super.viewDidLoad()
-        var currentUser = PFUser.currentUser()
-        var query = PFQuery(className: "_User")
-        
-       
-        
+        getPreviousBMI()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,19 +44,19 @@ class BMICountViewController: UIViewController {
 // Marks:- Anything under 18 BMI..
             if (BMImodel.bmi() < 18.5)
             {
-                self.Bmi1InfoTxt.text = " You Fall Under";
+                self.Bmi1InfoTxt.text =  pUserName + " You Fall Under";
                 Bmi2InfoTxt.text = "UNDERWEIGHT";
                 Bmi3InfoTxt.text = "Category";
             }else if (BMImodel.bmi() >= 18.6 && BMImodel.bmi() <= 24.9)
 // Marks:- Anything under 18 to 24.9 BMI..
             {
-                self.Bmi1InfoTxt.text = " You Fall Under";
+                self.Bmi1InfoTxt.text = pUserName + " You Fall Under";
                 Bmi2InfoTxt.text = "NORMAL WEIGHT";
                 Bmi3InfoTxt.text = "Category";
             } else if (BMImodel.bmi() >= 25 && BMImodel.bmi() <= 29.9)
 // Marks:- Anything under 25 to 29.9 BMI..
             {
-                self.Bmi1InfoTxt.text = " You Fall Under";
+                self.Bmi1InfoTxt.text = pUserName + " You Fall Under";
                 Bmi2InfoTxt.text = "OVER WEIGHT";
                 Bmi3InfoTxt.text = "Category";
             }else
@@ -71,7 +68,7 @@ class BMICountViewController: UIViewController {
             }
             
            
-            let User = PFUser.currentUser()
+            var User = PFUser.currentUser()
             User!["BMI"] = ResultBMITxt.text
             User?.saveInBackground()
         }
@@ -89,4 +86,24 @@ class BMICountViewController: UIViewController {
         HeightTxt.resignFirstResponder()
     }
 
+    func getPreviousBMI()
+    {
+        let findPrData: PFQuery = PFQuery(className: "_User")
+        findPrData.whereKey("username", equalTo: PFUser.currentUser()!.username!)
+        findPrData.whereKeyExists("BMI")
+        findPrData.findObjectsInBackgroundWithBlock{
+            (Objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil{
+                if let objects = Objects as [PFObject]?
+                {
+                    for object in objects
+                    {
+                        let oldBMILoad = object.valueForKey("BMI") as! String
+                        self.previousBMI.text = oldBMILoad
+                    }
+                }
+            }
+        }
+
+    }
 }

@@ -14,6 +14,10 @@
 		1F18014B1C01578300E5379F /* WODTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F18014A1C01578300E5379F /* WODTableViewController.swift */; };
 		1F2656141C5F0B8B00C885E4 /* BMICounting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2656131C5F0B8B00C885E4 /* BMICounting.swift */; };
 		1F2656161C5F0BF800C885E4 /* BMICountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2656151C5F0BF800C885E4 /* BMICountViewController.swift */; };
+		1F2ACFAC1D4D48C00064692C /* TabataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2ACFAB1D4D48BF0064692C /* TabataViewController.swift */; };
+		1F2ACFAE1D4D58B40064692C /* StarButtonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2ACFAD1D4D58B40064692C /* StarButtonClass.swift */; };
+		1F2ACFB21D4D5B580064692C /* Air Horn-SoundBible.com-964603082.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F2ACFB01D4D5B580064692C /* Air Horn-SoundBible.com-964603082.wav */; };
+		1F2ACFB31D4D5B580064692C /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F2ACFB11D4D5B580064692C /* beep.wav */; };
 		1F73C3DA1BEB152E00AE339C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73C3D91BEB152E00AE339C /* AppDelegate.swift */; };
 		1F73C3DF1BEB152E00AE339C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F73C3DD1BEB152E00AE339C /* Main.storyboard */; };
 		1F73C3E11BEB152E00AE339C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F73C3E01BEB152E00AE339C /* Assets.xcassets */; };
@@ -71,6 +75,10 @@
 		1F18014A1C01578300E5379F /* WODTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WODTableViewController.swift; sourceTree = "<group>"; };
 		1F2656131C5F0B8B00C885E4 /* BMICounting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMICounting.swift; sourceTree = "<group>"; };
 		1F2656151C5F0BF800C885E4 /* BMICountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMICountViewController.swift; sourceTree = "<group>"; };
+		1F2ACFAB1D4D48BF0064692C /* TabataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabataViewController.swift; sourceTree = "<group>"; };
+		1F2ACFAD1D4D58B40064692C /* StarButtonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarButtonClass.swift; sourceTree = "<group>"; };
+		1F2ACFB01D4D5B580064692C /* Air Horn-SoundBible.com-964603082.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Air Horn-SoundBible.com-964603082.wav"; sourceTree = "<group>"; };
+		1F2ACFB11D4D5B580064692C /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
 		1F73C3D61BEB152E00AE339C /* FitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F73C3D91BEB152E00AE339C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F73C3DE1BEB152E00AE339C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -209,6 +217,16 @@
 			name = BMI;
 			sourceTree = "<group>";
 		};
+		1F2ACFAF1D4D5B2F0064692C /* alarm tune */ = {
+			isa = PBXGroup;
+			children = (
+				1F2ACFB01D4D5B580064692C /* Air Horn-SoundBible.com-964603082.wav */,
+				1F2ACFB11D4D5B580064692C /* beep.wav */,
+			);
+			name = "alarm tune";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		1F73C3CD1BEB152D00AE339C = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +257,7 @@
 				1F73C3E01BEB152E00AE339C /* Assets.xcassets */,
 				1FB816E31C34A337009EFCDA /* Launch Screen.storyboard */,
 				1F73C3E51BEB152E00AE339C /* Info.plist */,
+				1F2ACFAF1D4D5B2F0064692C /* alarm tune */,
 				1F73C3FF1BEB162200AE339C /* Frameworks */,
 				1F73C3D71BEB152E00AE339C /* Products */,
 			);
@@ -278,6 +297,8 @@
 			children = (
 				1F9F3D501C05247E00F2515D /* Button Images */,
 				1F18013F1BFFBDF900E5379F /* TimeKeeperView.swift */,
+				1F2ACFAB1D4D48BF0064692C /* TabataViewController.swift */,
+				1F2ACFAD1D4D58B40064692C /* StarButtonClass.swift */,
 			);
 			name = TimeKeeper;
 			sourceTree = "<group>";
@@ -414,6 +435,7 @@
 			files = (
 				1F9F3D571C0524C200F2515D /* Start Button.png in Resources */,
 				1F9F3D561C0524C200F2515D /* Reset Button.png in Resources */,
+				1F2ACFB21D4D5B580064692C /* Air Horn-SoundBible.com-964603082.wav in Resources */,
 				1FB816E41C34A337009EFCDA /* Launch Screen.storyboard in Resources */,
 				1F73C3E11BEB152E00AE339C /* Assets.xcassets in Resources */,
 				1F9F3D581C0524C200F2515D /* Stop Button.png in Resources */,
@@ -421,6 +443,7 @@
 				1F73C3DF1BEB152E00AE339C /* Main.storyboard in Resources */,
 				1F7926A31C6AB864003136E7 /* FrontBody.png in Resources */,
 				1F9B1AEF1C6ABC6200153E37 /* BackBody.png in Resources */,
+				1F2ACFB31D4D5B580064692C /* beep.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +479,8 @@
 				1FCB2C351C764C15007DDDF9 /* LegsTableViewController.swift in Sources */,
 				1F933CF81C7FC61200059E83 /* CoreTableViewController.swift in Sources */,
 				1F0E58971C5D806F00C17B95 /* RestroAnnotation.swift in Sources */,
+				1F2ACFAC1D4D48C00064692C /* TabataViewController.swift in Sources */,
+				1F2ACFAE1D4D58B40064692C /* StarButtonClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
