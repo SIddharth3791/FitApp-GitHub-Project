@@ -23,11 +23,14 @@ class WODDetailTableViewController: UIViewController {
     @IBOutlet weak var DetailWOD: UILabel!
     
     @IBOutlet weak var WODReps: UILabel!
+    @IBOutlet weak var WodImage: UIImageView!
     
     var WODNameLabel = String()
     var WodDetailsLabel = String()
     var detailLabel = String()
     var WODrepsLabel = String()
+    var WodImageFile: PFFile!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +39,9 @@ class WODDetailTableViewController: UIViewController {
         WODDetails.text = WodDetailsLabel
         DetailWOD.text = detailLabel
         WODReps.text = WODrepsLabel
-       
+        
+        
+        //
        
     }
 
@@ -44,6 +49,8 @@ class WODDetailTableViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
 
 }

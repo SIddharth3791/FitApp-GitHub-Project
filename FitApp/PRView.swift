@@ -58,6 +58,7 @@ class PRViewController: UIViewController, UITextFieldDelegate {
   //gets data from Parse according to Current User.
     func UpdatePrData()
     {
+        // I need to make PR data visible after it is saved twice (second time Updated data is not showing)
              
         let findPrData: PFQuery = PFQuery(className: "PR_Table")
         findPrData.whereKey("UserName", equalTo: PFUser.currentUser()!.username!)

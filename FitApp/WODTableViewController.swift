@@ -145,6 +145,10 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             sleep (3)
             self.do_table_refresh()
         }
+        
+//marks:- Parse query to get Image file
+        
+               
 
 // marks: Parse query to get hero
         
@@ -516,7 +520,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
 
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let WodDetailsVC : WODDetailTableViewController = segue.destinationViewController as! WODDetailTableViewController
         if let selectedArrayIndex = WodTableView.indexPathForSelectedRow?.row{
        
