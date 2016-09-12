@@ -41,7 +41,7 @@ class Calf_GlutesTableViewcontroller: UIViewController, UITableViewDelegate, UIT
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
         
@@ -65,7 +65,7 @@ class Calf_GlutesTableViewcontroller: UIViewController, UITableViewDelegate, UIT
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
 

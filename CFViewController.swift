@@ -12,12 +12,7 @@ import UIKit
 class CFViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     @IBOutlet weak var CFTableView: UITableView!
-    
-    
-    @IBAction  func unwindForSegueCFView(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
-        
-    }
-    
+
     
     var WODS = ["WorkOut Of Day","Time Keeper","PR's","About WOD"]
     
@@ -54,13 +49,8 @@ class CFViewController: UIViewController, UITableViewDataSource, UITableViewDele
         }
     }
     
-    //Back to CF View controller
-    @IBAction  func unwindForSegueCFViewController(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+    
+    @IBAction  func unwindForSegueMainCFView(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
         
     }
-    
-    
-    
-    
-    
 }

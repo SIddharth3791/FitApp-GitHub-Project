@@ -23,7 +23,8 @@ class WODDetailTableViewController: UIViewController {
     @IBOutlet weak var DetailWOD: UILabel!
     
     @IBOutlet weak var WODReps: UILabel!
-    @IBOutlet weak var WodImage: UIImageView!
+    @IBOutlet weak var WODImages: PFImageView!
+    
     
     var WODNameLabel = String()
     var WodDetailsLabel = String()
@@ -39,9 +40,26 @@ class WODDetailTableViewController: UIViewController {
         WODDetails.text = WodDetailsLabel
         DetailWOD.text = detailLabel
         WODReps.text = WODrepsLabel
+        //WODImages.file = WodImageFile
         
         
-        //
+        //random image
+        
+        let image : NSArray = [ UIImage(named: "crossfit1")!,
+                                UIImage(named: "crossfit2")!,
+                                UIImage(named: "crossfit3")!,
+                                UIImage(named: "crossfit4")!,
+                                UIImage(named: "crossfit5")!,
+                                UIImage(named: "crossfit6")!,
+                                UIImage(named: "crossfit7")!,
+                                UIImage(named: "crossfit8")!,
+                                UIImage(named: "crossfit9")!]
+        
+        //random image generating method
+        let imagerange: UInt32 = UInt32(image.count)
+        let randomimage = Int(arc4random_uniform(imagerange))
+        let generatedimage: AnyObject = image.objectAtIndex(randomimage)
+        self.WODImages.image = generatedimage as? UIImage
        
     }
 

@@ -42,7 +42,7 @@ class BackTableViewController: UIViewController, UITableViewDelegate, UITableVie
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
         
@@ -66,7 +66,7 @@ class BackTableViewController: UIViewController, UITableViewDelegate, UITableVie
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
     }

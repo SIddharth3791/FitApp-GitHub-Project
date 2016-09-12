@@ -36,8 +36,9 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
     var OpenArrayWODReps = [String]() //marks:- Open Workout Reps
     
     
+    
    
-    var objects = [PFObject]()
+    var photo = [PFFile]()
     
     @IBAction  func unwindForWodTableview(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
         
@@ -46,6 +47,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad()
     {
         super.viewDidLoad()
+
         
 // Marks:- Parse Query to populate Girls workout table cell
         let query0 = PFQuery(className: "CF_WOD")
@@ -68,7 +70,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
                         print ("error")
                 }
             }
-            sleep (3)
+            sleep (1)
             self.do_table_refresh()
             }
         
@@ -93,7 +95,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
         
@@ -118,7 +120,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
 // Marks: Parse query to get Girls Rep
@@ -142,7 +144,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
         
@@ -171,7 +173,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (1)
             self.do_table_refresh()
         }
 //marks: - Parse query to get  Hero text
@@ -194,7 +196,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
 // Marks:- Parse query to get Hero WOD details
@@ -218,7 +220,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
 //Marks:- Parse query to get Hero WOD reps
@@ -241,7 +243,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
 //Marks:- Parse query to get Hybrid
@@ -265,7 +267,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (1)
             self.do_table_refresh()
         }
         
@@ -289,7 +291,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
 //marks: - Parse Query to get Hybrid deatils
@@ -312,7 +314,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
 //Marks: - Parse Query to get Hydrid Reps
@@ -335,7 +337,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
 //Marks: - Parse Query to get Opens
@@ -359,7 +361,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (1)
             self.do_table_refresh()
         }
 //Marks: - Parse query to get Open text
@@ -382,7 +384,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
 
@@ -406,7 +408,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
 //marks:- Parse Query to get Open WOD Reps
@@ -429,7 +431,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
         
@@ -520,7 +522,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
 
     }
     
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let WodDetailsVC : WODDetailTableViewController = segue.destinationViewController as! WODDetailTableViewController
         if let selectedArrayIndex = WodTableView.indexPathForSelectedRow?.row{
        
@@ -530,24 +532,28 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             WodDetailsVC.WodDetailsLabel = GirlArrayDetails[selectedArrayIndex]
             WodDetailsVC.detailLabel = GirlArrayWODDetails[selectedArrayIndex]
             WodDetailsVC.WODrepsLabel = GirlArrayWODReps[selectedArrayIndex]
+           // WodDetailsVC.WodImageFile = photo[selectedArrayIndex]
             break
             case 1:
             WodDetailsVC.WODNameLabel = HeroArray[selectedArrayIndex]
             WodDetailsVC.WodDetailsLabel = HeroArrayDetails[selectedArrayIndex]
             WodDetailsVC.detailLabel = HeroArrayWODDetails[selectedArrayIndex]
             WodDetailsVC.WODrepsLabel = HeroArrayWODReps[selectedArrayIndex]
+           // WodDetailsVC.WodImageFile = photo[selectedArrayIndex]
             break
             case 2:
             WodDetailsVC.WODNameLabel = HybridArray[selectedArrayIndex]
             WodDetailsVC.WodDetailsLabel = HybridArrayDetails[selectedArrayIndex]
             WodDetailsVC.detailLabel = HybridArrayWODDetails[selectedArrayIndex]
             WodDetailsVC.WODrepsLabel = HybridArrayWODReps[selectedArrayIndex]
+           // WodDetailsVC.WodImageFile = photo[selectedArrayIndex]
             break
             case 3:
             WodDetailsVC.WODNameLabel = OpenArray[selectedArrayIndex]
             WodDetailsVC.WodDetailsLabel = OpenArrayDetails[selectedArrayIndex]
             WodDetailsVC.detailLabel = OpenArrayWODDetails[selectedArrayIndex]
             WodDetailsVC.WODrepsLabel = OpenArrayWODReps[selectedArrayIndex]
+           // WodDetailsVC.WodImageFile = photo[selectedArrayIndex]
             break
             default:
             break

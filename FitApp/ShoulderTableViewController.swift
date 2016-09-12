@@ -41,7 +41,7 @@ class ShoulderTableViewController: UIViewController, UITableViewDataSource, UITa
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
         
@@ -65,7 +65,7 @@ class ShoulderTableViewController: UIViewController, UITableViewDataSource, UITa
                     print ("error")
                 }
             }
-            sleep (3)
+            sleep (0)
             self.do_table_refresh()
         }
 
