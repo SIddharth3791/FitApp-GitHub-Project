@@ -5,7 +5,7 @@
 //  Created by Siddharth Patel on 11/6/15.
 //  Copyright © 2015 Siddharth Patel. All rights reserved.
 //
-
+/*
 import Foundation
 import UIKit
 import MapKit
@@ -34,7 +34,7 @@ class MapViewController:UIViewController,MKMapViewDelegate, CLLocationManagerDel
     }
 //Marks : Location delegate Method
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         let location = locations.last
         let center = CLLocationCoordinate2DMake(location!.coordinate.latitude, location!.coordinate.longitude)
@@ -51,7 +51,7 @@ class MapViewController:UIViewController,MKMapViewDelegate, CLLocationManagerDel
         request.region = MKCoordinateRegion(center: center, span: span)
         let Search = MKLocalSearch(request: request)
        
-        Search.startWithCompletionHandler{(response: MKLocalSearchResponse?,error: NSError?) in for item in response!.mapItems as! [MKMapItem]
+        Search.start{(response: MKLocalSearchResponse?,error: NSError?) in for item in response!.mapItems as! [MKMapItem]
             {
                 
                 print("Restaurants name = \(item.name)")
@@ -60,12 +60,12 @@ class MapViewController:UIViewController,MKMapViewDelegate, CLLocationManagerDel
                 
             }
             self.locationManger.stopUpdatingLocation()
-            var infoButton: UIButton = UIButton(type: .DetailDisclosure)
+            var infoButton: UIButton = UIButton(type: .detailDisclosure)
             
-        }
+        } as! MKLocalSearchCompletionHandler as! MKLocalSearchCompletionHandler as! MKLocalSearchCompletionHandler as! MKLocalSearchCompletionHandler as! MKLocalSearchCompletionHandler as! MKLocalSearchCompletionHandler as! MKLocalSearchCompletionHandler
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Errors: " + error.localizedDescription)
     }
     
@@ -77,15 +77,15 @@ class MapViewController:UIViewController,MKMapViewDelegate, CLLocationManagerDel
     
 //Marks:- look for restaurant annotation Pin on Maps
     
-    func addPinToMapView(title: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees){
+    func addPinToMapView(_ title: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees){
         let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let annotation = RestroAnnotation(coordinate: location, title: title)
         Map.addAnnotation(annotation)
         self.Map.addAnnotation(annotation)
     }
 //Marks:- click button on pins on maps
-    func mapView(map: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        self.performSegueWithIdentifier("MapPinDetails", sender: view)
+    func mapView(_ map: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        self.performSegue(withIdentifier: "MapPinDetails", sender: view)
         
     }
         
@@ -93,4 +93,4 @@ class MapViewController:UIViewController,MKMapViewDelegate, CLLocationManagerDel
 
 
 
-
+*/

@@ -58,7 +58,7 @@ class WODDetailTableViewController: UIViewController {
         //random image generating method
         let imagerange: UInt32 = UInt32(image.count)
         let randomimage = Int(arc4random_uniform(imagerange))
-        let generatedimage: AnyObject = image.objectAtIndex(randomimage)
+        let generatedimage: AnyObject = image.object(at: randomimage) as AnyObject
         self.WODImages.image = generatedimage as? UIImage
        
     }

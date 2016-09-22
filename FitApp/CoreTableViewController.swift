@@ -14,8 +14,16 @@ class CoreTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBOutlet weak var coreSegment: UISegmentedControl!
     @IBOutlet weak var Coretableview: UITableView!
+    
+    //Core
     var CoreArray = [String]()
+    var CoreArrayReps = [String]()
+    var CoreArrayDetails = [String]()
+    
+    //Abs
     var AbsArray = [String]()
+    var AbsArrayReps = [String]()
+    var AbsArrayDetails = [String]()
     
     override func viewDidLoad() {
         
@@ -23,16 +31,16 @@ class CoreTableViewController: UIViewController, UITableViewDelegate, UITableVie
      
         let query0 = PFQuery(className: "Workout_Planlist")
         let coreType = ["Core"]
-        let runkey = query0.orderByDescending("createdAt").whereKey("BodyType", containedIn: coreType)
-        
-        runkey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        let runkey = query0.order(byDescending: "createdAt").whereKey("BodyType", containedIn: coreType)
+        var messages = [PFObject]()
+        runkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil{
-                if var objects = objects as [PFObject]!
+                if let objects = objects as [PFObject]!
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("WorkoutName")  as! String
+                        let load = object.object(forKey: "WorkoutName")  as! String
                         self.CoreArray.append(load)
                     }
                 }
@@ -43,20 +51,67 @@ class CoreTableViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
         
-        let query1 = PFQuery(className: "Workout_Planlist")
-        let AbsType = ["Abs"]
-        let Glukey = query1.orderByDescending("createdAt").whereKey("BodyType", containedIn: AbsType)
+        let query00 = PFQuery(className: "Workout_Planlist")
+        let CoreRepskey = query00.order(byDescending: "createdAt").whereKey("BodyType", containedIn: coreType)
         
-        Glukey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        CoreRepskey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil{
-                if var objects = objects as [PFObject]!
+                if let objects = objects as [PFObject]!
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("WorkoutName") as! String
+                        let load = object.object(forKey: "WorkoutReps")  as! String
+                        self.CoreArrayReps.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (0)
+            self.do_table_refresh()
+        })
+        
+        let query000 = PFQuery(className: "Workout_Planlist")
+        let CoreDetailkey = query000.order(byDescending: "createdAt").whereKey("BodyType", containedIn: coreType)
+        
+        CoreDetailkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]!
+                {
+                    for object in objects
+                    {
+                        let load = object.object(forKey: "WorkoutDetails")  as! String
+                        self.CoreArrayDetails.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (0)
+            self.do_table_refresh()
+        })
+        
+        let query1 = PFQuery(className: "Workout_Planlist")
+        let AbsType = ["Abs"]
+        let Glukey = query1.order(byDescending: "createdAt").whereKey("BodyType", containedIn: AbsType)
+        
+        Glukey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+
+            if error == nil{
+                if let objects = objects as [PFObject]!
+                {
+                    for object in objects
+                    {
+                        let load = object.object(forKey: "WorkoutName") as! String
                         self.AbsArray.append(load)
                     }
                 }
@@ -67,13 +122,59 @@ class CoreTableViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
+        
+        let query11 = PFQuery(className: "Workout_Planlist")
+        let AbsRepskey = query11.order(byDescending: "createdAt").whereKey("BodyType", containedIn: AbsType)
+        
+        AbsRepskey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+
+            if error == nil{
+                if let objects = objects as [PFObject]!
+                {
+                    for object in objects
+                    {
+                        let load = object.object(forKey: "WorkoutReps") as! String
+                        self.AbsArrayReps.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (0)
+            self.do_table_refresh()
+        })
+        
+        let query111 = PFQuery(className: "Workout_Planlist")
+        let AbsDetailkey = query111.order(byDescending: "createdAt").whereKey("BodyType", containedIn: AbsType)
+        AbsDetailkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+
+            if error == nil{
+                if let objects = objects as [PFObject]!
+                {
+                    for object in objects
+                    {
+                        let load = object.object(forKey: "WorkoutDetails") as! String
+                        self.AbsArrayDetails.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (0)
+            self.do_table_refresh()
+        })
     }
     
     func do_table_refresh()
     {
-        dispatch_async(dispatch_get_main_queue(),
-            {
+        DispatchQueue.main.async(execute: {
                 self.Coretableview.reloadData()
                 return
         })
@@ -85,7 +186,7 @@ class CoreTableViewController: UIViewController, UITableViewDelegate, UITableVie
         super.didReceiveMemoryWarning()
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         var returnvaule = 0
         switch(coreSegment.selectedSegmentIndex)
@@ -102,17 +203,17 @@ class CoreTableViewController: UIViewController, UITableViewDelegate, UITableVie
         return returnvaule
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        var cell = Coretableview.dequeueReusableCellWithIdentifier("Core", forIndexPath: indexPath)
+        let cell = Coretableview.dequeueReusableCell(withIdentifier: "Core", for: indexPath)
         
         switch(coreSegment.selectedSegmentIndex)
         {
         case 0:
-            cell.textLabel?.text = CoreArray[indexPath.row]
+            cell.textLabel?.text = CoreArray[(indexPath as NSIndexPath).row]
             break
         case 1:
-            cell.textLabel?.text = AbsArray[indexPath.row]
+            cell.textLabel?.text = AbsArray[(indexPath as NSIndexPath).row]
             break
         default:
             break
@@ -120,23 +221,27 @@ class CoreTableViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
 
-    @IBAction func coreList(sender: AnyObject) {
+    @IBAction func coreList(_ sender: AnyObject) {
         
         Coretableview.reloadData()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var BodyVC: DetailBodyTableViewController = segue.destinationViewController as!
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let BodyVC: DetailBodyTableViewController = segue.destination as!
         DetailBodyTableViewController
         
-        if let selectedArrayIndex = Coretableview.indexPathForSelectedRow?.row{
+        if let selectedArrayIndex = (Coretableview.indexPathForSelectedRow as NSIndexPath?)?.row{
             switch(coreSegment.selectedSegmentIndex)
             {
             case 0:
                 BodyVC.label = CoreArray[selectedArrayIndex]
+                BodyVC.Reps = CoreArrayReps[selectedArrayIndex]
+                BodyVC.details = CoreArrayDetails[selectedArrayIndex]
                 break
             case 1:
                 BodyVC.label = AbsArray[selectedArrayIndex]
+                BodyVC.Reps = AbsArrayReps[selectedArrayIndex]
+                BodyVC.details = AbsArrayDetails[selectedArrayIndex]
                 break
             default:
                 break

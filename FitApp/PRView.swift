@@ -40,15 +40,15 @@ class PRViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         UpdatePrData()
-        if  let User = PFUser.currentUser()?["username"] as? String {
+        if  let User = PFUser.current()?["username"] as? String {
             self.UserTextLabel.text = User
         }
         
         //Scrolling view
         ScrollView.contentSize.height = 2000
         
-        PFACL.setDefaultACL(PFACL(), withAccessForCurrentUser: true )
-        PFUser.currentUser()!.saveInBackground()
+        PFACL.setDefault(PFACL(), withAccessForCurrentUser: true )
+        PFUser.current()!.saveInBackground()
 }
     
     override func didReceiveMemoryWarning() {
@@ -59,9 +59,9 @@ class PRViewController: UIViewController, UITextFieldDelegate {
     func UpdatePrData()
     {
         // I need to make PR data visible after it is saved twice (second time Updated data is not showing)
-             
+        var message = [PFObject]()
         let findPrData: PFQuery = PFQuery(className: "PR_Table")
-        findPrData.whereKey("UserName", equalTo: PFUser.currentUser()!.username!)
+        findPrData.whereKey("UserName", equalTo: PFUser.current()!.username!)
         findPrData.whereKeyExists("KM_Rowing")
         findPrData.whereKeyExists("Mile_Running")
         findPrData.whereKeyExists("Max_Squats")
@@ -76,53 +76,53 @@ class PRViewController: UIViewController, UITextFieldDelegate {
         findPrData.whereKeyExists("Max_BenchPress")
         findPrData.whereKeyExists("Murphy")
         findPrData.whereKeyExists("Fran")
-        findPrData.findObjectsInBackgroundWithBlock{
-            (Objects: [PFObject]?, error: NSError?) -> Void in
+        findPrData.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil{
-                if let objects = Objects as [PFObject]?
+                if let objects = objects as [PFObject]?
                 {
                     for object in objects
                     {
-                       let kmRowingLoad = object.valueForKey("KM_Rowing") as! String
+                       let kmRowingLoad = object.value(forKey: "KM_Rowing") as! String
                         self.RowingText.text = kmRowingLoad
                         
-                        let mileRunningLoad = object.valueForKey("Mile_Running") as! String
+                        let mileRunningLoad = object.value(forKey: "Mile_Running") as! String
                         self.RunText.text = mileRunningLoad
                         
-                        let backSquatsLoad = object.valueForKey("Max_Squats") as! String
+                        let backSquatsLoad = object.value(forKey: "Max_Squats") as! String
                         self.BackSquatText.text = backSquatsLoad
                         
-                       let frontSquatsLoad = object.valueForKey("Max_FrontSquats") as! String
+                       let frontSquatsLoad = object.value(forKey: "Max_FrontSquats") as! String
                         self.FrontSquatText.text = frontSquatsLoad
                        
-                       let deadLiftsLoad = object.valueForKey("Max_DeadLifts") as! String
+                       let deadLiftsLoad = object.value(forKey: "Max_DeadLifts") as! String
                         self.DeadLifttext.text = deadLiftsLoad
                        
-                         let powerCleanLoad = object.valueForKey("PowerClean") as! String
+                         let powerCleanLoad = object.value(forKey: "PowerClean") as! String
                         self.PowerCleantext.text = powerCleanLoad
                         
-                        let powerCleanJerkLoad = object.valueForKey("PowerCleanJerk") as! String
+                        let powerCleanJerkLoad = object.value(forKey: "PowerCleanJerk") as! String
                         self.PowerCleanJerkText.text = powerCleanJerkLoad
                         
-                        let powerSnatchLoad = object.valueForKey("PowerSnatch") as! String
+                        let powerSnatchLoad = object.value(forKey: "PowerSnatch") as! String
                         self.PowerSnatchText.text = powerSnatchLoad
                         
-                        let pushUpsLoad = object.valueForKey("Min_PushUps") as! String
+                        let pushUpsLoad = object.value(forKey: "Min_PushUps") as! String
                         self.PushUpsText.text = pushUpsLoad
                         
-                        let pullUpsLoad = object.valueForKey("Max_PullUps") as! String
+                        let pullUpsLoad = object.value(forKey: "Max_PullUps") as! String
                         self.PullUpsText.text = pullUpsLoad
                         
-                        let burpeeLoad = object.valueForKey("Max_Burpees") as! String
+                        let burpeeLoad = object.value(forKey: "Max_Burpees") as! String
                         self.BurpeesText.text = burpeeLoad
                         
-                        let benchPressLoad = object.valueForKey("Max_BenchPress") as! String
+                        let benchPressLoad = object.value(forKey: "Max_BenchPress") as! String
                         self.BenchPresstext.text = benchPressLoad
                         
-                        let murphyLoad = object.valueForKey("Murphy") as! String
+                        let murphyLoad = object.value(forKey: "Murphy") as! String
                         self.MurphyText.text = murphyLoad
                         
-                        let franLoad = object.valueForKey("Fran") as! String
+                        let franLoad = object.value(forKey: "Fran") as! String
                         self.FranText.text = franLoad
                         
                         
@@ -133,12 +133,12 @@ class PRViewController: UIViewController, UITextFieldDelegate {
                     print ("error")
                 }
             }
-        }
+        })
         
     }
 
     
-    @IBAction func SaveDataButton(sender: AnyObject) {
+    @IBAction func SaveDataButton(_ sender: AnyObject) {
         
        
         let rowing = RowingText.text
@@ -178,31 +178,32 @@ class PRViewController: UIViewController, UITextFieldDelegate {
     
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         if (textField == PullUpsText){
-        ScrollView.setContentOffset(CGPointMake(0, 250), animated: true)
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 250), animated: true)
         } else if (textField == BurpeesText) {
-            ScrollView.setContentOffset(CGPointMake(0, 250), animated: true)
+            ScrollView.setContentOffset(CGPoint(x: 0, y: 250), animated: true)
         } else if (textField == BenchPresstext)
         {
-            ScrollView.setContentOffset(CGPointMake(0, 300), animated: true)
+            ScrollView.setContentOffset(CGPoint(x: 0, y: 300), animated: true)
         }
         else if (textField == MurphyText)
         {
-            ScrollView.setContentOffset(CGPointMake(0, 350), animated: true)
+            ScrollView.setContentOffset(CGPoint(x: 0, y: 350), animated: true)
         }
         else if (textField == FranText)
         {
-            ScrollView.setContentOffset(CGPointMake(0, 400), animated: true)
+            ScrollView.setContentOffset(CGPoint(x: 0, y: 400), animated: true)
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
-        ScrollView.setContentOffset(CGPointMake(0, 0), animated: true)
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        ScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
 }
+

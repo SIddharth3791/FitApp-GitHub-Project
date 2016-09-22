@@ -9,6 +9,17 @@
 import Foundation
 import UIKit
 import Parse
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 class LoginViewController: UIViewController, UITextFieldDelegate{
     
@@ -18,16 +29,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
       
     }
    
-    @IBAction  func unwindToLogInScreen(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+    @IBAction  func unwindToLogInScreen(_ unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
         
     }
 
-    @IBAction func loginAction(sender: AnyObject) {
+    @IBAction func loginAction(_ sender: AnyObject) {
         let usernametext = self.usernameField.text
         let passwordtext = self.passwordField.text
        
@@ -43,12 +54,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
             
         } else {
             // Run a spinner to show a task in progress
-            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
+            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)) as UIActivityIndicatorView
             spinner.startAnimating()
             
             // Send a request to login
             
-            PFUser.logInWithUsernameInBackground(usernametext!, password: passwordtext!, block: { (user, error) -> Void in
+            PFUser.logInWithUsername(inBackground: usernametext!, password: passwordtext!, block: { (user, error) -> Void in
                 
                 // Stop the spinner
                 spinner.stopAnimating()
@@ -57,9 +68,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                     let alert = UIAlertView(title: "Success", message: "Logged In", delegate: self, cancelButtonTitle: "OK")
                     alert.show()
                     
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home") 
-                        self.presentViewController(viewController, animated: true, completion: nil)
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home") 
+                        self.present(viewController, animated: true, completion: nil)
                     })
                     
                 } else {
@@ -76,7 +87,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         view.endEditing(true)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }

@@ -5,6 +5,7 @@
 //  Created by Siddharth Patel on 1/31/16.
 //  Copyright © 2016 Siddharth Patel. All rights reserved.
 //
+
 import Foundation
 import UIKit
 import Parse
@@ -30,7 +31,7 @@ class BMICountViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func CountBMI(sender: AnyObject) {
+    @IBAction func CountBMI(_ sender: AnyObject) {
         
         
 //marks:- Get Height and weight from textField
@@ -40,7 +41,7 @@ class BMICountViewController: UIViewController {
         let BMImodel = BMICounting(height: h!, weight: w!)
         ResultBMITxt.text = String(format:"%.2f",BMImodel.bmi())
         
-        if let pUserName = PFUser.currentUser()?["username"] as? String{
+        if let pUserName = PFUser.current()?["username"] as? String{
 // Marks:- Anything under 18 BMI..
             if (BMImodel.bmi() < 18.5)
             {
@@ -51,13 +52,13 @@ class BMICountViewController: UIViewController {
 // Marks:- Anything under 18 to 24.9 BMI..
             {
                 self.Bmi1InfoTxt.text = pUserName + " You Fall Under";
-                Bmi2InfoTxt.text = "NORMAL WEIGHT";
+                Bmi2InfoTxt.text = "NORMAL";
                 Bmi3InfoTxt.text = "Category";
             } else if (BMImodel.bmi() >= 25 && BMImodel.bmi() <= 29.9)
 // Marks:- Anything under 25 to 29.9 BMI..
             {
                 self.Bmi1InfoTxt.text = pUserName + " You Fall Under";
-                Bmi2InfoTxt.text = "OVER WEIGHT";
+                Bmi2InfoTxt.text = "OVERWEIGHT";
                 Bmi3InfoTxt.text = "Category";
             }else
 // Marks:- Anything under 30 BMI plus...
@@ -68,7 +69,7 @@ class BMICountViewController: UIViewController {
             }
             
            
-            var User = PFUser.currentUser()
+            let User = PFUser.current()
             User!["BMI"] = ResultBMITxt.text
             User?.saveInBackground()
         }
@@ -80,7 +81,7 @@ class BMICountViewController: UIViewController {
     }
     
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //Marks:- Touch screen to drop Number pad..........
         WeightTxt.resignFirstResponder()
         HeightTxt.resignFirstResponder()
@@ -89,21 +90,21 @@ class BMICountViewController: UIViewController {
     func getPreviousBMI()
     {
         let findPrData: PFQuery = PFQuery(className: "_User")
-        findPrData.whereKey("username", equalTo: PFUser.currentUser()!.username!)
+        findPrData.whereKey("username", equalTo: PFUser.current()!.username!)
         findPrData.whereKeyExists("BMI")
-        findPrData.findObjectsInBackgroundWithBlock{
-            (Objects: [PFObject]?, error: NSError?) -> Void in
+        findPrData.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil{
-                if let objects = Objects as [PFObject]?
+                if let objects = objects as [PFObject]?
                 {
                     for object in objects
                     {
-                        let oldBMILoad = object.valueForKey("BMI") as! String
+                        let oldBMILoad = object.value(forKey: "BMI") as! String
                         self.previousBMI.text = oldBMILoad
                     }
                 }
             }
-        }
+        })
 
     }
 }

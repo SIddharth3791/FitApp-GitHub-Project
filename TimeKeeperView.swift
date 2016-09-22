@@ -12,7 +12,7 @@ import UIKit
 class TimeKeeperViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
     var laps: [String]  = []
-    var timer = NSTimer()
+    var timer = Timer()
     var minutes: Int = 0
     var seconds: Int = 0
     var fraction: Int = 0
@@ -40,20 +40,20 @@ class TimeKeeperViewController: UIViewController, UITableViewDataSource, UITable
         // Dispose of any resources that can be recreated.
     }
     //Marks: Button action for start and stop
-    @IBAction func StartStop(sender: AnyObject) {
+    @IBAction func StartStop(_ sender: AnyObject) {
         if startstopWatch == true{
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateStopWatch"), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(TimeKeeperViewController.updateStopWatch), userInfo: nil, repeats: true)
             
             startstopWatch = false
-            StartStopButton.setImage(UIImage(named: "Stop Button.png"), forState: UIControlState.Normal)
-            LapsButton.setImage(UIImage(named: "Lap Button.png"), forState: UIControlState.Normal)
+            StartStopButton.setImage(UIImage(named: "Stop Button.png"), for: UIControlState())
+            LapsButton.setImage(UIImage(named: "Lap Button.png"), for: UIControlState())
             addLap = true
         }else
         {
             timer.invalidate()
             startstopWatch = true
-            StartStopButton.setImage(UIImage(named: "Start Button.png"), forState: .Normal)
-            LapsButton.setImage(UIImage(named: "Reset Button.png"), forState: .Normal)
+            StartStopButton.setImage(UIImage(named: "Start Button.png"), for: UIControlState())
+            LapsButton.setImage(UIImage(named: "Reset Button.png"), for: UIControlState())
             
             addLap = false
         }
@@ -82,18 +82,18 @@ class TimeKeeperViewController: UIViewController, UITableViewDataSource, UITable
     
     //Marks: Button action to get laps
     
-    @IBAction func Laps(sender: AnyObject) {
+    @IBAction func Laps(_ sender: AnyObject) {
         
         if addLap == true{
             
-            laps.insert(StopWatchString, atIndex: 0)
+            laps.insert(StopWatchString, at: 0)
             LapsTableView.reloadData()
             
         }else
         {
             addLap = false
-            LapsButton.setImage(UIImage(named: "Lap Button.png"), forState: .Normal)
-            laps.removeAll(keepCapacity: false)
+            LapsButton.setImage(UIImage(named: "Lap Button.png"), for: UIControlState())
+            laps.removeAll(keepingCapacity: false)
             LapsTableView.reloadData()
             fraction = 0
             seconds = 0
@@ -105,16 +105,16 @@ class TimeKeeperViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-    let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "LapCell")
+    let cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "LapCell")
         cell.backgroundColor = self.view.backgroundColor
-        cell.textLabel?.text = "Lap \( laps.count - indexPath.row)"
-        cell.detailTextLabel?.text = laps[indexPath.row]
+        cell.textLabel?.text = "Lap \( laps.count - (indexPath as NSIndexPath).row)"
+        cell.detailTextLabel?.text = laps[(indexPath as NSIndexPath).row]
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return laps.count
         

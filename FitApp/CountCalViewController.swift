@@ -38,7 +38,7 @@ class CountCalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let pUserName = PFUser.currentUser()?["username"] as? String
+        let pUserName = PFUser.current()?["username"] as? String
         
     }
     override func didReceiveMemoryWarning() {
@@ -46,7 +46,7 @@ class CountCalViewController: UIViewController {
     }
     
     
-    @IBAction func BreakFastSlider(sender: AnyObject) {
+    @IBAction func BreakFastSlider(_ sender: AnyObject) {
         let MaxCal = (MaxCalTextField.text! as NSString).floatValue
         
         let sliderBreakfast = BreakFastSlider.value
@@ -79,7 +79,7 @@ class CountCalViewController: UIViewController {
        BreakFastCalLabel.text = "\(totalCalFormat)"
     }
     
-    @IBAction func LunchSlider(sender: AnyObject) {
+    @IBAction func LunchSlider(_ sender: AnyObject) {
         let MaxCal = (MaxCalTextField.text! as NSString).floatValue
         
         let sliderBreakfast = BreakFastSlider.value
@@ -112,7 +112,7 @@ class CountCalViewController: UIViewController {
         
     }
     
-    @IBAction func DinnerSlider(sender: AnyObject) {
+    @IBAction func DinnerSlider(_ sender: AnyObject) {
         
         let MaxCal = (MaxCalTextField.text! as NSString).floatValue
         
@@ -144,7 +144,7 @@ class CountCalViewController: UIViewController {
         
     }
     
-    @IBAction func SnacksSlider(sender: AnyObject) {
+    @IBAction func SnacksSlider(_ sender: AnyObject) {
         
         let MaxCal = (MaxCalTextField.text! as NSString).floatValue
         
@@ -175,7 +175,7 @@ class CountCalViewController: UIViewController {
         SnacksCalLabel.text = "\(totalCalFormat)"
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         MaxCalTextField.resignFirstResponder()
     }
     

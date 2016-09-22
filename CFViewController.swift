@@ -21,36 +21,36 @@ class CFViewController: UIViewController, UITableViewDataSource, UITableViewDele
         
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return WODS.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let mycell = tableView.dequeueReusableCellWithIdentifier("CFData", forIndexPath: indexPath)
-        mycell.textLabel?.text = WODS[indexPath.row]
+        let mycell = tableView.dequeueReusableCell(withIdentifier: "CFData", for: indexPath)
+        mycell.textLabel?.text = WODS[(indexPath as NSIndexPath).row]
         return mycell
 
         
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        switch indexPath.row{
-        case 0: self.performSegueWithIdentifier("ShowWod", sender: self)
+        switch (indexPath as NSIndexPath).row{
+        case 0: self.performSegue(withIdentifier: "ShowWod", sender: self)
         break;
-        case 1: self.performSegueWithIdentifier("TimeKeeper", sender: self);
+        case 1: self.performSegue(withIdentifier: "TimeKeeper", sender: self);
         break;
-        case 2: self.performSegueWithIdentifier("PR's", sender: self);
+        case 2: self.performSegue(withIdentifier: "PR's", sender: self);
         break;
-        case 3: self.performSegueWithIdentifier("AboutWod", sender: self)
+        case 3: self.performSegue(withIdentifier: "AboutWod", sender: self)
         default:
             break
         }
     }
     
     
-    @IBAction  func unwindForSegueMainCFView(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+    @IBAction  func unwindForSegueMainCFView(_ unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
         
     }
 }

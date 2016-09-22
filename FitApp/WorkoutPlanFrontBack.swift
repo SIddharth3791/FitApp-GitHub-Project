@@ -43,7 +43,7 @@ class WorkoutPlanFrontBack: UIViewController{
 //Marks: changes image to show BackBody.
     func ShowButton()
     {
-        var bodyimage: UIImage = UIImage(named: "BackBody.png")!
+        let bodyimage: UIImage = UIImage(named: "BackBody.png")!
  //---@@@@@@@ Front Body Parts @@@@@@@@@-------//
         if !isRotating
         {
@@ -52,13 +52,13 @@ class WorkoutPlanFrontBack: UIViewController{
             spinAnimation.toValue = M_PI*2
             spinAnimation.duration = 2
             spinAnimation.repeatCount = Float.infinity
-            spinAnimation.removedOnCompletion = false
+            spinAnimation.isRemovedOnCompletion = false
             spinAnimation.fillMode = kCAFillModeForwards
             spinAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-            Calf1.layer.addAnimation(spinAnimation, forKey: "transform.rotation.z")
-            UpperBack1.layer.addAnimation(spinAnimation, forKey: "transform.rotation.z")
-            Traps1.layer.addAnimation(spinAnimation, forKey: "transform.rotation.z")
-            Glutes1.layer.addAnimation(spinAnimation, forKey: "transform.rotation.z")
+            Calf1.layer.add(spinAnimation, forKey: "transform.rotation.z")
+            UpperBack1.layer.add(spinAnimation, forKey: "transform.rotation.z")
+            Traps1.layer.add(spinAnimation, forKey: "transform.rotation.z")
+            Glutes1.layer.add(spinAnimation, forKey: "transform.rotation.z")
             
         }else
         {
@@ -83,7 +83,7 @@ class WorkoutPlanFrontBack: UIViewController{
 //Marks: changes image to show FrontBody.
     func HideButton()
     {
-        var bodyimage: UIImage = UIImage(named: "FrontBody.png")!
+        let bodyimage: UIImage = UIImage(named: "FrontBody.png")!
  //---@@@@@@@ Front Body Parts @@@@@@@@@-------//
         
         chestButton.alpha = 1
@@ -102,7 +102,7 @@ class WorkoutPlanFrontBack: UIViewController{
     
 //marks: clicking this button will change the button and images
     
-    @IBAction func DegreeButton(sender: AnyObject) {
+    @IBAction func DegreeButton(_ sender: AnyObject) {
         if !isRotating
         {
             let spinAnimation = CABasicAnimation()
@@ -110,14 +110,14 @@ class WorkoutPlanFrontBack: UIViewController{
             spinAnimation.toValue = M_PI*2
             spinAnimation.duration = 2
             spinAnimation.repeatCount = Float.infinity
-            spinAnimation.removedOnCompletion = false
+            spinAnimation.isRemovedOnCompletion = false
             spinAnimation.fillMode = kCAFillModeForwards
             spinAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
              //---@@@@@@@ Only Front Body Parts @@@@@@@@@-------//
-            chestButton.layer.addAnimation(spinAnimation, forKey: "transform.rotation.z")
-            arm1.layer.addAnimation(spinAnimation, forKey: "transform.rotation.z")
-            core1.layer.addAnimation(spinAnimation, forKey: "transform.rotation.z")
-            Thigh1.layer.addAnimation(spinAnimation, forKey: "transform.rotation.z")
+            chestButton.layer.add(spinAnimation, forKey: "transform.rotation.z")
+            arm1.layer.add(spinAnimation, forKey: "transform.rotation.z")
+            core1.layer.add(spinAnimation, forKey: "transform.rotation.z")
+            Thigh1.layer.add(spinAnimation, forKey: "transform.rotation.z")
             
             
             
@@ -144,7 +144,7 @@ class WorkoutPlanFrontBack: UIViewController{
 
    
 //Marks:- Bring back user to body part page
-    @IBAction  func unwindForBodyBuilding(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+    @IBAction  func unwindForBodyBuilding(_ unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
         
     }
 

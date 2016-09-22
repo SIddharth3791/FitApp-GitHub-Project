@@ -6,7 +6,7 @@
 //  Copyright © 2016 Siddharth Patel. All rights reserved.
 //
 
-import Foundation
+
 import UIKit
 import ParseUI
 import Parse
@@ -15,19 +15,23 @@ class DetailBodyTableViewController: UIViewController {
     
     
     @IBOutlet weak var TitleLabel: UILabel!
-    @IBOutlet weak var workoutLabel: UILabel!
+    @IBOutlet weak var workoutReps: UILabel!
     @IBOutlet weak var WorkoutImage: UIImageView!
+    @IBOutlet weak var workoutDetails: UILabel!
     
     
     
     var label = String()
-    var workout = String()
+    var Reps = String()
+    var details = String()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
         TitleLabel.text = label
-        workoutLabel.text = workout
+        workoutReps.text = Reps
+        workoutDetails.text = details
         
         //random image
         
@@ -46,7 +50,7 @@ class DetailBodyTableViewController: UIViewController {
         //random image generating method
         let imagerange: UInt32 = UInt32(image.count)
         let randomimage = Int(arc4random_uniform(imagerange))
-        let generatedimage: AnyObject = image.objectAtIndex(randomimage)
+        let generatedimage: AnyObject = image.object(at: randomimage) as AnyObject
         self.WorkoutImage.image = generatedimage as? UIImage
     }
     

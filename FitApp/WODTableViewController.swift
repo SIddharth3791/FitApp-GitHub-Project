@@ -40,7 +40,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
    
     var photo = [PFFile]()
     
-    @IBAction  func unwindForWodTableview(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+    @IBAction  func unwindForWodTableview(_ unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
         
     }
 
@@ -52,16 +52,16 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
 // Marks:- Parse Query to populate Girls workout table cell
         let query0 = PFQuery(className: "CF_WOD")
         let girlsType = ["The New Girls", "The Benchmark Girls"]
-        let runkey = query0.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: girlsType)
+        let runkey = query0.order(byDescending: "createdAt").whereKey("Workout_Type", containedIn: girlsType)
         //runkey.whereKeyExists("The New Girls")
-        runkey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        runkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil{
                 if let objects = objects as [PFObject]!
                 {
                     for object in objects
                     {
-                        let load = object.valueForKey("WorkOut_Name") as! String
+                        let load = object.value(forKey: "WorkOut_Name") as! String
                         self.GirlArray.append(load)
                     }
                 }
@@ -72,21 +72,21 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             }
             sleep (1)
             self.do_table_refresh()
-            }
+            })
         
 // marks:-  Parse query to get Girl WOD type
         
         let query1 = PFQuery(className: "CF_WOD")
-        let subkey = query1.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: girlsType)
+        let subkey = query1.order(byDescending: "createdAt").whereKey("Workout_Type", containedIn: girlsType)
       //  let subkey = query2.whereKeyExists("Workout_Type")
-        subkey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        subkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil{
                 if let objects = objects as [PFObject]?
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("Workout_Type") as! String
+                        let load = object.object(forKey: "Workout_Type") as! String
                         self.GirlArrayDetails.append(load)
                     }
                 }
@@ -97,21 +97,22 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
         
 // Marks:- Parse Query to get Girl WOD Details
         
         let query01 = PFQuery(className: "CF_WOD")
-        let girlDetailKey = query01.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: girlsType)
+        let girlDetailKey = query01.order(byDescending: "createdAt").whereKey("Workout_Type", containedIn: girlsType)
         //  let subkey = query2.whereKeyExists("Workout_Type")
-        girlDetailKey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        girlDetailKey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+
             if error == nil{
                 if let objects = objects as [PFObject]?
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("Workout_Details") as! String
+                        let load = object.object(forKey: "Workout_Details") as! String
                         self.GirlArrayWODDetails.append(load)
                     }
                 }
@@ -122,20 +123,21 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
 // Marks: Parse query to get Girls Rep
         
         let query001 = PFQuery(className: "CF_WOD")
-        let girlRepKey = query001.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: girlsType)
+        let girlRepKey = query001.order(byDescending: "createdAt").whereKey("Workout_Type", containedIn: girlsType)
         //  let subkey = query2.whereKeyExists("Workout_Type")
-        girlRepKey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        girlRepKey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+
             if error == nil{
                 if let objects = objects as [PFObject]?
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("Workout_Reps") as! String
+                        let load = object.object(forKey: "Workout_Reps") as! String
                         self.GirlArrayWODReps.append(load)
                     }
                 }
@@ -146,7 +148,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
         
 //marks:- Parse query to get Image file
         
@@ -156,15 +158,16 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
         
         let query2 = PFQuery(className: "CF_WOD")
         let heroType = ["Hero"]
-        let heroKey = query2.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: heroType)
-        heroKey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        let heroKey = query2.order(byDescending: "createdAt").whereKey("Workout_Type", containedIn: heroType)
+        heroKey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+
             if error == nil{
                 if let objects = objects as [PFObject]?
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("WorkOut_Name") as! String
+                        let load = object.object(forKey: "WorkOut_Name") as! String
                         self.HeroArray.append(load)
                     }
                 }
@@ -175,19 +178,20 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             }
             sleep (1)
             self.do_table_refresh()
-        }
+        })
 //marks: - Parse query to get  Hero text
         
         let query3 = PFQuery(className: "CF_WOD")
-        let heroDkey = query3.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: heroType)
-        heroDkey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        let heroDkey = query3.order(byDescending: "createdAt").whereKey("Workout_Type", containedIn: heroType)
+        heroDkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+
             if error == nil{
                 if let objects = objects as [PFObject]?
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("Workout_Type") as! String
+                        let load = object.object(forKey: "Workout_Type") as! String
                         self.HeroArrayDetails.append(load)
                     }
                 }
@@ -198,20 +202,21 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
 // Marks:- Parse query to get Hero WOD details
         
         
        let query03 = PFQuery(className: "CF_WOD")
-        let heroDetailkey = query03.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: heroType)
-        heroDetailkey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        let heroDetailkey = query03.order(byDescending: "createdAt").whereKey("Workout_Type", containedIn: heroType)
+        heroDetailkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+
             if error == nil{
                 if let objects = objects as [PFObject]?
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("Workout_Details") as! String
+                        let load = object.object(forKey: "Workout_Details") as! String
                         self.HeroArrayWODDetails.append(load)
                     }
                 }
@@ -222,19 +227,20 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
 //Marks:- Parse query to get Hero WOD reps
         
         let query003 = PFQuery(className: "CF_WOD")
-        let heroRepkey = query003.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: heroType)
-        heroRepkey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        let heroRepkey = query003.order(byDescending: "createdAt").whereKey("Workout_Type", containedIn: heroType)
+        heroRepkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+
             if error == nil{
                 if let objects = objects as [PFObject]?
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("Workout_Reps") as! String
+                        let load = object.object(forKey: "Workout_Reps") as! String
                         self.HeroArrayWODReps.append(load)
                     }
                 }
@@ -245,20 +251,20 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
 //Marks:- Parse query to get Hybrid
         
         let query4 = PFQuery(className: "CF_WOD")
         let hybridType = ["Hybrid"]
-        let hybridkey = query4.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: hybridType)
-        hybridkey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        let hybridkey = query4.order(byDescending: "createdAt").whereKey("Workout_Type", containedIn: hybridType)
+        hybridkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil{
                 if let objects = objects as [PFObject]?
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("WorkOut_Name") as! String
+                        let load = object.object(forKey: "WorkOut_Name") as! String
                         self.HybridArray.append(load)
                     }
                 }
@@ -269,20 +275,21 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             }
             sleep (1)
             self.do_table_refresh()
-        }
+        })
         
 //marks: - Parse Query to get Hybrid text
 
         let query5 = PFQuery(className: "CF_WOD")
-        let hybridDkey = query5.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: hybridType)
-        hybridDkey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        let hybridDkey = query5.order(byDescending: "createdAt").whereKey("Workout_Type", containedIn: hybridType)
+        hybridDkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+
             if error == nil{
                 if let objects = objects as [PFObject]?
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("Workout_Type") as! String
+                        let load = object.object(forKey: "Workout_Type") as! String
                         self.HybridArrayDetails.append(load)
                     }
                 }
@@ -293,19 +300,20 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
 //marks: - Parse Query to get Hybrid deatils
         
         let query05 = PFQuery(className: "CF_WOD")
-        let hybridDetailkey = query05.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: hybridType)
-        hybridDetailkey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        let hybridDetailkey = query05.order(byDescending: "createdAt").whereKey("Workout_Type", containedIn: hybridType)
+        hybridDetailkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+
             if error == nil{
                 if let objects = objects as [PFObject]?
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("Workout_Details") as! String
+                        let load = object.object(forKey: "Workout_Details") as! String
                         self.HybridArrayWODDetails.append(load)
                     }
                 }
@@ -316,19 +324,20 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
 //Marks: - Parse Query to get Hydrid Reps
         
         let query005 = PFQuery(className: "CF_WOD")
-        let hybridRepkey = query005.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: hybridType)
-        hybridRepkey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        let hybridRepkey = query005.order(byDescending: "createdAt").whereKey("Workout_Type", containedIn: hybridType)
+        hybridRepkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+
             if error == nil{
                 if let objects = objects as [PFObject]?
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("Workout_Reps") as! String
+                        let load = object.object(forKey: "Workout_Reps") as! String
                         self.HybridArrayWODReps.append(load)
                     }
                 }
@@ -339,20 +348,21 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
 //Marks: - Parse Query to get Opens
         
         let query6 = PFQuery(className: "CF_WOD")
         let openType = ["Open"]
-        let openkey = query6.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: openType)
-        openkey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        let openkey = query6.order(byDescending: "createdAt").whereKey("Workout_Type", containedIn: openType)
+        openkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+
             if error == nil{
                 if let objects = objects as [PFObject]?
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("WorkOut_Name") as! String
+                        let load = object.object(forKey: "WorkOut_Name") as! String
                         self.OpenArray.append(load)
                     }
                 }
@@ -363,19 +373,20 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             }
             sleep (1)
             self.do_table_refresh()
-        }
+        })
 //Marks: - Parse query to get Open text
         
         let query7 = PFQuery(className: "CF_WOD")
-        let openDkey = query7.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: openType)
-        openDkey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        let openDkey = query7.order(byDescending: "createdAt").whereKey("Workout_Type", containedIn: openType)
+        openDkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+
             if error == nil{
                 if let objects = objects as [PFObject]?
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("Workout_Type") as! String
+                        let load = object.object(forKey: "Workout_Type") as! String
                         self.OpenArrayDetails.append(load)
                     }
                 }
@@ -386,20 +397,21 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
 
 //Marks:- Parse query to get Open Details
         
         let query07 = PFQuery(className: "CF_WOD")
-        let openDetailkey = query07.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: openType)
-        openDetailkey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        let openDetailkey = query07.order(byDescending: "createdAt").whereKey("Workout_Type", containedIn: openType)
+        openDetailkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+
             if error == nil{
                 if let objects = objects as [PFObject]?
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("Workout_Details") as! String
+                        let load = object.object(forKey: "Workout_Details") as! String
                         self.OpenArrayWODDetails.append(load)
                     }
                 }
@@ -410,19 +422,20 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
 //marks:- Parse Query to get Open WOD Reps
         
         let query007 = PFQuery(className: "CF_WOD")
-        let openRepskey = query007.orderByDescending("createdAt").whereKey("Workout_Type", containedIn: openType)
-        openRepskey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        let openRepskey = query007.order(byDescending: "createdAt").whereKey("Workout_Type", containedIn: openType)
+        openRepskey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+
             if error == nil{
                 if let objects = objects as [PFObject]?
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("Workout_Reps") as! String
+                        let load = object.object(forKey: "Workout_Reps") as! String
                         self.OpenArrayWODReps.append(load)
                     }
                 }
@@ -433,7 +446,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
         
     }
 
@@ -441,8 +454,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
     
     func do_table_refresh()
     {
-        dispatch_async(dispatch_get_main_queue(),
-        {
+        DispatchQueue.main.async(execute: {
             self.WodTableView.reloadData()
             return
         })
@@ -456,7 +468,7 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
     
     // Marks: display rows depening on data
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         var returnvaule = 0
         
@@ -482,28 +494,28 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
 
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
     
-        let cell = WodTableView.dequeueReusableCellWithIdentifier("CFWOD", forIndexPath: indexPath)
+        let cell = WodTableView.dequeueReusableCell(withIdentifier: "CFWOD", for: indexPath)
         
         switch(MySegmentedControl.selectedSegmentIndex)
         {
             case 0:
-                cell.textLabel?.text = GirlArray[indexPath.row]
-               cell.detailTextLabel?.text = GirlArrayDetails[indexPath.row]
+                cell.textLabel?.text = GirlArray[(indexPath as NSIndexPath).row]
+               cell.detailTextLabel?.text = GirlArrayDetails[(indexPath as NSIndexPath).row]
                 break
             case 1:
-                cell.textLabel?.text  = HeroArray[indexPath.row]
-                cell.detailTextLabel?.text = HeroArrayDetails[indexPath.row]
+                cell.textLabel?.text  = HeroArray[(indexPath as NSIndexPath).row]
+                cell.detailTextLabel?.text = HeroArrayDetails[(indexPath as NSIndexPath).row]
                 break
             case 2:
-                cell.textLabel?.text = HybridArray[indexPath.row]
-               cell.detailTextLabel?.text = HybridArrayDetails[indexPath.row]
+                cell.textLabel?.text = HybridArray[(indexPath as NSIndexPath).row]
+               cell.detailTextLabel?.text = HybridArrayDetails[(indexPath as NSIndexPath).row]
                 break
             case 3:
-                cell.textLabel?.text = OpenArray[indexPath.row]
-                cell.detailTextLabel?.text = OpenArrayDetails[indexPath.row]
+                cell.textLabel?.text = OpenArray[(indexPath as NSIndexPath).row]
+                cell.detailTextLabel?.text = OpenArrayDetails[(indexPath as NSIndexPath).row]
                 break
             default:
                 break
@@ -516,15 +528,15 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
     
    
     
-    @IBAction func CFListControl(sender: AnyObject)
+    @IBAction func CFListControl(_ sender: AnyObject)
     {
         WodTableView.reloadData()
 
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let WodDetailsVC : WODDetailTableViewController = segue.destinationViewController as! WODDetailTableViewController
-        if let selectedArrayIndex = WodTableView.indexPathForSelectedRow?.row{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let WodDetailsVC : WODDetailTableViewController = segue.destination as! WODDetailTableViewController
+        if let selectedArrayIndex = (WodTableView.indexPathForSelectedRow as NSIndexPath?)?.row{
        
             switch (MySegmentedControl.selectedSegmentIndex){
             case 0:
@@ -532,28 +544,28 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
             WodDetailsVC.WodDetailsLabel = GirlArrayDetails[selectedArrayIndex]
             WodDetailsVC.detailLabel = GirlArrayWODDetails[selectedArrayIndex]
             WodDetailsVC.WODrepsLabel = GirlArrayWODReps[selectedArrayIndex]
-           // WodDetailsVC.WodImageFile = photo[selectedArrayIndex]
+          
             break
             case 1:
             WodDetailsVC.WODNameLabel = HeroArray[selectedArrayIndex]
             WodDetailsVC.WodDetailsLabel = HeroArrayDetails[selectedArrayIndex]
             WodDetailsVC.detailLabel = HeroArrayWODDetails[selectedArrayIndex]
             WodDetailsVC.WODrepsLabel = HeroArrayWODReps[selectedArrayIndex]
-           // WodDetailsVC.WodImageFile = photo[selectedArrayIndex]
+
             break
             case 2:
             WodDetailsVC.WODNameLabel = HybridArray[selectedArrayIndex]
             WodDetailsVC.WodDetailsLabel = HybridArrayDetails[selectedArrayIndex]
             WodDetailsVC.detailLabel = HybridArrayWODDetails[selectedArrayIndex]
             WodDetailsVC.WODrepsLabel = HybridArrayWODReps[selectedArrayIndex]
-           // WodDetailsVC.WodImageFile = photo[selectedArrayIndex]
+
             break
             case 3:
             WodDetailsVC.WODNameLabel = OpenArray[selectedArrayIndex]
             WodDetailsVC.WodDetailsLabel = OpenArrayDetails[selectedArrayIndex]
             WodDetailsVC.detailLabel = OpenArrayWODDetails[selectedArrayIndex]
             WodDetailsVC.WODrepsLabel = OpenArrayWODReps[selectedArrayIndex]
-           // WodDetailsVC.WodImageFile = photo[selectedArrayIndex]
+
             break
             default:
             break
@@ -562,5 +574,4 @@ class WODTableViewController:UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 }
-
 

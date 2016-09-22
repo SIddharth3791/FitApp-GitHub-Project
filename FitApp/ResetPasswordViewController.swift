@@ -14,19 +14,19 @@ class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailField: UITextField!
     
-    @IBAction func passwordReset(sender: AnyObject) {
+    @IBAction func passwordReset(_ sender: AnyObject) {
         let email = self.emailField.text
-        let finalEmail = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        let finalEmail = email!.trimmingCharacters(in: CharacterSet.whitespaces)
         
         // Send a request to reset a password
-        PFUser.requestPasswordResetForEmailInBackground(finalEmail)
+        PFUser.requestPasswordResetForEmail(inBackground: finalEmail)
         
-        let alert = UIAlertController (title: "Password Reset", message: "An email containing information on how to reset your password has been sent to " + finalEmail + ".", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+        let alert = UIAlertController (title: "Password Reset", message: "An email containing information on how to reset your password has been sent to " + finalEmail + ".", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }

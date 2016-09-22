@@ -15,8 +15,13 @@ class LegsTableViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var legSegment: UISegmentedControl!
     @IBOutlet var legTableView: UITableView!
 
+    //quads
     var QuadsArray = [String]()
+    var QuadArrayReps = [String]()
+    
+    //Hamstring
     var HamstringArray = [String]()
+    var HamStringArrayReps = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,16 +29,16 @@ class LegsTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let query0 = PFQuery(className: "Workout_Planlist")
         let QuadsType = ["Quads"]
-        let runkey = query0.orderByDescending("createdAt").whereKey("BodyType", containedIn: QuadsType)
+        let runkey = query0.order(byDescending: "createdAt").whereKey("BodyType", containedIn: QuadsType)
         
-        runkey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        runkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil{
-                if var objects = objects as [PFObject]!
+                if let objects = objects as [PFObject]!
                 {
                     for object in objects
                     {
-                        let load = object.valueForKey("WorkoutName") as! String
+                        let load = object.value(forKey: "WorkoutName") as! String
                         self.QuadsArray.append(load)
                     }
                 }
@@ -44,20 +49,43 @@ class LegsTableViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
         
-        let query1 = PFQuery(className: "Workout_Planlist")
-        let HamStringsType = ["HamStrings"]
-        let hamkey = query1.orderByDescending("createdAt").whereKey("BodyType", containedIn: HamStringsType)
+        let query00 = PFQuery(className: "Workout_Planlist")
+        let QuadsRepkey = query00.order(byDescending: "createdAt").whereKey("BodyType", containedIn: QuadsType)
         
-        hamkey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        QuadsRepkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil{
-                if var objects = objects as [PFObject]!
+                if let objects = objects as [PFObject]!
                 {
                     for object in objects
                     {
-                        let load = object.valueForKey("WorkoutName") as! String
+                        let load = object.value(forKey: "WorkoutReps") as! String
+                        self.QuadArrayReps.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (0)
+            self.do_table_refresh()
+        })
+        
+        let query1 = PFQuery(className: "Workout_Planlist")
+        let HamStringsType = ["HamStrings"]
+        let hamkey = query1.order(byDescending: "createdAt").whereKey("BodyType", containedIn: HamStringsType)
+        
+        hamkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]!
+                {
+                    for object in objects
+                    {
+                        let load = object.value(forKey: "WorkoutName") as! String
                         self.HamstringArray.append(load)
                     }
                 }
@@ -68,13 +96,36 @@ class LegsTableViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
+        
+        let query11 = PFQuery(className: "Workout_Planlist")
+        let hamRepskey = query11.order(byDescending: "createdAt").whereKey("BodyType", containedIn: HamStringsType)
+        
+        hamRepskey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]!
+                {
+                    for object in objects
+                    {
+                        let load = object.value(forKey: "WorkoutReps") as! String
+                        self.HamStringArrayReps.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (0)
+            self.do_table_refresh()
+        })
+
     }
     
     func do_table_refresh()
     {
-        dispatch_async(dispatch_get_main_queue(),
-            {
+        DispatchQueue.main.async(execute: {
                 self.legTableView.reloadData()
                 return
         })
@@ -86,7 +137,7 @@ class LegsTableViewController: UIViewController, UITableViewDelegate, UITableVie
         super.didReceiveMemoryWarning()
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         var returnvaule = 0
         switch(legSegment.selectedSegmentIndex)
@@ -103,17 +154,17 @@ class LegsTableViewController: UIViewController, UITableViewDelegate, UITableVie
         return returnvaule
         
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        var cell = legTableView.dequeueReusableCellWithIdentifier("legs", forIndexPath: indexPath)
+        let cell = legTableView.dequeueReusableCell(withIdentifier: "legs", for: indexPath)
         
         switch(legSegment.selectedSegmentIndex)
         {
         case 0:
-            cell.textLabel?.text = QuadsArray[indexPath.row]
+            cell.textLabel?.text = QuadsArray[(indexPath as NSIndexPath).row]
             break
         case 1:
-            cell.textLabel?.text = HamstringArray[indexPath.row]
+            cell.textLabel?.text = HamstringArray[(indexPath as NSIndexPath).row]
             break
         default:
             break
@@ -121,21 +172,23 @@ class LegsTableViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
         
     }
-    @IBAction func LegList(sender: AnyObject) {
+    @IBAction func LegList(_ sender: AnyObject) {
         
         legTableView.reloadData()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var BodypartDetails: DetailBodyTableViewController = segue.destinationViewController as! DetailBodyTableViewController
-        if let selectArrayIndex = legTableView.indexPathForSelectedRow?.row{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let BodypartDetails: DetailBodyTableViewController = segue.destination as! DetailBodyTableViewController
+        if let selectArrayIndex = (legTableView.indexPathForSelectedRow as NSIndexPath?)?.row{
             switch(legSegment.selectedSegmentIndex)
             {
             case 0:
                 BodypartDetails.label = QuadsArray[selectArrayIndex]
+                BodypartDetails.Reps = QuadArrayReps[selectArrayIndex]
                 break
             case 1:
                 BodypartDetails.label = HamstringArray[selectArrayIndex]
+                BodypartDetails.Reps = HamStringArrayReps[selectArrayIndex]
                 break
             
             default:

@@ -16,24 +16,30 @@ class BackTableViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var BackTableView: UITableView!
     @IBOutlet weak var BackSegment: UISegmentedControl!
     
+    //Upper
     var UpperBackArray = [String]()
+    var UpperBackArrayReps = [String]()
+    
+    //Lower
     var LowerBackArray = [String]()
+    var LowerBackArrayReps = [String]()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let query0 = PFQuery(className: "Workout_Planlist")
         let uBackType = ["Upper Back"]
-        let runkey = query0.orderByDescending("createdAt").whereKey("BodyType", containedIn: uBackType)
+        let runkey = query0.order(byDescending: "createdAt").whereKey("BodyType", containedIn: uBackType)
         
-        runkey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        runkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil{
                 if let objects = objects as [PFObject]!
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("WorkoutName")  as! String
+                        let load = object.object(forKey: "WorkoutName")  as! String
                         self.UpperBackArray.append(load)
                     }
                 }
@@ -44,20 +50,43 @@ class BackTableViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
         
-        let query1 = PFQuery(className: "Workout_Planlist")
-        let lBackType = ["Lower Back"]
-        let Glukey = query1.orderByDescending("createdAt").whereKey("BodyType", containedIn: lBackType)
+        let query00 = PFQuery(className: "Workout_Planlist")
+        let UpperBackRepskey = query00.order(byDescending: "createdAt").whereKey("BodyType", containedIn: uBackType)
         
-        Glukey.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?)-> Void in
+        UpperBackRepskey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
             if error == nil{
                 if let objects = objects as [PFObject]!
                 {
                     for object in objects
                     {
-                        let load = object.objectForKey("WorkoutName") as! String
+                        let load = object.object(forKey: "WorkoutReps")  as! String
+                        self.UpperBackArrayReps.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (0)
+            self.do_table_refresh()
+        })
+        
+        let query1 = PFQuery(className: "Workout_Planlist")
+        let lBackType = ["Lower Back"]
+        let Glukey = query1.order(byDescending: "createdAt").whereKey("BodyType", containedIn: lBackType)
+        
+        Glukey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]!
+                {
+                    for object in objects
+                    {
+                        let load = object.object(forKey: "WorkoutName") as! String
                         self.LowerBackArray.append(load)
                     }
                 }
@@ -68,12 +97,34 @@ class BackTableViewController: UIViewController, UITableViewDelegate, UITableVie
             }
             sleep (0)
             self.do_table_refresh()
-        }
+        })
+        
+        let query11 = PFQuery(className: "Workout_Planlist")
+        let lowerBackRepkey = query11.order(byDescending: "createdAt").whereKey("BodyType", containedIn: lBackType)
+        
+        lowerBackRepkey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]!
+                {
+                    for object in objects
+                    {
+                        let load = object.object(forKey: "WorkoutReps") as! String
+                        self.LowerBackArrayReps.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (0)
+            self.do_table_refresh()
+        })
     }
     func do_table_refresh()
     {
-        dispatch_async(dispatch_get_main_queue(),
-            {
+        DispatchQueue.main.async(execute: {
                 self.BackTableView.reloadData()
                 return
         })
@@ -83,7 +134,7 @@ class BackTableViewController: UIViewController, UITableViewDelegate, UITableVie
         super.didReceiveMemoryWarning()
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         var returnvaule = 0
         switch(BackSegment.selectedSegmentIndex)
@@ -99,17 +150,17 @@ class BackTableViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         return returnvaule
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        var cell = BackTableView.dequeueReusableCellWithIdentifier("Back", forIndexPath: indexPath)
+        let cell = BackTableView.dequeueReusableCell(withIdentifier: "Back", for: indexPath)
         
         switch(BackSegment.selectedSegmentIndex)
         {
         case 0:
-            cell.textLabel?.text = UpperBackArray[indexPath.row]
+            cell.textLabel?.text = UpperBackArray[(indexPath as NSIndexPath).row]
             break
         case 1:
-            cell.textLabel?.text = LowerBackArray[indexPath.row]
+            cell.textLabel?.text = LowerBackArray[(indexPath as NSIndexPath).row]
             break
         default:
             break
@@ -117,22 +168,24 @@ class BackTableViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-    @IBAction func BackList(sender: AnyObject) {
+    @IBAction func BackList(_ sender: AnyObject) {
         
         BackTableView.reloadData()
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var BodyVC: DetailBodyTableViewController = segue.destinationViewController as!
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let BodyVC: DetailBodyTableViewController = segue.destination as!
         DetailBodyTableViewController
        
-         if let selectedArrayIndex = BackTableView.indexPathForSelectedRow?.row{
+         if let selectedArrayIndex = (BackTableView.indexPathForSelectedRow as NSIndexPath?)?.row{
             switch(BackSegment.selectedSegmentIndex)
                 {
-                    case 0:
-                    BodyVC.label = UpperBackArray[selectedArrayIndex]
+                case 0:
+                BodyVC.label = UpperBackArray[selectedArrayIndex]
+                BodyVC.Reps = UpperBackArrayReps[selectedArrayIndex]
                 break
             case 1:
                 BodyVC.label = LowerBackArray[selectedArrayIndex]
+                BodyVC.Reps = LowerBackArrayReps[selectedArrayIndex]
                 break
             default:
                 break

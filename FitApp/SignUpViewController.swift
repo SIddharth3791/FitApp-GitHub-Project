@@ -9,6 +9,17 @@
 import Foundation
 import UIKit
 import Parse
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailField: UITextField!
@@ -18,18 +29,18 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
-    @IBAction func signUpAction(sender: AnyObject)
+    @IBAction func signUpAction(_ sender: AnyObject)
     {
         
         let username = self.usernameField.text
         let password = self.passwordField.text
         let email = self.emailField.text
         
-        let finalEmail = email!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        let finalEmail = email!.trimmingCharacters(in: CharacterSet.whitespaces)
         
         // Validate the text fields
         if username?.utf16.count < 5 {
@@ -46,7 +57,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             
         } else {
             // Run a spinner to show a task in progress
-            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
+            let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 150, height: 150)) as UIActivityIndicatorView
             spinner.startAnimating()
             
             let newUser = PFUser()
@@ -56,7 +67,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             newUser.email = finalEmail
             
             // Sign up the user asynchronously
-            newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
+            newUser.signUpInBackground(block: { (succeed, error) -> Void in
                 
                 // Stop the spinner
                 spinner.stopAnimating()
@@ -67,15 +78,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 } else {
                     //Trying ACL --------------> ACL is used to make CurrentUser retrieve own data.
                     
-                    PFACL.setDefaultACL(PFACL(), withAccessForCurrentUser: true )
-                    PFUser.currentUser()!.saveInBackground()
+                    PFACL.setDefault(PFACL(), withAccessForCurrentUser: true )
+                    PFUser.current()!.saveInBackground()
                     
                     
                     let alert = UIAlertView(title: "Success", message: "Signed Up", delegate: self, cancelButtonTitle: "OK")
                     alert.show()
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home") 
-                        self.presentViewController(viewController, animated: true, completion: nil)
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home") 
+                        self.present(viewController, animated: true, completion: nil)
                     })
                 }
             })
@@ -86,7 +97,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
