@@ -20,10 +20,12 @@ class ChestTableViewController: UIViewController, UITableViewDataSource, UITable
     //upper chest
     var UpperChestArray = [String]()
     var UpperChestArrayReps = [String]()
+    var UpperchestArrayDetails = [String]()
     
     //lower chest
     var LowerChestArray = [String]()
     var LowerChestArrayReps = [String]()
+    var LowerChestArrayDetails = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +78,30 @@ class ChestTableViewController: UIViewController, UITableViewDataSource, UITable
             self.do_table_refresh()
         })
         
+        let query000 = PFQuery(className: "Workout_Planlist")
+        let ChestDetailsskey = query000.order(byDescending: "createdAt").whereKey("BodyType", containedIn: ChestType)
+        
+        ChestDetailsskey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]!
+                {
+                    for object in objects
+                    {
+                        let load = object.value(forKey: "WorkoutDetails") as! String
+                        self.UpperchestArrayDetails.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (0)
+            self.do_table_refresh()
+        })
+        
+        
         let query1 = PFQuery(className: "Workout_Planlist")
         let ChestTypeLower = ["Lower Chest"]
         let LCkey = query1.order(byDescending: "createdAt").whereKey("BodyType", containedIn: ChestTypeLower)
@@ -112,6 +138,29 @@ class ChestTableViewController: UIViewController, UITableViewDataSource, UITable
                     {
                         let load = object.value(forKey: "WorkoutReps") as! String
                         self.LowerChestArrayReps.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (0)
+            self.do_table_refresh()
+        })
+        
+        let query111 = PFQuery(className: "Workout_Planlist")
+        let LCDetailskey = query111.order(byDescending: "createdAt").whereKey("BodyType", containedIn: ChestTypeLower)
+        
+        LCDetailskey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]!
+                {
+                    for object in objects
+                    {
+                        let load = object.value(forKey: "WorkoutDetails") as! String
+                        self.LowerChestArrayDetails.append(load)
                     }
                 }
                 else
@@ -184,9 +233,13 @@ class ChestTableViewController: UIViewController, UITableViewDataSource, UITable
             {
             case 0:
                 BodypartDetails.label = UpperChestArray[selectArrayIndex]
+                BodypartDetails.Reps = UpperChestArrayReps[selectArrayIndex]
+                BodypartDetails.details = UpperchestArrayDetails[selectArrayIndex]
                 break
             case 1:
                 BodypartDetails.label = LowerChestArray[selectArrayIndex]
+                BodypartDetails.Reps = LowerChestArrayReps[selectArrayIndex]
+                BodypartDetails.details = LowerChestArrayDetails[selectArrayIndex]
                 break
             default:
                 break

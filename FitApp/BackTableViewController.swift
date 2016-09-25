@@ -19,10 +19,12 @@ class BackTableViewController: UIViewController, UITableViewDelegate, UITableVie
     //Upper
     var UpperBackArray = [String]()
     var UpperBackArrayReps = [String]()
+    var UpperBackArrayDetails = [String]()
     
     //Lower
     var LowerBackArray = [String]()
     var LowerBackArrayReps = [String]()
+    var LowerBackArrayDetails = [String]()
 
     
     override func viewDidLoad() {
@@ -75,6 +77,29 @@ class BackTableViewController: UIViewController, UITableViewDelegate, UITableVie
             self.do_table_refresh()
         })
         
+        let query000 = PFQuery(className: "Workout_Planlist")
+        let UpperBackDetailskey = query000.order(byDescending: "createdAt").whereKey("BodyType", containedIn: uBackType)
+        
+        UpperBackDetailskey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]!
+                {
+                    for object in objects
+                    {
+                        let load = object.object(forKey: "WorkoutDetails")  as! String
+                        self.UpperBackArrayDetails.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (0)
+            self.do_table_refresh()
+        })
+        
         let query1 = PFQuery(className: "Workout_Planlist")
         let lBackType = ["Lower Back"]
         let Glukey = query1.order(byDescending: "createdAt").whereKey("BodyType", containedIn: lBackType)
@@ -111,6 +136,30 @@ class BackTableViewController: UIViewController, UITableViewDelegate, UITableVie
                     {
                         let load = object.object(forKey: "WorkoutReps") as! String
                         self.LowerBackArrayReps.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (0)
+            self.do_table_refresh()
+        })
+        
+        
+        let query111 = PFQuery(className: "Workout_Planlist")
+        let lowerBackDetailskey = query111.order(byDescending: "createdAt").whereKey("BodyType", containedIn: lBackType)
+        
+        lowerBackDetailskey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]!
+                {
+                    for object in objects
+                    {
+                        let load = object.object(forKey: "WorkoutDetails") as! String
+                        self.LowerBackArrayDetails.append(load)
                     }
                 }
                 else
@@ -182,10 +231,12 @@ class BackTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 case 0:
                 BodyVC.label = UpperBackArray[selectedArrayIndex]
                 BodyVC.Reps = UpperBackArrayReps[selectedArrayIndex]
+                BodyVC.details = UpperBackArrayDetails[selectedArrayIndex]
                 break
             case 1:
                 BodyVC.label = LowerBackArray[selectedArrayIndex]
                 BodyVC.Reps = LowerBackArrayReps[selectedArrayIndex]
+                BodyVC.details = LowerBackArrayDetails[selectedArrayIndex]
                 break
             default:
                 break

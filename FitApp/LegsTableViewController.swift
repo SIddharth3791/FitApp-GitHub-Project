@@ -18,10 +18,12 @@ class LegsTableViewController: UIViewController, UITableViewDelegate, UITableVie
     //quads
     var QuadsArray = [String]()
     var QuadArrayReps = [String]()
+    var QuadArrayDetails = [String]()
     
     //Hamstring
     var HamstringArray = [String]()
     var HamStringArrayReps = [String]()
+    var HamStringArrayDetails = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +76,29 @@ class LegsTableViewController: UIViewController, UITableViewDelegate, UITableVie
             self.do_table_refresh()
         })
         
+        let query000 = PFQuery(className: "Workout_Planlist")
+        let QuadsDetailskey = query000.order(byDescending: "createdAt").whereKey("BodyType", containedIn: QuadsType)
+        
+        QuadsDetailskey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]!
+                {
+                    for object in objects
+                    {
+                        let load = object.value(forKey: "WorkoutDetails") as! String
+                        self.QuadArrayDetails.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (0)
+            self.do_table_refresh()
+        })
+        
         let query1 = PFQuery(className: "Workout_Planlist")
         let HamStringsType = ["HamStrings"]
         let hamkey = query1.order(byDescending: "createdAt").whereKey("BodyType", containedIn: HamStringsType)
@@ -110,6 +135,28 @@ class LegsTableViewController: UIViewController, UITableViewDelegate, UITableVie
                     {
                         let load = object.value(forKey: "WorkoutReps") as! String
                         self.HamStringArrayReps.append(load)
+                    }
+                }
+                else
+                {
+                    print ("error")
+                }
+            }
+            sleep (0)
+            self.do_table_refresh()
+        })
+        let query111 = PFQuery(className: "Workout_Planlist")
+        let hamDetailskey = query111.order(byDescending: "createdAt").whereKey("BodyType", containedIn: HamStringsType)
+        
+        hamDetailskey.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]!
+                {
+                    for object in objects
+                    {
+                        let load = object.value(forKey: "WorkoutDetails") as! String
+                        self.HamStringArrayDetails.append(load)
                     }
                 }
                 else
@@ -185,10 +232,12 @@ class LegsTableViewController: UIViewController, UITableViewDelegate, UITableVie
             case 0:
                 BodypartDetails.label = QuadsArray[selectArrayIndex]
                 BodypartDetails.Reps = QuadArrayReps[selectArrayIndex]
+                BodypartDetails.details = QuadArrayDetails[selectArrayIndex]
                 break
             case 1:
                 BodypartDetails.label = HamstringArray[selectArrayIndex]
                 BodypartDetails.Reps = HamStringArrayReps[selectArrayIndex]
+                BodypartDetails.details = HamStringArrayDetails[selectArrayIndex]
                 break
             
             default:
