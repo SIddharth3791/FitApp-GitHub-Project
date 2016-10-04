@@ -10,19 +10,19 @@ import UIKit
 
 class AddFoodCaloriesViewController: UIViewController {
 
+    var FoodtableView : FoodTableViewController?
+    
     //Slider for breakfast, Lunch & Dinner
     @IBOutlet weak var FoodTitle: UILabel!
     @IBOutlet weak var FoodCalories: UILabel!
     @IBOutlet weak var FoodCalSlider: UISlider!
     
-    //Button to add Food
-    @IBOutlet weak var AddFoodCal: UIButton!
     
     var Ftitle = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FoodTitle.text = Ftitle
+        //FoodTitle.text = Ftitle
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +40,13 @@ class AddFoodCaloriesViewController: UIViewController {
     }
     
     @IBAction func AddFoodButton(_ sender: UIButton) {
-        
+        let newFood: String = "Quick Calories"
+        let NewFoodCal: String = FoodCalories.text!
+        FoodtableView?.addFood(newfood: newFood, newcal: NewFoodCal)
+        NSLog("----------->\(newFood)")
+        NSLog("----------->\(NewFoodCal)")
+        self.presentingViewController?.dismiss(animated:true, completion: nil)
+    
         }
 
         

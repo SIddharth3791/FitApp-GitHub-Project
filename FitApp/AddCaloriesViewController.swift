@@ -26,6 +26,9 @@ class AddCaloriesViewController: UIViewController,UITableViewDelegate, UITableVi
     // +AddFood Buttons
     @IBOutlet weak var BreakfastFoodAdd: UIButton!
     
+    @IBOutlet weak var BreakFastLabel: UILabel!
+    @IBOutlet weak var BreakFastCal: UILabel!
+    
     //TabelViews
     @IBOutlet weak var BreakfastTable: UITableView!
     
@@ -91,7 +94,8 @@ class AddCaloriesViewController: UIViewController,UITableViewDelegate, UITableVi
   
     @IBAction func AddBreakfast(_ sender: AnyObject) {
         
-        Breakfastfood.append(Item(name: "food Item", amount: 100))
+        var BreakFastL = "Rice"
+        Breakfastfood.append(Item(name: BreakFastL, amount: 100))
         self.BreakfastTable.reloadData()
         updateCount()
     }
@@ -223,6 +227,13 @@ class AddCaloriesViewController: UIViewController,UITableViewDelegate, UITableVi
         return .none
     }
     
+    func AddFoodDidFinish(FoodName: String, type: String, controller: FoodNutritionViews) {
+        
+        BreakFastLabel.text = type
+        controller.navigationController?.popViewController(animated: true)
+        BreakfastTable.reloadData()
+        
+    }
     
     
     
