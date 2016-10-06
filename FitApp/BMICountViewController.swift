@@ -20,8 +20,15 @@ class BMICountViewController: UIViewController {
     @IBOutlet weak var Bmi3InfoTxt: UILabel!
     @IBOutlet weak var previousBMI: UILabel!
     
+    
+    @IBOutlet weak var CaloriesNeeded: UILabel!
+    @IBOutlet weak var TotalCalories: UILabel!
+    
+    
     override func viewDidLoad()  {
         super.viewDidLoad()
+        CaloriesNeeded.isHidden = true
+        TotalCalories.isHidden = true
         getPreviousBMI()
 
     }
@@ -48,29 +55,43 @@ class BMICountViewController: UIViewController {
                 self.Bmi1InfoTxt.text =  pUserName + " You Fall Under";
                 Bmi2InfoTxt.text = "UNDERWEIGHT";
                 Bmi3InfoTxt.text = "Category";
+                TotalCalories.text = "3500"
+                CaloriesNeeded.isHidden = false
+                TotalCalories.isHidden = false
             }else if (BMImodel.bmi() >= 18.6 && BMImodel.bmi() <= 24.9)
 // Marks:- Anything under 18 to 24.9 BMI..
             {
                 self.Bmi1InfoTxt.text = pUserName + " You Fall Under";
                 Bmi2InfoTxt.text = "NORMAL";
                 Bmi3InfoTxt.text = "Category";
+                TotalCalories.text = "3000"
+                CaloriesNeeded.isHidden = false
+                TotalCalories.isHidden = false
             } else if (BMImodel.bmi() >= 25 && BMImodel.bmi() <= 29.9)
 // Marks:- Anything under 25 to 29.9 BMI..
             {
                 self.Bmi1InfoTxt.text = pUserName + " You Fall Under";
                 Bmi2InfoTxt.text = "OVERWEIGHT";
                 Bmi3InfoTxt.text = "Category";
+                TotalCalories.text = "2500"
+                CaloriesNeeded.isHidden = false
+                TotalCalories.isHidden = false
             }else
 // Marks:- Anything under 30 BMI plus...
             {
                 self.Bmi1InfoTxt.text = pUserName + " You Fall Under";
                 Bmi2InfoTxt.text = "OBESITY";
                 Bmi3InfoTxt.text = "Category";
+                TotalCalories.text = "2200"
+                CaloriesNeeded.isHidden = false
+                TotalCalories.isHidden = false
             }
             
            
             let User = PFUser.current()
             User!["BMI"] = ResultBMITxt.text
+            User?.saveInBackground()
+            User!["DailyCalories"] = TotalCalories.text
             User?.saveInBackground()
         }
     }

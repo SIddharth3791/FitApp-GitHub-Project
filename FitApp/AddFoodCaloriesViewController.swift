@@ -13,7 +13,7 @@ class AddFoodCaloriesViewController: UIViewController {
     var FoodtableView : FoodTableViewController?
     
     //Slider for breakfast, Lunch & Dinner
-    @IBOutlet weak var FoodTitle: UILabel!
+    
     @IBOutlet weak var FoodCalories: UILabel!
     @IBOutlet weak var FoodCalSlider: UISlider!
     
@@ -34,7 +34,7 @@ class AddFoodCaloriesViewController: UIViewController {
         
         let SliderBreakfast = FoodCalSlider.value
         let sliderTotal = SliderBreakfast + 0
-        let SumOfAllSliderCalFormat: NSString = NSString(format: "%0.2f", sliderTotal)
+        let SumOfAllSliderCalFormat: NSString = NSString(format: "%02.0f", sliderTotal)
         
         FoodCalories.text = "\(SumOfAllSliderCalFormat)"
     }

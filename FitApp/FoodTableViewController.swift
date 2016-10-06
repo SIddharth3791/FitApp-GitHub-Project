@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class FoodTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate{
 
@@ -20,9 +22,11 @@ class FoodTableViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var caloriesAteLabel: UILabel!
     @IBOutlet weak var CaloriesConsumedInEnd: UILabel!
     
+    @IBOutlet weak var foodEditingButton: UIButton!
     
     var foodArray = [String]()
     var foodCalArray = [String]()
+    var isEditingfood = false
     
     func addFood(newfood: String, newcal: String) {
         foodArray.append(newfood as String)
@@ -34,11 +38,35 @@ class FoodTableViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        foodArray =  ["Pizza", "Brown rice", "Whole Milk"]
-        foodCalArray = ["345", "450","550"]
+        foodArray =  ["Pizza"]
+        foodCalArray = ["345"]
+        
+        let findTotalCaloriesData: PFQuery = PFQuery(className: "_User")
+        findTotalCaloriesData.whereKey("username", equalTo: PFUser.current()!.username!)
+        findTotalCaloriesData.whereKeyExists("DailyCalories")
+        findTotalCaloriesData.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]?
+                {
+                    for object in objects
+                    {
+                        let UserCalLoad = object.value(forKey: "DailyCalories") as! String
+                        self.TotalCaloriesLabel.text = UserCalLoad
+                    }
+                }
+            }
+        })
+    
+
         
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updatecalContingMethod()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
@@ -62,12 +90,22 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     
     let cell = tableView.dequeueReusableCell(withIdentifier: "Breakfast", for: indexPath)
 
-        let rowNumber = indexPath.row
+        let rowNumber = (indexPath as NSIndexPath).row
         let food = foodArray[rowNumber]
         let cal = foodCalArray[rowNumber]
         cell.textLabel!.text = food
         cell.detailTextLabel?.text = cal
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == UITableViewCellEditingStyle.delete{
+            foodCalArray.remove(at: indexPath.row)
+           FoodTableTV.reloadData()
+        }
+        
+        
     }
     
     
@@ -83,8 +121,45 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         }
     }
 
+    //Marks:- Update count of calories
+    func updatecalContingMethod(){
+        
+        var DoubleFoodCalArray = 0
+        
+        for element in foodCalArray{
+            DoubleFoodCalArray += Int(element)!
+        }
+        
+        caloriesAteLabel.text = String(DoubleFoodCalArray)
+        let Caloriesleft = Int(TotalCaloriesLabel.text!)! - DoubleFoodCalArray
+        CaloriesConsumedInEnd.text = String(Caloriesleft)
+        
+    }
     
-
+    //Marks:- Edit Button and change table view
+    @IBAction func EditButtonClicked(_ sender: AnyObject) {
+        
+        if isEditingfood == true{
+            sender.setTitle("Edit", for: UIControlState())
+            self.FoodTableTV?.setEditing(false, animated: false)
+            isEditingfood = false
+            updatecalContingMethod()
+        }
+        else{
+            sender.setTitle("Done", for: UIControlState())
+            self.FoodTableTV?.setEditing(true, animated: false)
+            isEditingfood = true
+            updatecalContingMethod()
+        }
+        self.FoodTableTV.reloadData()
+        
+    }
+    
+    
+    
+    @IBAction  func unwindForSegueCalCounter(_ unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+        
+    }
     
 
 }

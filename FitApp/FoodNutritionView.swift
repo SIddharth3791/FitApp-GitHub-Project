@@ -145,7 +145,8 @@ class FoodNutritionViews: UIViewController, UITextFieldDelegate,UITableViewDeleg
         
         //Update Cal label with total Nutrition
         let TotalCal: Double = (SizeCount! * CalUpdated!)
-        FoodCalText.text = "\(TotalCal)"
+        let IntTotalCall = Int(TotalCal)
+        FoodCalText.text = "\(IntTotalCall)"
         
     }
     
