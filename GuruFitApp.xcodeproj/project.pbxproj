@@ -70,6 +70,8 @@
 		1FCB2C3F1C7702B9007DDDF9 /* BackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB2C3E1C7702B9007DDDF9 /* BackTableViewController.swift */; };
 		1FCC7E8B1D9F25EF00800C8D /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCC7E8A1D9F25EF00800C8D /* DismissSegue.swift */; };
 		1FED8A141D9C92080009D94D /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED8A131D9C92080009D94D /* FoodTableViewController.swift */; };
+		1FF11AE81DA6D7FA00990963 /* MapFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF11AE71DA6D7FA00990963 /* MapFoodViewController.swift */; };
+		1FF11AEA1DA72F8400990963 /* MapSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF11AE91DA72F8400990963 /* MapSearchTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +140,8 @@
 		1FCB2C3E1C7702B9007DDDF9 /* BackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackTableViewController.swift; sourceTree = "<group>"; };
 		1FCC7E8A1D9F25EF00800C8D /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		1FED8A131D9C92080009D94D /* FoodTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTableViewController.swift; sourceTree = "<group>"; };
+		1FF11AE71DA6D7FA00990963 /* MapFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFoodViewController.swift; sourceTree = "<group>"; };
+		1FF11AE91DA72F8400990963 /* MapSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearchTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +216,7 @@
 		1F1801141BFD6DF300E5379F /* Cal Counter/Maps */ = {
 			isa = PBXGroup;
 			children = (
+				1FF11AE61DA6D72B00990963 /*  Food Map */,
 				1FA4FBAC1C8FFC240052BF04 /* Cal Counter */,
 				1FA4FBAB1C8FFC180052BF04 /* Maps */,
 			);
@@ -388,6 +393,15 @@
 			name = "Body Part Table View";
 			sourceTree = "<group>";
 		};
+		1FF11AE61DA6D72B00990963 /*  Food Map */ = {
+			isa = PBXGroup;
+			children = (
+				1FF11AE71DA6D7FA00990963 /* MapFoodViewController.swift */,
+				1FF11AE91DA72F8400990963 /* MapSearchTableViewController.swift */,
+			);
+			name = " Food Map";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -481,9 +495,11 @@
 				1F1801161BFD7CBE00E5379F /* CFViewController.swift in Sources */,
 				1F1801401BFFBDF900E5379F /* TimeKeeperView.swift in Sources */,
 				1FED8A141D9C92080009D94D /* FoodTableViewController.swift in Sources */,
+				1FF11AE81DA6D7FA00990963 /* MapFoodViewController.swift in Sources */,
 				1F7926A01C6AB375003136E7 /* WorkoutPlanFrontBack.swift in Sources */,
 				1FCB2C311C758939007DDDF9 /* ArmTableViewController.swift in Sources */,
 				1F12B89F1D91A5B500B87CC1 /* BreakfastCell.swift in Sources */,
+				1FF11AEA1DA72F8400990963 /* MapSearchTableViewController.swift in Sources */,
 				1F8F5F671D2F436500892F8C /* MapPinDetailViewController.swift in Sources */,
 				1F93910B1BED7DF6007F7E0E /* MapView.swift in Sources */,
 				1F3B66641D8B9F020041077F /* AddCaloriesViewController.swift in Sources */,

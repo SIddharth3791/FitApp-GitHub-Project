@@ -12,6 +12,11 @@ import ParseUI
 
 class FoodTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate{
 
+    
+    //Delegate to delete Rows
+    
+       var deletePlanetIndexPath: NSIndexPath? = nil
+    
     //TableView controller
     @IBOutlet weak var FoodTableTV: UITableView!
     
@@ -22,7 +27,6 @@ class FoodTableViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var caloriesAteLabel: UILabel!
     @IBOutlet weak var CaloriesConsumedInEnd: UILabel!
     
-    @IBOutlet weak var foodEditingButton: UIButton!
     
     var foodArray = [String]()
     var foodCalArray = [String]()
@@ -37,9 +41,10 @@ class FoodTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        foodArray =  ["Pizza"]
-        foodCalArray = ["345"]
+        updatecalContingMethod()
+        getPreviousCalories()
+       // foodArray =  ["Pizza"]
+       // foodCalArray = ["345"]
         
         let findTotalCaloriesData: PFQuery = PFQuery(className: "_User")
         findTotalCaloriesData.whereKey("username", equalTo: PFUser.current()!.username!)
@@ -85,6 +90,7 @@ class FoodTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     }
 
+//Marks:- Delete or cancel Food Item entry.
     
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
@@ -101,12 +107,49 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == UITableViewCellEditingStyle.delete{
-            foodCalArray.remove(at: indexPath.row)
-           FoodTableTV.reloadData()
+            deletePlanetIndexPath = indexPath as NSIndexPath?
+            let FoodTodelete = foodCalArray[indexPath.row]
+            confirmDelete(Food:FoodTodelete)
+            FoodTableTV.reloadData()
         }
+    }
+    
+    func confirmDelete(Food: String) {
+        let alert = UIAlertController(title: "Delete Food", message: "Are you sure you want to permanently delete?", preferredStyle: .actionSheet)
+        
+        let DeleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: handleDeleteFood)
+        let CancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: cancelDeleteFood)
+        
+        alert.addAction(DeleteAction)
+        alert.addAction(CancelAction)
+        
+        alert.popoverPresentationController?.sourceView = self.view
+        self.present(alert, animated: true, completion: nil)
         
         
     }
+    
+    
+    func handleDeleteFood(alertAction: UIAlertAction!) -> Void {
+        if let indexPath = deletePlanetIndexPath {
+            FoodTableTV.beginUpdates()
+            
+            foodArray.remove(at: indexPath.row)
+            foodCalArray.remove(at:indexPath.row)
+            
+            // Note that indexPath is wrapped in an array:  [indexPath]
+            FoodTableTV.deleteRows(at: [indexPath as IndexPath], with: .automatic)
+            
+            deletePlanetIndexPath = nil
+             updatecalContingMethod()
+            FoodTableTV.endUpdates()
+        }
+    }
+    
+    func cancelDeleteFood(alertAction: UIAlertAction!) {
+        deletePlanetIndexPath = nil
+    }
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -122,6 +165,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     }
 
     //Marks:- Update count of calories
+    
     func updatecalContingMethod(){
         
         var DoubleFoodCalArray = 0
@@ -133,27 +177,59 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         caloriesAteLabel.text = String(DoubleFoodCalArray)
         let Caloriesleft = Int(TotalCaloriesLabel.text!)! - DoubleFoodCalArray
         CaloriesConsumedInEnd.text = String(Caloriesleft)
+    }
+
+
+    
+    @IBAction func SaveFoodLogButton(_ sender: AnyObject) {
+        
+        // saving Current user
+        let User = PFUser.current()
+        User!["FoodCaloriesAte"] = caloriesAteLabel.text
+        User!["FoodCaloriesRemaining"] = CaloriesConsumedInEnd.text
+        User?.saveInBackground()
         
     }
     
-    //Marks:- Edit Button and change table view
-    @IBAction func EditButtonClicked(_ sender: AnyObject) {
+    
+    func getPreviousCalories()
+    {
+        let findCalAteData: PFQuery = PFQuery(className: "_User")
+        findCalAteData.whereKey("username", equalTo: PFUser.current()!.username!)
+        findCalAteData.whereKeyExists("FoodCaloriesAte")
+        findCalAteData.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]?
+                {
+                    for object in objects
+                    {
+                        let oldCalLoad = object.value(forKey: "FoodCaloriesAte") as! String
+                        self.foodCalArray = [oldCalLoad]
+                    }
+                }
+            }
+        })
         
-        if isEditingfood == true{
-            sender.setTitle("Edit", for: UIControlState())
-            self.FoodTableTV?.setEditing(false, animated: false)
-            isEditingfood = false
-            updatecalContingMethod()
-        }
-        else{
-            sender.setTitle("Done", for: UIControlState())
-            self.FoodTableTV?.setEditing(true, animated: false)
-            isEditingfood = true
-            updatecalContingMethod()
-        }
-        self.FoodTableTV.reloadData()
+        let findCalRemainData: PFQuery = PFQuery(className: "_User")
+        findCalRemainData.whereKey("username", equalTo: PFUser.current()!.username!)
+        findCalRemainData.whereKeyExists("FoodCaloriesRemaining")
+        findCalRemainData.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]?
+                {
+                    for object in objects
+                    {
+                        let oldCalLoad = object.value(forKey: "FoodCaloriesRemaining") as! String
+                        self.foodCalArray = [oldCalLoad]
+                    }
+                }
+            }
+        })
         
     }
+
     
     
     

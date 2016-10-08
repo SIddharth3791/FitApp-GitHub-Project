@@ -31,8 +31,6 @@ class FoodNutritionViews: UIViewController, UITextFieldDelegate,UITableViewDeleg
     @IBAction func FoodCountTextClicked(_ sender: AnyObject) {
     }
     
-
-    
     var FoodtableView : FoodTableViewController?
     
 //Marks:- Food Detail Txt----------------->
@@ -67,6 +65,7 @@ class FoodNutritionViews: UIViewController, UITextFieldDelegate,UITableViewDeleg
     var FoodCarbs = [String]()
     var FoodCal = [String]()
     var FoodSize = [String]()
+    var FoodIDList = [Int]()
     
     
     //Marks:- Detail View controller----------->
@@ -519,6 +518,7 @@ class FoodNutritionViews: UIViewController, UITextFieldDelegate,UITableViewDeleg
         })
         
         
+        
     }
     
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -549,6 +549,8 @@ class FoodNutritionViews: UIViewController, UITextFieldDelegate,UITableViewDeleg
     }
 
   
+    
+    //State Restoation
         
 }
   
