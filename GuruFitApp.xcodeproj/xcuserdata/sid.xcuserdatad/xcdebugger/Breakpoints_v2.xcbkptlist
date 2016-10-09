@@ -355,5 +355,83 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitApp/FoodTableViewController.swift"
+            timestampString = "497681287.972393"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "FoodTableViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitApp.FoodTableViewController.foodArray.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "FitApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sid/Final%20Project/FitApp/FitApp/FoodTableViewController.swift"
+                  timestampString = "497681288.116573"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitApp.FoodTableViewController.foodArray.setter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "FitApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sid/Final%20Project/FitApp/FitApp/FoodTableViewController.swift"
+                  timestampString = "497681288.120376"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitApp.FoodTableViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; FitApp.FoodTableViewController"
+                  moduleName = "FitApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sid/Final%20Project/FitApp/FitApp/FoodTableViewController.swift"
+                  timestampString = "497681288.122861"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "480">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitApp.FoodTableViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;FitApp.FoodTableViewController&gt;"
+                  moduleName = "FitApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sid/Final%20Project/FitApp/FitApp/FoodTableViewController.swift"
+                  timestampString = "497681288.124981"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "367">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

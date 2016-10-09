@@ -26,7 +26,12 @@ class FoodTableViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var TotalCaloriesLabel: UILabel!
     @IBOutlet weak var caloriesAteLabel: UILabel!
     @IBOutlet weak var CaloriesConsumedInEnd: UILabel!
+    //Marks:- TextFeild for Cal
+    @IBOutlet weak var CaloriesAteText: UITextField!
     
+    @IBOutlet weak var CaloriesConsumedInEndText: UITextField!
+    
+   
     
     var foodArray = [String]()
     var foodCalArray = [String]()
@@ -36,15 +41,17 @@ class FoodTableViewController: UIViewController, UITableViewDataSource, UITableV
         foodArray.append(newfood as String)
         foodCalArray.append(newcal as String)
         self.FoodTableTV.reloadData()
+        updatecalContingMethod()
        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updatecalContingMethod()
-        getPreviousCalories()
-       // foodArray =  ["Pizza"]
-       // foodCalArray = ["345"]
+        //CaloriesConsumedInEndText.isHidden = true
+      
+        CaloriesConsumedInEndText.text = "000"
+        CaloriesAteText.text = "000"
+        //Marks:- Get User cal to consume
         
         let findTotalCaloriesData: PFQuery = PFQuery(className: "_User")
         findTotalCaloriesData.whereKey("username", equalTo: PFUser.current()!.username!)
@@ -62,14 +69,15 @@ class FoodTableViewController: UIViewController, UITableViewDataSource, UITableV
                 }
             }
         })
-    
-
         
+        //Marks:- Get User cal ate
+        getPreviousCalories()
+       // updatecalContingMethod()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        updatecalContingMethod()
+        //updatecalContingMethod()
     }
     
     override func didReceiveMemoryWarning() {
@@ -169,13 +177,16 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     func updatecalContingMethod(){
         
         var DoubleFoodCalArray = 0
-        
+ 
         for element in foodCalArray{
             DoubleFoodCalArray += Int(element)!
         }
+        let AddPastCal = Int(CaloriesAteText.text!)! + DoubleFoodCalArray
+        CaloriesAteText.isHidden = true
         
-        caloriesAteLabel.text = String(DoubleFoodCalArray)
-        let Caloriesleft = Int(TotalCaloriesLabel.text!)! - DoubleFoodCalArray
+        caloriesAteLabel.text = String(AddPastCal)
+        let Caloriesleft = Int(TotalCaloriesLabel.text!)!  - Int(caloriesAteLabel.text!)! 
+        CaloriesConsumedInEndText.isHidden = true
         CaloriesConsumedInEnd.text = String(Caloriesleft)
     }
 
@@ -205,7 +216,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
                     for object in objects
                     {
                         let oldCalLoad = object.value(forKey: "FoodCaloriesAte") as! String
-                        self.foodCalArray = [oldCalLoad]
+                        self.CaloriesAteText.text = oldCalLoad
                     }
                 }
             }
@@ -222,18 +233,15 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
                     for object in objects
                     {
                         let oldCalLoad = object.value(forKey: "FoodCaloriesRemaining") as! String
-                        self.foodCalArray = [oldCalLoad]
+                        self.CaloriesConsumedInEndText.text = oldCalLoad
                     }
                 }
             }
         })
         
     }
-
     
-    
-    
-    @IBAction  func unwindForSegueCalCounter(_ unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+      @IBAction  func unwindForSegueCalCounter(_ unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
         
     }
     

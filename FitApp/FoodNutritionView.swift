@@ -260,17 +260,7 @@ class FoodNutritionViews: UIViewController, UITextFieldDelegate,UITableViewDeleg
             let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
             alert.show()
             
-            /*let alertController: UIAlertController = UIAlertController(
-            title: "Data missing!",
-            message: "Please enter valid data.",
-            preferredStyle: UIAlertControllerStyle.alert)
             
-            let okAction = UIAlertAction(
-                title: "OK",
-                style: UIAlertActionStyle.default,
-                handler: nil)
-            
-            alertController.addAction(okAction)*/
             
         }
         
@@ -295,21 +285,7 @@ class FoodNutritionViews: UIViewController, UITextFieldDelegate,UITableViewDeleg
         
         
     }
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-       
-            
-            if segue.identifier == "SearchFood"
-            {
-                let AddCaloriesVC = segue.destination
-                let Controller = AddCaloriesVC.popoverPresentationController
-                
-                if Controller != nil{
-                    Controller?.delegate = self
-                    
-                }
-            }
-        }*/
+
         
         func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
             
@@ -548,9 +524,6 @@ class FoodNutritionViews: UIViewController, UITextFieldDelegate,UITableViewDeleg
         FoodSearchBar.text = ""
     }
 
-  
-    
-    //State Restoation
         
 }
   
