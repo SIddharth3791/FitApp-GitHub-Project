@@ -14,6 +14,9 @@ import ParseUI
 class FoodNutritionViews: UIViewController, UITextFieldDelegate,UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate ,UIPopoverPresentationControllerDelegate {
     
     
+    @IBOutlet weak var FoodAddButton: UIButton!
+    
+    
 //Marks:- TextFeild EndEditing Action-------------------->
     
     @IBAction func FoodNameTextClicked(_ sender: AnyObject) {
@@ -128,7 +131,7 @@ class FoodNutritionViews: UIViewController, UITextFieldDelegate,UITableViewDeleg
         let CalUpdated = Double(FoodCalText.text!)
 
         
-        
+        if Fatupdated != nil{
         //Update Fat label with total Nutrition
         let TotalFats: Double =  (SizeCount! * Fatupdated!)
         FoodFatsText.text = "\(TotalFats)"
@@ -146,6 +149,7 @@ class FoodNutritionViews: UIViewController, UITextFieldDelegate,UITableViewDeleg
         let TotalCal: Double = (SizeCount! * CalUpdated!)
         let IntTotalCall = Int(TotalCal)
         FoodCalText.text = "\(IntTotalCall)"
+        }
         
     }
     
@@ -153,6 +157,8 @@ class FoodNutritionViews: UIViewController, UITextFieldDelegate,UITableViewDeleg
         
         ServingSizeText.text = "1.0"
         
+        if FoodNameText.text != nil
+    {
         let FoodName:String = FoodNameText.text!
         let Fatsquery = PFQuery(className: "FoodDB")
         Fatsquery.order(byDescending: "createdAt").whereKey("FoodName", contains: FoodName)
@@ -247,29 +253,26 @@ class FoodNutritionViews: UIViewController, UITextFieldDelegate,UITableViewDeleg
             sleep (0)
             self.do_table_refresh()
         })
-
     }
+
+}
     
     @IBAction func AddFoodButton(_ sender: UIButton) {
-        
-        var newFood: String = FoodNameText.text!
-        let NewFoodCal: String = FoodCalText.text!
-        
-        if newFood.utf16.count < 1 {
+
+            var newFood: String = FoodNameText.text!
+            let NewFoodCal: String = FoodCalText.text!
+            if newFood.utf16.count < 1  {
+                
+                let alert = UIAlertView(title: "Food Selection", message: "You have selected \(FoodNameText.text)", delegate: self, cancelButtonTitle: "OK")
+                alert.show()
+                
+            }
+            self.FoodtableView?.addFood(newfood: newFood, newcal: NewFoodCal)
+            NSLog("----------->\(newFood)")
+
             
-            let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
-            
-            
-            
-        }
-        
-        self.FoodtableView?.addFood(newfood: newFood, newcal: NewFoodCal)
-        NSLog("----------->\(newFood)")
-        //self.performSegue(withIdentifier: "AddFood", sender: UIButton.self)
-        
-        self.presentingViewController?.dismiss(animated:true, completion: nil)
-        
+            self.presentingViewController?.dismiss(animated:true, completion: nil)
+
     }
     
     func do_table_refresh()

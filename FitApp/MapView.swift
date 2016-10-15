@@ -5,7 +5,7 @@
 //  Created by Siddharth Patel on 11/6/15.
 //  Copyright © 2015 Siddharth Patel. All rights reserved.
 //
-/*
+
 import Foundation
 import UIKit
 import MapKit
@@ -15,82 +15,61 @@ import CoreLocation
 
 class MapViewController:UIViewController,MKMapViewDelegate, CLLocationManagerDelegate {
     
-    var mapItemData:MKMapItem!
-    @IBOutlet weak var Map: MKMapView!
-    let locationManger = CLLocationManager()
     
-    //let annotation = MKPointAnnotation()
-    
-    
+    @IBOutlet weak var mapView: MKMapView!
+    let locationManager = CLLocationManager()
+    var mapItems: [MKMapItem] = []
+    var selectedPin: MKPlacemark?
+ 
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.locationManger.delegate = self
-        self.locationManger.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManger.requestWhenInUseAuthorization()
-        locationManger.requestLocation()
-        self.locationManger.startUpdatingLocation()
-        self.Map.showsUserLocation = true
+        
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+        self.mapView.showsUserLocation = true
+        locationManager.requestLocation()
     }
-//Marks : Location delegate Method
-    
+   
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         let location = locations.last
-        let center = CLLocationCoordinate2DMake(location!.coordinate.latitude, location!.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        self.Map.setRegion(region, animated: true)
-        self.locationManger.stopUpdatingLocation()
         
-//Marks:- look for restaurant on Maps
-        
+        let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+        self.mapView.setRegion(region, animated: true)
+        self.locationManager.stopUpdatingLocation()
+
+       
         let request = MKLocalSearchRequest()
-        request.naturalLanguageQuery = "junk food ";
-        request.region = Map.region
+        
+        request.naturalLanguageQuery = "mcdonalds";
+        
+        request.region = mapView.region
         let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         request.region = MKCoordinateRegion(center: center, span: span)
+        
         let Search = MKLocalSearch(request: request)
-       
-        Search.start{(response: MKLocalSearchResponse?,error: NSError?) in for item in response!.mapItems as! [MKMapItem]
-            {
-                
-                print("Restaurants name = \(item.name)")
-                
-                self.addPinToMapView(item.name!, latitude: item.placemark.location!.coordinate.latitude, longitude: item.placemark.location!.coordinate.longitude)
-                
-            }
-            self.locationManger.stopUpdatingLocation()
-            var infoButton: UIButton = UIButton(type: .detailDisclosure)
-            
-        } as! MKLocalSearchCompletionHandler as! MKLocalSearchCompletionHandler as! MKLocalSearchCompletionHandler as! MKLocalSearchCompletionHandler as! MKLocalSearchCompletionHandler as! MKLocalSearchCompletionHandler as! MKLocalSearchCompletionHandler
-    }
+        }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
+        {
         print("Errors: " + error.localizedDescription)
-    }
-    
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-      
-    }
-    
-//Marks:- look for restaurant annotation Pin on Maps
-    
-    func addPinToMapView(_ title: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees){
-        let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        let annotation = RestroAnnotation(coordinate: location, title: title)
-        Map.addAnnotation(annotation)
-        self.Map.addAnnotation(annotation)
-    }
-//Marks:- click button on pins on maps
-    func mapView(_ map: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        self.performSegue(withIdentifier: "MapPinDetails", sender: view)
-        
-    }
-        
+        }
+ 
+
+    func addPinToMapView(title: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees){
+               let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                let annotation = RestroAnnotation(coordinate: location, title: title )
+                mapView.addAnnotation(annotation)
+        }
 }
+        
+
+    
 
 
 
-*/
+

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F0E58971C5D806F00C17B95 /* RestroAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E58961C5D806F00C17B95 /* RestroAnnotation.swift */; };
 		1F12B89F1D91A5B500B87CC1 /* BreakfastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F12B89E1D91A5B500B87CC1 /* BreakfastCell.swift */; };
 		1F12B8A11D91A7BC00B87CC1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F12B8A01D91A7BC00B87CC1 /* Item.swift */; };
 		1F12B8A31D922A0A00B87CC1 /* FoodSlideOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F12B8A21D922A0A00B87CC1 /* FoodSlideOutView.swift */; };
@@ -19,7 +18,6 @@
 		1F2656141C5F0B8B00C885E4 /* BMICounting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2656131C5F0B8B00C885E4 /* BMICounting.swift */; };
 		1F2656161C5F0BF800C885E4 /* BMICountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2656151C5F0BF800C885E4 /* BMICountViewController.swift */; };
 		1F3B66621D8B998F0041077F /* AddFoodCaloriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B66611D8B998F0041077F /* AddFoodCaloriesViewController.swift */; };
-		1F3B66641D8B9F020041077F /* AddCaloriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B66631D8B9F020041077F /* AddCaloriesViewController.swift */; };
 		1F73C3DA1BEB152E00AE339C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73C3D91BEB152E00AE339C /* AppDelegate.swift */; };
 		1F73C3DF1BEB152E00AE339C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F73C3DD1BEB152E00AE339C /* Main.storyboard */; };
 		1F73C3E11BEB152E00AE339C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F73C3E01BEB152E00AE339C /* Assets.xcassets */; };
@@ -59,9 +57,10 @@
 		1F9F3D571C0524C200F2515D /* Start Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F3D531C0524C200F2515D /* Start Button.png */; };
 		1F9F3D581C0524C200F2515D /* Stop Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F3D541C0524C200F2515D /* Stop Button.png */; };
 		1FA4FB871C8007DF0052BF04 /* DetailBodyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4FB861C8007DE0052BF04 /* DetailBodyTableViewController.swift */; };
-		1FA4FBAE1C8FFC4A0052BF04 /* CountCalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4FBAD1C8FFC4A0052BF04 /* CountCalViewController.swift */; };
 		1FB816E41C34A337009EFCDA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB816E31C34A337009EFCDA /* Launch Screen.storyboard */; };
 		1FB816EA1C47257C009EFCDA /* WODDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB816E91C47257B009EFCDA /* WODDetailTableViewController.swift */; };
+		1FBD2AF81DAC8B880062D38D /* RestroAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD2AF71DAC8B870062D38D /* RestroAnnotation.swift */; };
+		1FBD2AFA1DB0A6040062D38D /* MapPinFoodDataBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD2AF91DB0A6040062D38D /* MapPinFoodDataBaseViewController.swift */; };
 		1FCB2C311C758939007DDDF9 /* ArmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB2C301C758939007DDDF9 /* ArmTableViewController.swift */; };
 		1FCB2C351C764C15007DDDF9 /* LegsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB2C341C764C15007DDDF9 /* LegsTableViewController.swift */; };
 		1FCB2C371C765282007DDDF9 /* ShoulderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB2C361C765282007DDDF9 /* ShoulderTableViewController.swift */; };
@@ -75,7 +74,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1F0E58961C5D806F00C17B95 /* RestroAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestroAnnotation.swift; sourceTree = "<group>"; };
 		1F12B89E1D91A5B500B87CC1 /* BreakfastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakfastCell.swift; sourceTree = "<group>"; };
 		1F12B8A01D91A7BC00B87CC1 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		1F12B8A21D922A0A00B87CC1 /* FoodSlideOutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodSlideOutView.swift; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 		1F2656131C5F0B8B00C885E4 /* BMICounting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMICounting.swift; sourceTree = "<group>"; };
 		1F2656151C5F0BF800C885E4 /* BMICountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMICountViewController.swift; sourceTree = "<group>"; };
 		1F3B66611D8B998F0041077F /* AddFoodCaloriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFoodCaloriesViewController.swift; sourceTree = "<group>"; };
-		1F3B66631D8B9F020041077F /* AddCaloriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCaloriesViewController.swift; sourceTree = "<group>"; };
 		1F73C3D61BEB152E00AE339C /* FitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F73C3D91BEB152E00AE339C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F73C3DE1BEB152E00AE339C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,9 +126,10 @@
 		1F9F3D531C0524C200F2515D /* Start Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start Button.png"; sourceTree = "<group>"; };
 		1F9F3D541C0524C200F2515D /* Stop Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stop Button.png"; sourceTree = "<group>"; };
 		1FA4FB861C8007DE0052BF04 /* DetailBodyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailBodyTableViewController.swift; sourceTree = "<group>"; };
-		1FA4FBAD1C8FFC4A0052BF04 /* CountCalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountCalViewController.swift; sourceTree = "<group>"; };
 		1FB816E31C34A337009EFCDA /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1FB816E91C47257B009EFCDA /* WODDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WODDetailTableViewController.swift; sourceTree = "<group>"; };
+		1FBD2AF71DAC8B870062D38D /* RestroAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestroAnnotation.swift; sourceTree = "<group>"; };
+		1FBD2AF91DB0A6040062D38D /* MapPinFoodDataBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPinFoodDataBaseViewController.swift; sourceTree = "<group>"; };
 		1FCB2C301C758939007DDDF9 /* ArmTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArmTableViewController.swift; sourceTree = "<group>"; };
 		1FCB2C341C764C15007DDDF9 /* LegsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegsTableViewController.swift; sourceTree = "<group>"; };
 		1FCB2C361C765282007DDDF9 /* ShoulderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoulderTableViewController.swift; sourceTree = "<group>"; };
@@ -359,8 +357,8 @@
 			isa = PBXGroup;
 			children = (
 				1F93910A1BED7DF6007F7E0E /* MapView.swift */,
-				1F0E58961C5D806F00C17B95 /* RestroAnnotation.swift */,
 				1F8F5F661D2F436500892F8C /* MapPinDetailViewController.swift */,
+				1FBD2AF71DAC8B870062D38D /* RestroAnnotation.swift */,
 			);
 			name = Maps;
 			sourceTree = "<group>";
@@ -369,9 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				1F12B89D1D91A57B00B87CC1 /* Cal Counter Table */,
-				1FA4FBAD1C8FFC4A0052BF04 /* CountCalViewController.swift */,
 				1F3B66611D8B998F0041077F /* AddFoodCaloriesViewController.swift */,
-				1F3B66631D8B9F020041077F /* AddCaloriesViewController.swift */,
 				1F12B8A21D922A0A00B87CC1 /* FoodSlideOutView.swift */,
 				1F12B8A61D93AE0C00B87CC1 /* FoodNutritionView.swift */,
 				1FED8A131D9C92080009D94D /* FoodTableViewController.swift */,
@@ -398,6 +394,7 @@
 			children = (
 				1FF11AE71DA6D7FA00990963 /* MapFoodViewController.swift */,
 				1FF11AE91DA72F8400990963 /* MapSearchTableViewController.swift */,
+				1FBD2AF91DB0A6040062D38D /* MapPinFoodDataBaseViewController.swift */,
 			);
 			name = " Food Map";
 			sourceTree = "<group>";
@@ -502,9 +499,9 @@
 				1FF11AEA1DA72F8400990963 /* MapSearchTableViewController.swift in Sources */,
 				1F8F5F671D2F436500892F8C /* MapPinDetailViewController.swift in Sources */,
 				1F93910B1BED7DF6007F7E0E /* MapView.swift in Sources */,
-				1F3B66641D8B9F020041077F /* AddCaloriesViewController.swift in Sources */,
 				1FB816EA1C47257C009EFCDA /* WODDetailTableViewController.swift in Sources */,
 				1F2656161C5F0BF800C885E4 /* BMICountViewController.swift in Sources */,
+				1FBD2AFA1DB0A6040062D38D /* MapPinFoodDataBaseViewController.swift in Sources */,
 				1FCB2C391C76F70D007DDDF9 /* Calf_GlutesTableViewController.swift in Sources */,
 				1F73C3DA1BEB152E00AE339C /* AppDelegate.swift in Sources */,
 				1FA4FB871C8007DF0052BF04 /* DetailBodyTableViewController.swift in Sources */,
@@ -514,11 +511,10 @@
 				1F7E27D91BF7D4E6005F94F6 /* HomeViewController.swift in Sources */,
 				1F3B66621D8B998F0041077F /* AddFoodCaloriesViewController.swift in Sources */,
 				1F7E27DB1BF7D4FA005F94F6 /* SignUpViewController.swift in Sources */,
-				1FA4FBAE1C8FFC4A0052BF04 /* CountCalViewController.swift in Sources */,
 				1FCB2C351C764C15007DDDF9 /* LegsTableViewController.swift in Sources */,
+				1FBD2AF81DAC8B880062D38D /* RestroAnnotation.swift in Sources */,
 				1F933CF81C7FC61200059E83 /* CoreTableViewController.swift in Sources */,
 				1F12B8A31D922A0A00B87CC1 /* FoodSlideOutView.swift in Sources */,
-				1F0E58971C5D806F00C17B95 /* RestroAnnotation.swift in Sources */,
 				1F12B8A71D93AE0D00B87CC1 /* FoodNutritionView.swift in Sources */,
 				1F12B8A11D91A7BC00B87CC1 /* Item.swift in Sources */,
 			);

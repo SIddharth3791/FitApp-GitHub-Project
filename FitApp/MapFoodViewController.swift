@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Parse
+import ParseUI
 
 protocol HandleMapSearch: class {
     func dropPinZoomIn(_ placemark:MKPlacemark)
@@ -16,17 +18,30 @@ protocol HandleMapSearch: class {
 
 
 class MapFoodViewController: UIViewController{
+    
+    
+    @IBOutlet weak var FoodAllowedEatLabel: UILabel!
     var selectedPin: MKPlacemark?
     var resultSearchController: UISearchController!
     
     let locationManager = CLLocationManager()
     
     @IBOutlet weak var mapView: MKMapView!
+    var MapFoodPlace = [String]()
+    var UserCaloriesConsumedInEnd: String = ""
     
-    
+    // Get Food Details and Calories 
+    var PinFoodDetails = [String]()
+    var PinName :String = "McDonals"
+
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         
+   //get remaining claories and display food option on Viewcontroller
+        getRemainingCaloriesforUser()
+  //Map user location and function
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -44,6 +59,47 @@ class MapFoodViewController: UIViewController{
         locationSearchTable.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
         
+        
+       
+        
+        
+    }
+    func getRemainingCaloriesforUser()
+    {
+        let findCalRemainData: PFQuery = PFQuery(className: "_User")
+        findCalRemainData.whereKey("username", equalTo: PFUser.current()!.username!)
+        findCalRemainData.whereKeyExists("FoodCaloriesRemaining")
+        findCalRemainData.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]?
+                {
+                    for object in objects
+                    {
+                        let oldCalLoad = object.value(forKey: "FoodCaloriesRemaining") as! String
+                        self.UserCaloriesConsumedInEnd = oldCalLoad
+                    // Conditions for User to select food depending on food option
+                        
+                        if Int(self.UserCaloriesConsumedInEnd)! < 500
+                        
+                        {
+                             self.FoodAllowedEatLabel.text = "Subway, Chick-Fil-A"
+                        }
+                        else if (Int(self.UserCaloriesConsumedInEnd)! >= 500 && Int(self.UserCaloriesConsumedInEnd)! <= 1000)
+                        {
+                            self.FoodAllowedEatLabel.text = "Arby's, McDonalds,Subway, Chick-Fil-A"
+                        } else if (Int(self.UserCaloriesConsumedInEnd)! >= 1000 && Int(self.UserCaloriesConsumedInEnd)! <= 1500)
+                        {
+                            self.FoodAllowedEatLabel.text = "Arby's, McDonalds,Subway, Chick-Fil-A"
+                        }else
+                        {
+                            self.FoodAllowedEatLabel.text = "Panda Express, Pizza Hut, Arby's, McDonalds,Subway, Chick-Fil-A"
+                        }
+                        
+                    }
+                }
+            }
+        })
     }
     
     func getDirections(){
@@ -86,6 +142,7 @@ extension MapFoodViewController: HandleMapSearch {
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name
         
+        
         if let city = placemark.locality,
             let state = placemark.administrativeArea {
             annotation.subtitle = "\(city) \(state)"
@@ -105,10 +162,14 @@ extension MapFoodViewController : MKMapViewDelegate {
         
         guard !(annotation is MKUserLocation) else { return nil }
         
-        let reuseId = "pin"
-        guard let pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView else { return nil }
+        //let reuseId = "pin"
+        //guard let pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView else { return nil }
         
-        pinView.pinTintColor = UIColor.orange
+        var pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "CustomAnnotationView")
+            pinView.canShowCallout = true
+
+        pinView.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        pinView.pinTintColor = UIColor.red
         pinView.canShowCallout = true
         let smallSquare = CGSize(width: 30, height: 30)
         let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
@@ -118,4 +179,22 @@ extension MapFoodViewController : MKMapViewDelegate {
         
         return pinView
     }
+    
+    func mapView(_ mapView: MKMapView,
+                 annotationView view: MKAnnotationView,
+                 calloutAccessoryControlTapped control: UIControl){
+        self.performSegue(withIdentifier: "PinDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue,
+                          sender: Any?){
+        var pinDetailsVC = MapPinFoodDataBaseViewController()
+        let annotation = MKPointAnnotation()
+        var foodtitle = String()
+        annotation.title = selectedPin?.name
+        pinDetailsVC = segue.destination as! MapPinFoodDataBaseViewController
+        pinDetailsVC.Fooddatagiven = (selectedPin?.name)!
+        
+    }
+    
 }
