@@ -80,12 +80,12 @@ class MapFoodViewController: UIViewController{
                         self.UserCaloriesConsumedInEnd = oldCalLoad
                     // Conditions for User to select food depending on food option
                         
-                        if Int(self.UserCaloriesConsumedInEnd)! < 500
+                        if (Int(self.UserCaloriesConsumedInEnd))! <= 500
                         
                         {
                              self.FoodAllowedEatLabel.text = "Subway, Chick-Fil-A"
                         }
-                        else if (Int(self.UserCaloriesConsumedInEnd)! >= 500 && Int(self.UserCaloriesConsumedInEnd)! <= 1000)
+                        else if ((Int(self.UserCaloriesConsumedInEnd))! >= 500 && Int(self.UserCaloriesConsumedInEnd)! <= 1000)
                         {
                             self.FoodAllowedEatLabel.text = "Arby's, McDonalds,Subway, Chick-Fil-A"
                         } else if (Int(self.UserCaloriesConsumedInEnd)! >= 1000 && Int(self.UserCaloriesConsumedInEnd)! <= 1500)

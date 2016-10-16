@@ -12,13 +12,15 @@ import ParseUI
 
 class MapPinFoodDataBaseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    
+     var FoodtableView : FoodTableViewController?
+    
     @IBOutlet weak var FoodPinName: UILabel!
     @IBOutlet weak var TableView: UITableView!
 
     
-    var FoodData = [String]()
+    var FoodDataCal = [String]()
     var FoodItemData = [String]()
-    var FoodDataCal =  [String]()
     
     var FoodAnnotationName: String = ""
     
@@ -46,8 +48,8 @@ class MapPinFoodDataBaseViewController: UIViewController, UITableViewDelegate, U
                         {
                             for object in objects
                             {
-                                let load = object.value(forKey: "FoodPlaces") as! String
-                                self.FoodData.append(load)
+                                let load = object.value(forKey: "FoodCalories") as! String
+                                self.FoodDataCal.append(load)
                             }
                         }
                         else
@@ -97,8 +99,8 @@ class MapPinFoodDataBaseViewController: UIViewController, UITableViewDelegate, U
                     {
                         for object in objects
                         {
-                            let load = object.value(forKey: "FoodPlaces") as! String
-                            self.FoodData.append(load)
+                            let load = object.value(forKey: "FoodCalories") as! String
+                            self.FoodDataCal.append(load)
                         }
                     }
                     else
@@ -148,8 +150,8 @@ class MapPinFoodDataBaseViewController: UIViewController, UITableViewDelegate, U
                     {
                         for object in objects
                         {
-                            let load = object.value(forKey: "FoodPlaces") as! String
-                            self.FoodData.append(load)
+                            let load = object.value(forKey: "FoodCalories") as! String
+                            self.FoodDataCal.append(load)
                         }
                     }
                     else
@@ -200,8 +202,8 @@ class MapPinFoodDataBaseViewController: UIViewController, UITableViewDelegate, U
                     {
                         for object in objects
                         {
-                            let load = object.value(forKey: "FoodPlaces") as! String
-                            self.FoodData.append(load)
+                            let load = object.value(forKey: "FoodCalories") as! String
+                            self.FoodDataCal.append(load)
                         }
                     }
                     else
@@ -252,8 +254,8 @@ class MapPinFoodDataBaseViewController: UIViewController, UITableViewDelegate, U
                     {
                         for object in objects
                         {
-                            let load = object.value(forKey: "FoodPlaces") as! String
-                            self.FoodData.append(load)
+                            let load = object.value(forKey: "FoodCalories") as! String
+                            self.FoodDataCal.append(load)
                         }
                     }
                     else
@@ -304,8 +306,8 @@ class MapPinFoodDataBaseViewController: UIViewController, UITableViewDelegate, U
                     {
                         for object in objects
                         {
-                            let load = object.value(forKey: "FoodPlaces") as! String
-                            self.FoodData.append(load)
+                            let load = object.value(forKey: "FoodCalories") as! String
+                            self.FoodDataCal.append(load)
                         }
                     }
                     else
@@ -350,14 +352,14 @@ class MapPinFoodDataBaseViewController: UIViewController, UITableViewDelegate, U
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return FoodData.count
+        return FoodItemData.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = TableView.dequeueReusableCell(withIdentifier: "FoodList", for: indexPath)
-        cell.textLabel?.text = FoodData[(indexPath as NSIndexPath).row]
-        cell.detailTextLabel?.text = FoodItemData[(indexPath as NSIndexPath).row]
+        cell.textLabel?.text = FoodItemData[(indexPath as NSIndexPath).row]
+        cell.detailTextLabel?.text = FoodDataCal[(indexPath as NSIndexPath).row]
         return cell
     }
     
@@ -371,5 +373,19 @@ class MapPinFoodDataBaseViewController: UIViewController, UITableViewDelegate, U
         
     }
     
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "MapFood"{
+            let MapFoodVC: FoodTableViewController = segue.destination as! FoodTableViewController
+            
+            if let selectedArrayIndex = (TableView.indexPathForSelectedRow as NSIndexPath?)?.row{
+                
+                MapFoodVC.foodArray = [FoodItemData[selectedArrayIndex]]
+                MapFoodVC.foodCalArray = [FoodDataCal[selectedArrayIndex]]
+                MapFoodVC.isEditingfood = true
+                
+            }
+        }
     
+    }
 }

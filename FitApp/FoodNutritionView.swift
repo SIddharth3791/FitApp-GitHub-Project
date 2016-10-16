@@ -71,6 +71,7 @@ class FoodNutritionViews: UIViewController, UITextFieldDelegate,UITableViewDeleg
     var FoodIDList = [Int]()
     
     
+    
     //Marks:- Detail View controller----------->
     @IBOutlet weak var SizeLabel: UILabel!
     @IBOutlet weak var FatsLabel: UILabel!
@@ -263,14 +264,13 @@ class FoodNutritionViews: UIViewController, UITextFieldDelegate,UITableViewDeleg
             let NewFoodCal: String = FoodCalText.text!
             if newFood.utf16.count < 1  {
                 
-                let alert = UIAlertView(title: "Food Selection", message: "You have selected \(FoodNameText.text)", delegate: self, cancelButtonTitle: "OK")
+                let alert = UIAlertView(title: "Food Selection", message: "Your Selection", delegate: self, cancelButtonTitle: "OK")
                 alert.show()
                 
             }
             self.FoodtableView?.addFood(newfood: newFood, newcal: NewFoodCal)
             NSLog("----------->\(newFood)")
 
-            
             self.presentingViewController?.dismiss(animated:true, completion: nil)
 
     }

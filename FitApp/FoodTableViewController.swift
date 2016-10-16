@@ -32,25 +32,37 @@ class FoodTableViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var CaloriesConsumedInEndText: UITextField!
     
    
-    
+    var VCsegue = false
     var foodArray = [String]()
     var foodCalArray = [String]()
     var isEditingfood = false
+    
+    
+
     
     func addFood(newfood: String, newcal: String) {
         foodArray.append(newfood as String)
         foodCalArray.append(newcal as String)
         self.FoodTableTV.reloadData()
-        updatecalContingMethod()
+        updateCalCountingMethod()
+        if isEditingfood == true{
+            
+            UpdateCountMethodForMap()
+        }
+        
        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       /* if isEditingfood == true{
+            
+            UpdateCountMethodForMap()
+        }*/
         //CaloriesConsumedInEndText.isHidden = true
       
-        CaloriesConsumedInEndText.text = "000"
-        CaloriesAteText.text = "000"
+       
         //Marks:- Get User cal to consume
         
         let findTotalCaloriesData: PFQuery = PFQuery(className: "_User")
@@ -77,7 +89,6 @@ class FoodTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //updatecalContingMethod()
     }
     
     override func didReceiveMemoryWarning() {
@@ -149,7 +160,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
             FoodTableTV.deleteRows(at: [indexPath as IndexPath], with: .automatic)
             
             deletePlanetIndexPath = nil
-             updatecalContingMethod()
+             updateCalCountingMethod()
             FoodTableTV.endUpdates()
         }
     }
@@ -174,7 +185,7 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 
     //Marks:- Update count of calories
     
-    func updatecalContingMethod(){
+    func updateCalCountingMethod(){
         
         var DoubleFoodCalArray = 0
  
@@ -190,6 +201,25 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         CaloriesConsumedInEnd.text = String(Caloriesleft)
     }
 
+    func UpdateCountMethodForMap()
+    {
+        
+
+        var DoubleFoodCalArray = 0
+        
+        for element in foodCalArray{
+            DoubleFoodCalArray += Int(element)!
+        }
+        var pastcal = Int(self.CaloriesAteText.text!)
+        let AddPastCal = pastcal! + DoubleFoodCalArray
+        CaloriesAteText.isHidden = true
+        
+        caloriesAteLabel.text = String(AddPastCal)
+        let Caloriesleft = Int(TotalCaloriesLabel.text!)!  - Int(caloriesAteLabel.text!)!
+        CaloriesConsumedInEndText.isHidden = true
+        CaloriesConsumedInEnd.text = String(Caloriesleft)
+        
+    }
 
     
     @IBAction func SaveFoodLogButton(_ sender: AnyObject) {
