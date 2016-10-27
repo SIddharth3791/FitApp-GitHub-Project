@@ -41,9 +41,7 @@
 		1F7E27D91BF7D4E6005F94F6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7E27D81BF7D4E6005F94F6 /* HomeViewController.swift */; };
 		1F7E27DB1BF7D4FA005F94F6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7E27DA1BF7D4FA005F94F6 /* SignUpViewController.swift */; };
 		1F7E27DD1BF7D517005F94F6 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7E27DC1BF7D517005F94F6 /* ResetPasswordViewController.swift */; };
-		1F8F5F671D2F436500892F8C /* MapPinDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8F5F661D2F436500892F8C /* MapPinDetailViewController.swift */; };
 		1F933CF81C7FC61200059E83 /* CoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F933CF71C7FC61100059E83 /* CoreTableViewController.swift */; };
-		1F93910B1BED7DF6007F7E0E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F93910A1BED7DF6007F7E0E /* MapView.swift */; };
 		1F990DBA1CE429A8006BB130 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F990DB31CE429A8006BB130 /* Bolts.framework */; };
 		1F990DBB1CE429A8006BB130 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F990DB41CE429A8006BB130 /* Parse.framework */; };
 		1F990DBC1CE429A8006BB130 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F990DB51CE429A8006BB130 /* ParseCrashReporting.framework */; };
@@ -59,8 +57,8 @@
 		1FA4FB871C8007DF0052BF04 /* DetailBodyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA4FB861C8007DE0052BF04 /* DetailBodyTableViewController.swift */; };
 		1FB816E41C34A337009EFCDA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB816E31C34A337009EFCDA /* Launch Screen.storyboard */; };
 		1FB816EA1C47257C009EFCDA /* WODDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB816E91C47257B009EFCDA /* WODDetailTableViewController.swift */; };
-		1FBD2AF81DAC8B880062D38D /* RestroAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD2AF71DAC8B870062D38D /* RestroAnnotation.swift */; };
 		1FBD2AFA1DB0A6040062D38D /* MapPinFoodDataBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD2AF91DB0A6040062D38D /* MapPinFoodDataBaseViewController.swift */; };
+		1FBD2AFD1DB481180062D38D /* AboutAndInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBD2AFC1DB481160062D38D /* AboutAndInfoViewController.swift */; };
 		1FCB2C311C758939007DDDF9 /* ArmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB2C301C758939007DDDF9 /* ArmTableViewController.swift */; };
 		1FCB2C351C764C15007DDDF9 /* LegsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB2C341C764C15007DDDF9 /* LegsTableViewController.swift */; };
 		1FCB2C371C765282007DDDF9 /* ShoulderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCB2C361C765282007DDDF9 /* ShoulderTableViewController.swift */; };
@@ -110,9 +108,7 @@
 		1F7E27D81BF7D4E6005F94F6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1F7E27DA1BF7D4FA005F94F6 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1F7E27DC1BF7D517005F94F6 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
-		1F8F5F661D2F436500892F8C /* MapPinDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPinDetailViewController.swift; sourceTree = "<group>"; };
 		1F933CF71C7FC61100059E83 /* CoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTableViewController.swift; sourceTree = "<group>"; };
-		1F93910A1BED7DF6007F7E0E /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1F990DB31CE429A8006BB130 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		1F990DB41CE429A8006BB130 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		1F990DB51CE429A8006BB130 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -128,8 +124,8 @@
 		1FA4FB861C8007DE0052BF04 /* DetailBodyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailBodyTableViewController.swift; sourceTree = "<group>"; };
 		1FB816E31C34A337009EFCDA /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1FB816E91C47257B009EFCDA /* WODDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WODDetailTableViewController.swift; sourceTree = "<group>"; };
-		1FBD2AF71DAC8B870062D38D /* RestroAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestroAnnotation.swift; sourceTree = "<group>"; };
 		1FBD2AF91DB0A6040062D38D /* MapPinFoodDataBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPinFoodDataBaseViewController.swift; sourceTree = "<group>"; };
+		1FBD2AFC1DB481160062D38D /* AboutAndInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAndInfoViewController.swift; sourceTree = "<group>"; };
 		1FCB2C301C758939007DDDF9 /* ArmTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArmTableViewController.swift; sourceTree = "<group>"; };
 		1FCB2C341C764C15007DDDF9 /* LegsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegsTableViewController.swift; sourceTree = "<group>"; };
 		1FCB2C361C765282007DDDF9 /* ShoulderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoulderTableViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +199,7 @@
 		1F1801131BFD6DE400E5379F /* CrossFit Tab */ = {
 			isa = PBXGroup;
 			children = (
+				1FBD2AFB1DB480A80062D38D /* About & Info */,
 				1F1801151BFD7CBE00E5379F /* CFViewController.swift */,
 				1F79269D1C65B424003136E7 /* TimeKeeper */,
 				1F1801491C01255F00E5379F /* CrossFit (WOD) */,
@@ -216,7 +213,6 @@
 			children = (
 				1FF11AE61DA6D72B00990963 /*  Food Map */,
 				1FA4FBAC1C8FFC240052BF04 /* Cal Counter */,
-				1FA4FBAB1C8FFC180052BF04 /* Maps */,
 			);
 			name = "Cal Counter/Maps";
 			sourceTree = "<group>";
@@ -353,16 +349,6 @@
 			name = "Button Images";
 			sourceTree = "<group>";
 		};
-		1FA4FBAB1C8FFC180052BF04 /* Maps */ = {
-			isa = PBXGroup;
-			children = (
-				1F93910A1BED7DF6007F7E0E /* MapView.swift */,
-				1F8F5F661D2F436500892F8C /* MapPinDetailViewController.swift */,
-				1FBD2AF71DAC8B870062D38D /* RestroAnnotation.swift */,
-			);
-			name = Maps;
-			sourceTree = "<group>";
-		};
 		1FA4FBAC1C8FFC240052BF04 /* Cal Counter */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +359,14 @@
 				1FED8A131D9C92080009D94D /* FoodTableViewController.swift */,
 			);
 			name = "Cal Counter";
+			sourceTree = "<group>";
+		};
+		1FBD2AFB1DB480A80062D38D /* About & Info */ = {
+			isa = PBXGroup;
+			children = (
+				1FBD2AFC1DB481160062D38D /* AboutAndInfoViewController.swift */,
+			);
+			name = "About & Info";
 			sourceTree = "<group>";
 		};
 		1FCB2C3D1C770292007DDDF9 /* Body Part Table View */ = {
@@ -497,8 +491,6 @@
 				1FCB2C311C758939007DDDF9 /* ArmTableViewController.swift in Sources */,
 				1F12B89F1D91A5B500B87CC1 /* BreakfastCell.swift in Sources */,
 				1FF11AEA1DA72F8400990963 /* MapSearchTableViewController.swift in Sources */,
-				1F8F5F671D2F436500892F8C /* MapPinDetailViewController.swift in Sources */,
-				1F93910B1BED7DF6007F7E0E /* MapView.swift in Sources */,
 				1FB816EA1C47257C009EFCDA /* WODDetailTableViewController.swift in Sources */,
 				1F2656161C5F0BF800C885E4 /* BMICountViewController.swift in Sources */,
 				1FBD2AFA1DB0A6040062D38D /* MapPinFoodDataBaseViewController.swift in Sources */,
@@ -512,7 +504,7 @@
 				1F3B66621D8B998F0041077F /* AddFoodCaloriesViewController.swift in Sources */,
 				1F7E27DB1BF7D4FA005F94F6 /* SignUpViewController.swift in Sources */,
 				1FCB2C351C764C15007DDDF9 /* LegsTableViewController.swift in Sources */,
-				1FBD2AF81DAC8B880062D38D /* RestroAnnotation.swift in Sources */,
+				1FBD2AFD1DB481180062D38D /* AboutAndInfoViewController.swift in Sources */,
 				1F933CF81C7FC61200059E83 /* CoreTableViewController.swift in Sources */,
 				1F12B8A31D922A0A00B87CC1 /* FoodSlideOutView.swift in Sources */,
 				1F12B8A71D93AE0D00B87CC1 /* FoodNutritionView.swift in Sources */,

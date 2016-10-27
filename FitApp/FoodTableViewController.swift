@@ -55,11 +55,11 @@ class FoodTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       /* if isEditingfood == true{
+       
+        if isEditingfood == true{
             
             UpdateCountMethodForMap()
-        }*/
+        }
         //CaloriesConsumedInEndText.isHidden = true
       
        
@@ -77,6 +77,14 @@ class FoodTableViewController: UIViewController, UITableViewDataSource, UITableV
                     {
                         let UserCalLoad = object.value(forKey: "DailyCalories") as! String
                         self.TotalCaloriesLabel.text = UserCalLoad
+                        
+                       
+                            if self.CaloriesAteText.text == "00"
+                            {
+                                self.CaloriesConsumedInEndText.text = self.TotalCaloriesLabel.text
+                                self.CaloriesConsumedInEnd.text = self.TotalCaloriesLabel.text
+                            }
+                        
                     }
                 }
             }
@@ -204,20 +212,62 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     func UpdateCountMethodForMap()
     {
         
-
         var DoubleFoodCalArray = 0
         
         for element in foodCalArray{
             DoubleFoodCalArray += Int(element)!
         }
-        var pastcal = Int(self.CaloriesAteText.text!)
+        let findCalAteData: PFQuery = PFQuery(className: "_User")
+        findCalAteData.whereKey("username", equalTo: PFUser.current()!.username!)
+        findCalAteData.whereKeyExists("FoodCaloriesAte")
+        findCalAteData.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]?
+                {
+                    for object in objects
+                    {
+                        let oldCalLoad = object.value(forKey: "FoodCaloriesAte") as! String
+                        self.CaloriesAteText.text = oldCalLoad
+                        var pastcal = Int(self.CaloriesAteText.text!)
+                        let AddPastCal = pastcal! + DoubleFoodCalArray
+                        self.CaloriesAteText.isHidden = true
+                        self.caloriesAteLabel.text = String(AddPastCal)
+                    }
+                }
+            }
+        })
+        let findTotalCaloriesData: PFQuery = PFQuery(className: "_User")
+        findTotalCaloriesData.whereKey("username", equalTo: PFUser.current()!.username!)
+        findTotalCaloriesData.whereKeyExists("DailyCalories")
+        findTotalCaloriesData.findObjectsInBackground(block: {
+            (objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil{
+                if let objects = objects as [PFObject]?
+                {
+                    for object in objects
+                    {
+                        let UserCalLoad = object.value(forKey: "DailyCalories") as! String
+                        self.TotalCaloriesLabel.text = UserCalLoad
+                        
+                        let caloriesleftToEat = Int(self.CaloriesAteText.text!)!
+                        let Caloriesleft = Int(self.TotalCaloriesLabel.text!)!  - caloriesleftToEat - DoubleFoodCalArray
+                        self.CaloriesConsumedInEndText.isHidden = true
+                        self.CaloriesConsumedInEnd.text = String(Caloriesleft)
+                    }
+                }
+            }
+        })
+        
+        
+       /* var pastcal = Int(self.CaloriesAteText.text!)
         let AddPastCal = pastcal! + DoubleFoodCalArray
         CaloriesAteText.isHidden = true
         
-        caloriesAteLabel.text = String(AddPastCal)
-        let Caloriesleft = Int(TotalCaloriesLabel.text!)!  - Int(caloriesAteLabel.text!)!
+        caloriesAteLabel.text = String(AddPastCal)*/
+        /*let Caloriesleft = Int(TotalCaloriesLabel.text!)!  - Int(caloriesAteLabel.text!)!
         CaloriesConsumedInEndText.isHidden = true
-        CaloriesConsumedInEnd.text = String(Caloriesleft)
+        CaloriesConsumedInEnd.text = String(Caloriesleft)*/
         
     }
 
@@ -272,6 +322,19 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     }
     
       @IBAction  func unwindForSegueCalCounter(_ unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+        
+    }
+   
+    @IBAction func ResetButtonClick(_ sender: AnyObject) {
+        
+        self.foodArray = []
+        self.foodCalArray = []
+        self.caloriesAteLabel.text = "00"
+        self.CaloriesConsumedInEnd.text = TotalCaloriesLabel.text
+        let User = PFUser.current()
+        User!["FoodCaloriesAte"] = caloriesAteLabel.text
+        User!["FoodCaloriesRemaining"] = CaloriesConsumedInEnd.text
+        User?.saveInBackground()
         
     }
     

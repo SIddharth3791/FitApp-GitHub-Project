@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
         // Show the current visitor's username
         if let pUserName = PFUser.current()?["username"] as? String {
             
-            self.userNameLabel.text = "Welcome " + pUserName
+            self.userNameLabel.text = pUserName
         }
     }
     override func viewWillAppear(_ animated: Bool) {

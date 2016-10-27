@@ -15,6 +15,7 @@ class WODDetailTableViewController: UIViewController {
     
     //var currentObject : PFObject?
    
+    @IBOutlet weak var ScrollView: UIScrollView!
     
     @IBOutlet weak var WODName: UILabel!
     
@@ -35,7 +36,8 @@ class WODDetailTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ScrollView.contentSize.height = 2000
+
         WODName.text = WODNameLabel
         WODDetails.text = WodDetailsLabel
         DetailWOD.text = detailLabel

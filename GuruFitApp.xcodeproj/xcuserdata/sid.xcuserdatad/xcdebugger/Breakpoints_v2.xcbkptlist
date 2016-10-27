@@ -486,11 +486,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitApp/MapFoodViewController.swift"
-            timestampString = "498124305.387418"
+            timestampString = "498515768.627817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "mapView(_:viewFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -518,11 +518,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitApp/FoodTableViewController.swift"
-            timestampString = "498353691.49075"
+            timestampString = "498622899.969287"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "updateCalCountingMethod()"
             landmarkType = "7">
          </BreakpointContent>
@@ -534,12 +534,169 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitApp/FoodTableViewController.swift"
-            timestampString = "498353691.49075"
+            timestampString = "498622899.969287"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "UpdateCountMethodForMap()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitApp/AboutAndInfoViewController.swift"
+            timestampString = "498372432.361651"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "AboutAndInfoViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitApp.AboutAndInfoViewController.__deallocating_deinit"
+                  moduleName = "FitApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sid/Final%20Project/FitApp/FitApp/AboutAndInfoViewController.swift"
+                  timestampString = "498372438.049774"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitApp.AboutAndInfoViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; FitApp.AboutAndInfoViewController"
+                  moduleName = "FitApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sid/Final%20Project/FitApp/FitApp/AboutAndInfoViewController.swift"
+                  timestampString = "498372438.054672"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "107">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitApp.AboutAndInfoViewController.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; FitApp.AboutAndInfoViewController"
+                  moduleName = "FitApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sid/Final%20Project/FitApp/FitApp/AboutAndInfoViewController.swift"
+                  timestampString = "498372438.058308"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitApp.AboutAndInfoViewController.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;FitApp.AboutAndInfoViewController&gt;"
+                  moduleName = "FitApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sid/Final%20Project/FitApp/FitApp/AboutAndInfoViewController.swift"
+                  timestampString = "498372438.062115"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FitApp.AboutAndInfoViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;FitApp.AboutAndInfoViewController&gt;"
+                  moduleName = "FitApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sid/Final%20Project/FitApp/FitApp/AboutAndInfoViewController.swift"
+                  timestampString = "498372438.06515"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "105">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitApp/FoodTableViewController.swift"
+            timestampString = "498622899.969287"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "UpdateCountMethodForMap()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitApp/FoodTableViewController.swift"
+            timestampString = "498622899.969287"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
+            landmarkName = "UpdateCountMethodForMap()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitApp/HomeViewController.swift"
+            timestampString = "498686568.598143"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "HomeViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitApp/MapPinFoodDataBaseViewController.swift"
+            timestampString = "498688766.599166"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "367"
+            endingLineNumber = "367"
+            landmarkName = "do_table_refresh()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
