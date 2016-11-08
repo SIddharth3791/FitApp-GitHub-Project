@@ -486,11 +486,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitApp/MapFoodViewController.swift"
-            timestampString = "498515768.627817"
+            timestampString = "500278944.000056"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "mapView(_:viewFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -518,11 +518,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitApp/FoodTableViewController.swift"
-            timestampString = "498622899.969287"
+            timestampString = "499631489.502959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "updateCalCountingMethod()"
             landmarkType = "7">
          </BreakpointContent>
@@ -534,11 +534,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitApp/FoodTableViewController.swift"
-            timestampString = "498622899.969287"
+            timestampString = "499631489.502959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
             landmarkName = "UpdateCountMethodForMap()"
             landmarkType = "7">
          </BreakpointContent>
@@ -643,11 +643,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitApp/FoodTableViewController.swift"
-            timestampString = "498622899.969287"
+            timestampString = "499631489.502959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
             landmarkName = "UpdateCountMethodForMap()"
             landmarkType = "7">
          </BreakpointContent>
@@ -659,11 +659,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FitApp/FoodTableViewController.swift"
-            timestampString = "498622899.969287"
+            timestampString = "499631489.502959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "UpdateCountMethodForMap()"
             landmarkType = "7">
          </BreakpointContent>
@@ -697,6 +697,22 @@
             startingLineNumber = "367"
             endingLineNumber = "367"
             landmarkName = "do_table_refresh()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FitApp/MapFoodViewController.swift"
+            timestampString = "500266034.692605"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "getDirections()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

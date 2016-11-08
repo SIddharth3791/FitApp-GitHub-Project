@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1F73C3D51BEB152E00AE339C"
-               BuildableName = "FitApp.app"
-               BlueprintName = "FitApp"
+               BuildableName = "Fit Geek.app"
+               BlueprintName = "Fit Geek"
                ReferencedContainer = "container:GuruFitApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,8 +34,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F73C3D51BEB152E00AE339C"
-            BuildableName = "FitApp.app"
-            BlueprintName = "FitApp"
+            BuildableName = "Fit Geek.app"
+            BlueprintName = "Fit Geek"
             ReferencedContainer = "container:GuruFitApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -72,8 +72,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F73C3D51BEB152E00AE339C"
-            BuildableName = "FitApp.app"
-            BlueprintName = "FitApp"
+            BuildableName = "Fit Geek.app"
+            BlueprintName = "Fit Geek"
             ReferencedContainer = "container:GuruFitApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -95,8 +95,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1F73C3D51BEB152E00AE339C"
-            BuildableName = "FitApp.app"
-            BlueprintName = "FitApp"
+            BuildableName = "Fit Geek.app"
+            BlueprintName = "Fit Geek"
             ReferencedContainer = "container:GuruFitApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

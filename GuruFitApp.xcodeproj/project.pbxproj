@@ -83,7 +83,7 @@
 		1F2656131C5F0B8B00C885E4 /* BMICounting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMICounting.swift; sourceTree = "<group>"; };
 		1F2656151C5F0BF800C885E4 /* BMICountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMICountViewController.swift; sourceTree = "<group>"; };
 		1F3B66611D8B998F0041077F /* AddFoodCaloriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFoodCaloriesViewController.swift; sourceTree = "<group>"; };
-		1F73C3D61BEB152E00AE339C /* FitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F73C3D61BEB152E00AE339C /* Fit Geek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fit Geek.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F73C3D91BEB152E00AE339C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F73C3DE1BEB152E00AE339C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F73C3E01BEB152E00AE339C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -245,7 +245,7 @@
 		1F73C3D71BEB152E00AE339C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1F73C3D61BEB152E00AE339C /* FitApp.app */,
+				1F73C3D61BEB152E00AE339C /* Fit Geek.app */,
 			);
 			name = Products;
 			path = ..;
@@ -396,9 +396,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1F73C3D51BEB152E00AE339C /* FitApp */ = {
+		1F73C3D51BEB152E00AE339C /* Fit Geek */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F73C3E81BEB152E00AE339C /* Build configuration list for PBXNativeTarget "FitApp" */;
+			buildConfigurationList = 1F73C3E81BEB152E00AE339C /* Build configuration list for PBXNativeTarget "Fit Geek" */;
 			buildPhases = (
 				1F73C3D21BEB152E00AE339C /* Sources */,
 				1F73C3D31BEB152E00AE339C /* Frameworks */,
@@ -408,9 +408,9 @@
 			);
 			dependencies = (
 			);
-			name = FitApp;
+			name = "Fit Geek";
 			productName = FitApp;
-			productReference = 1F73C3D61BEB152E00AE339C /* FitApp.app */;
+			productReference = 1F73C3D61BEB152E00AE339C /* Fit Geek.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -447,7 +447,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1F73C3D51BEB152E00AE339C /* FitApp */,
+				1F73C3D51BEB152E00AE339C /* Fit Geek */,
 			);
 		};
 /* End PBXProject section */
@@ -663,7 +663,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F73C3E81BEB152E00AE339C /* Build configuration list for PBXNativeTarget "FitApp" */ = {
+		1F73C3E81BEB152E00AE339C /* Build configuration list for PBXNativeTarget "Fit Geek" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F73C3E91BEB152E00AE339C /* Debug */,

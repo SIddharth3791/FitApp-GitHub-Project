@@ -46,6 +46,9 @@ class MapFoodViewController: UIViewController{
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
+
+        
+        
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! MapSearchTableViewController
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController.searchResultsUpdater = locationSearchTable
@@ -59,7 +62,14 @@ class MapFoodViewController: UIViewController{
         locationSearchTable.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
         
+        //---------------------------------------------------
         
+        
+        
+        
+       
+    
+
        
         
         
@@ -108,11 +118,46 @@ class MapFoodViewController: UIViewController{
     }
     
     func getDirections(){
+ 
         guard let selectedPin = selectedPin else { return }
         let mapItem = MKMapItem(placemark: selectedPin)
         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
         mapItem.openInMaps(launchOptions: launchOptions)
+        
+        let request = MKDirectionsRequest()
+        request.source = MKMapItem.forCurrentLocation()
+        request.destination = mapItem
+        request.transportType = .automobile
+        
+        let directions = MKDirections(request: request)
+        
+        directions.calculate {
+            (response, error) -> Void in
+            
+            guard let response = response else {
+                if let error = error {
+                    print("Error: \(error)")
+                }
+                
+                return
+            }
+            let route = response.routes[0]
+            self.mapView.add((route.polyline), level: MKOverlayLevel.aboveRoads)
+            
+            let rect = route.polyline.boundingMapRect
+            self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+        }
+        
     }
+    
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.red
+        renderer.lineWidth = 4.0
+        
+        return renderer
+    }
+    
 }
 
 extension MapFoodViewController : CLLocationManagerDelegate {

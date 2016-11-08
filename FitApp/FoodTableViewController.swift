@@ -53,9 +53,11 @@ class FoodTableViewController: UIViewController, UITableViewDataSource, UITableV
        
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+    
+    
         if isEditingfood == true{
             
             UpdateCountMethodForMap()
