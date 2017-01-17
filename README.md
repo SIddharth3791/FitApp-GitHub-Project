@@ -1,6 +1,6 @@
 •	Project was developed using Xcode, Swift, Amazon Web Service, MongoDB, Parse Server 
 
-•	all Data is stored on MongoDB cluster that runs on AWS Elastic Cloud Computing (EC2). 
+•	All Data is stored on MongoDB cluster that runs on AWS Elastic Cloud Computing (EC2). 
 
 •	This application was all about the fitness and healthy diet options. Helping users to get easy access to workout and guide them through healthy food alternatives to maintain good diet 
 
