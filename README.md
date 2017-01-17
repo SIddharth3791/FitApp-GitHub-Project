@@ -1,4 +1,6 @@
-•	Project was developed using technology like Swift, Parse (BaaS) Database and Xcode 
+•	Project was developed using Xcode, Swift, Amazon Web Service, MongoDB, Parse Server 
+
+•	all Data is stored on MongoDB cluster that runs on AWS Elastic Cloud Computing (EC2). 
 
 •	This application was all about the fitness and healthy diet options. Helping users to get easy access to workout and guide them through healthy food alternatives to maintain good diet 
 
@@ -8,4 +10,3 @@
 
 •	It used Apple maps to locate food joints (Arby’s, McDonald’s, Sheetz) within 10-mile radius of user’s location to receive food options to maintain healthy diet 
 
-•	Parse Cloud tool, which is backend solution for mobile application was used to store all user data.
