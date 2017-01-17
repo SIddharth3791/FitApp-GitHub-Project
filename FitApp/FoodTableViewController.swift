@@ -13,6 +13,7 @@ import ParseUI
 class FoodTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate{
 
     
+
     //Delegate to delete Rows
     
        var deletePlanetIndexPath: NSIndexPath? = nil
@@ -57,7 +58,8 @@ class FoodTableViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
     
-    
+       
+        
         if isEditingfood == true{
             
             UpdateCountMethodForMap()
@@ -79,19 +81,20 @@ class FoodTableViewController: UIViewController, UITableViewDataSource, UITableV
                     {
                         let UserCalLoad = object.value(forKey: "DailyCalories") as! String
                         self.TotalCaloriesLabel.text = UserCalLoad
-                        
                        
                             if self.CaloriesAteText.text == "00"
                             {
                                 self.CaloriesConsumedInEndText.text = self.TotalCaloriesLabel.text
                                 self.CaloriesConsumedInEnd.text = self.TotalCaloriesLabel.text
                             }
-                        
+                    
                     }
                 }
             }
         })
         
+        
+       
         //Marks:- Get User cal ate
         getPreviousCalories()
        // updatecalContingMethod()
@@ -280,6 +283,11 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
         let User = PFUser.current()
         User!["FoodCaloriesAte"] = caloriesAteLabel.text
         User!["FoodCaloriesRemaining"] = CaloriesConsumedInEnd.text
+        
+        let alert = UIAlertView(title: "Food has been save", message: "", delegate: self, cancelButtonTitle: "OK")
+        alert.show()
+
+        
         User?.saveInBackground()
         
     }
@@ -287,6 +295,8 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
     
     func getPreviousCalories()
     {
+    
+        
         let findCalAteData: PFQuery = PFQuery(className: "_User")
         findCalAteData.whereKey("username", equalTo: PFUser.current()!.username!)
         findCalAteData.whereKeyExists("FoodCaloriesAte")

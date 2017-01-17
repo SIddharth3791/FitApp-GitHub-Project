@@ -12,7 +12,7 @@
         <!--Reset Password-->
         <scene sceneID="uvn-UB-rKm">
             <objects>
-                <viewController id="meH-1H-kft" customClass="ResetPasswordViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="meH-1H-kft" customClass="ResetPasswordViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lx6-FU-Jqw"/>
                         <viewControllerLayoutGuide type="bottom" id="dj5-xa-zBT"/>
@@ -120,7 +120,7 @@
         <!--Login Page-->
         <scene sceneID="mzm-9E-egK">
             <objects>
-                <viewController storyboardIdentifier="LogIn" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8JP-sT-dhv" customClass="LoginViewController" customModule="FitApp" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogIn" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8JP-sT-dhv" customClass="LoginViewController" customModule="Fit_Geek" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n9o-6L-OEL"/>
                         <viewControllerLayoutGuide type="bottom" id="k8e-wr-2Sp"/>
@@ -132,7 +132,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Login Screen BG " translatesAutoresizingMaskIntoConstraints="NO" id="rNQ-CP-TGd"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyy-ck-3gA">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="vJx-Dy-ex7"/>
+                                    <constraint firstAttribute="height" constant="36" id="wzd-bT-Uzj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
                                 <state key="normal">
@@ -142,22 +142,10 @@
                                     <action selector="loginAction:" destination="8JP-sT-dhv" eventType="touchUpInside" id="4ZG-km-Uot"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1T-vp-qDT">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="h2E-gZ-wJu"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="buv-lQ-lkr" kind="show" id="zBo-0M-cK4"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Iye-rh-ANi">
                                 <color key="backgroundColor" red="0.85735176280000003" green="0.85735176280000003" blue="0.85735176280000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="PRo-q9-dSJ"/>
+                                    <constraint firstAttribute="height" constant="30" id="mHC-dm-PKB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -168,7 +156,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="yaT-tC-3LZ">
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="QDa-eI-e3E"/>
+                                    <constraint firstAttribute="height" constant="30" id="G7D-S4-Jfu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -178,7 +166,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5d-eX-O1G">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="a7u-S7-Mwg"/>
+                                    <constraint firstAttribute="height" constant="30" id="m5Q-mA-OdV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <state key="normal">
@@ -189,36 +177,47 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIT GEEK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9g-rr-gfG">
-                                <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="55"/>
+                                <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="48"/>
                                 <color key="textColor" red="0.98039215690000003" green="0.86274509799999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1T-vp-qDT">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="bJt-lJ-Aki"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="buv-lQ-lkr" kind="showDetail" action="showViewController:sender:" id="zBo-0M-cK4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="G9g-rr-gfG" firstAttribute="top" secondItem="n9o-6L-OEL" secondAttribute="bottom" constant="146" id="19C-BG-xRO"/>
-                            <constraint firstItem="rNQ-CP-TGd" firstAttribute="leading" secondItem="jRq-sh-TJR" secondAttribute="leading" id="3MP-A1-mIL"/>
-                            <constraint firstItem="G9g-rr-gfG" firstAttribute="leading" secondItem="Hyy-ck-3gA" secondAttribute="leading" id="4al-dD-0mS"/>
-                            <constraint firstItem="yaT-tC-3LZ" firstAttribute="leading" secondItem="jRq-sh-TJR" secondAttribute="leadingMargin" constant="38" id="4n1-Sc-qGW"/>
-                            <constraint firstItem="rNQ-CP-TGd" firstAttribute="top" secondItem="jRq-sh-TJR" secondAttribute="top" id="6EQ-KR-AVG"/>
-                            <constraint firstItem="Iye-rh-ANi" firstAttribute="top" secondItem="yaT-tC-3LZ" secondAttribute="bottom" constant="36" id="B1E-EH-Fr7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="l5d-eX-O1G" secondAttribute="trailing" constant="88" id="FIz-dW-MqH"/>
-                            <constraint firstItem="k8e-wr-2Sp" firstAttribute="top" secondItem="b1T-vp-qDT" secondAttribute="bottom" constant="156" id="HGR-O4-wEP"/>
-                            <constraint firstItem="G9g-rr-gfG" firstAttribute="leading" secondItem="jRq-sh-TJR" secondAttribute="leadingMargin" constant="30" id="HNv-Bw-j5m"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="rNQ-CP-TGd" secondAttribute="bottom" constant="-5" id="Pp2-Kr-GZS"/>
-                            <constraint firstItem="l5d-eX-O1G" firstAttribute="leading" secondItem="b1T-vp-qDT" secondAttribute="leading" id="Skj-Ca-aE3"/>
-                            <constraint firstItem="yaT-tC-3LZ" firstAttribute="trailing" secondItem="Iye-rh-ANi" secondAttribute="trailing" id="TnC-4d-l9b"/>
-                            <constraint firstItem="yaT-tC-3LZ" firstAttribute="leading" secondItem="Iye-rh-ANi" secondAttribute="leading" id="UR5-33-Zko"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="G9g-rr-gfG" secondAttribute="trailing" constant="34" id="WUn-aY-FWv"/>
-                            <constraint firstItem="yaT-tC-3LZ" firstAttribute="top" secondItem="G9g-rr-gfG" secondAttribute="bottom" constant="51" id="dgJ-YA-lLa"/>
-                            <constraint firstItem="Hyy-ck-3gA" firstAttribute="top" secondItem="Iye-rh-ANi" secondAttribute="bottom" constant="17" id="hCp-Gm-YQ7"/>
-                            <constraint firstItem="rNQ-CP-TGd" firstAttribute="centerX" secondItem="b1T-vp-qDT" secondAttribute="centerX" id="oEV-gx-aM2"/>
-                            <constraint firstItem="b1T-vp-qDT" firstAttribute="top" secondItem="l5d-eX-O1G" secondAttribute="bottom" constant="14" id="oJ8-zC-pj6"/>
-                            <constraint firstItem="Iye-rh-ANi" firstAttribute="centerX" secondItem="Hyy-ck-3gA" secondAttribute="centerX" id="qzY-k7-f77"/>
-                            <constraint firstItem="Hyy-ck-3gA" firstAttribute="leading" secondItem="l5d-eX-O1G" secondAttribute="leading" id="rFf-uV-Npu"/>
-                            <constraint firstItem="l5d-eX-O1G" firstAttribute="top" secondItem="Hyy-ck-3gA" secondAttribute="bottom" constant="20" id="rtN-bQ-mwT"/>
-                            <constraint firstItem="Hyy-ck-3gA" firstAttribute="trailing" secondItem="b1T-vp-qDT" secondAttribute="trailing" id="wr0-ww-Pps"/>
-                            <constraint firstAttribute="trailing" secondItem="rNQ-CP-TGd" secondAttribute="trailing" id="xsl-Aj-U5V"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="rNQ-CP-TGd" secondAttribute="bottom" constant="-5" id="1c0-TY-E9p"/>
+                            <constraint firstItem="Hyy-ck-3gA" firstAttribute="trailing" secondItem="b1T-vp-qDT" secondAttribute="trailing" id="2ua-sR-boo"/>
+                            <constraint firstItem="k8e-wr-2Sp" firstAttribute="top" secondItem="b1T-vp-qDT" secondAttribute="bottom" constant="138" id="40Q-hX-elX"/>
+                            <constraint firstItem="yaT-tC-3LZ" firstAttribute="leading" secondItem="Iye-rh-ANi" secondAttribute="leading" id="5PL-pT-6Z6"/>
+                            <constraint firstItem="yaT-tC-3LZ" firstAttribute="top" secondItem="G9g-rr-gfG" secondAttribute="bottom" constant="20" id="D5E-7Z-N7p"/>
+                            <constraint firstItem="yaT-tC-3LZ" firstAttribute="trailing" secondItem="Iye-rh-ANi" secondAttribute="trailing" id="Duj-6f-9z4"/>
+                            <constraint firstItem="rNQ-CP-TGd" firstAttribute="centerX" secondItem="Iye-rh-ANi" secondAttribute="centerX" id="FDk-zC-Ylk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="l5d-eX-O1G" secondAttribute="trailing" constant="88" id="I6D-dY-3g0"/>
+                            <constraint firstItem="Iye-rh-ANi" firstAttribute="trailing" secondItem="Hyy-ck-3gA" secondAttribute="trailing" id="WLL-uE-GcK"/>
+                            <constraint firstItem="yaT-tC-3LZ" firstAttribute="leading" secondItem="jRq-sh-TJR" secondAttribute="leadingMargin" constant="38" id="Ydo-Pa-7Rk"/>
+                            <constraint firstItem="Hyy-ck-3gA" firstAttribute="leading" secondItem="l5d-eX-O1G" secondAttribute="leading" id="bBR-aq-Zm2"/>
+                            <constraint firstItem="rNQ-CP-TGd" firstAttribute="leading" secondItem="jRq-sh-TJR" secondAttribute="leading" id="hZC-zf-2R9"/>
+                            <constraint firstItem="l5d-eX-O1G" firstAttribute="top" secondItem="Hyy-ck-3gA" secondAttribute="bottom" constant="14" id="mMn-Oa-Orn"/>
+                            <constraint firstItem="Hyy-ck-3gA" firstAttribute="top" secondItem="Iye-rh-ANi" secondAttribute="bottom" constant="29" id="nOb-0E-apJ"/>
+                            <constraint firstItem="b1T-vp-qDT" firstAttribute="top" secondItem="l5d-eX-O1G" secondAttribute="bottom" constant="26" id="oNl-CO-bUp"/>
+                            <constraint firstItem="G9g-rr-gfG" firstAttribute="top" secondItem="n9o-6L-OEL" secondAttribute="bottom" constant="177" id="pCQ-s7-ydA"/>
+                            <constraint firstItem="l5d-eX-O1G" firstAttribute="leading" secondItem="b1T-vp-qDT" secondAttribute="leading" id="pJH-c7-lVo"/>
+                            <constraint firstItem="G9g-rr-gfG" firstAttribute="leading" secondItem="jRq-sh-TJR" secondAttribute="leadingMargin" constant="26" id="rIY-Mn-8J4"/>
+                            <constraint firstItem="G9g-rr-gfG" firstAttribute="trailing" secondItem="yaT-tC-3LZ" secondAttribute="trailing" id="s8P-Gy-KEd"/>
+                            <constraint firstAttribute="trailing" secondItem="rNQ-CP-TGd" secondAttribute="trailing" id="t52-Sn-cjs"/>
+                            <constraint firstItem="rNQ-CP-TGd" firstAttribute="top" secondItem="jRq-sh-TJR" secondAttribute="top" id="uoz-0f-5YY"/>
+                            <constraint firstItem="Iye-rh-ANi" firstAttribute="top" secondItem="yaT-tC-3LZ" secondAttribute="bottom" constant="36" id="zHU-nX-9lN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login Page" id="Clv-uG-uwX"/>
@@ -236,90 +235,78 @@
         <!--Sign Up View Controller-->
         <scene sceneID="N37-CP-W1s">
             <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="buv-lQ-lkr" customClass="SignUpViewController" customModule="FitApp" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" id="buv-lQ-lkr" customClass="SignUpViewController" customModule="Fit_Geek" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cXO-Ye-ELn"/>
                         <viewControllerLayoutGuide type="bottom" id="0H0-P3-5Lc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="two-da-A26">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sign-Up BG" translatesAutoresizingMaskIntoConstraints="NO" id="nUn-O7-6bH"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJl-kL-a3z">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="wo7-Kx-lle"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sign-Up BG" translatesAutoresizingMaskIntoConstraints="NO" id="nUn-O7-6bH">
+                                <frame key="frameInset" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJl-kL-a3z">
+                                <frame key="frameInset" minX="32" minY="489" width="310" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
                                 <connections>
                                     <action selector="signUpAction:" destination="buv-lQ-lkr" eventType="touchUpInside" id="kFB-dz-QJQ"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lcl-9g-lev">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lcl-9g-lev">
+                                <frame key="frameInset" minX="29" minY="324" width="317" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="hqw-LZ-HVc"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="buv-lQ-lkr" id="n5m-Gq-Gpp"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eg8-0l-5f7">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eg8-0l-5f7">
+                                <frame key="frameInset" minX="29" minY="402" width="317" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="Gz3-Rw-apm"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="buv-lQ-lkr" id="dYQ-hi-xNx"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JnY-uo-qPA">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JnY-uo-qPA">
+                                <frame key="frameInset" minX="29" minY="244" width="317" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="AYN-sB-HVc"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="buv-lQ-lkr" id="e92-BG-SvY"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIT GEEK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXC-re-YcZ">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="111" id="LxE-Ay-Uxv"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FIT GEEK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXC-re-YcZ">
+                                <frame key="frameInset" minX="51" minY="105" width="310" height="111"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="55"/>
                                 <color key="textColor" red="0.98039215690000003" green="0.86274509799999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqB-jt-fMH">
+                                <frame key="frameInset" minX="10" minY="67" width="91" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="28"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.98039215690000003" green="0.86274509799999999" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="OVw-tC-cwR" kind="unwind" unwindAction="unwindToLogInScreen:towardsViewController:" id="EyZ-P8-hxc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="JnY-uo-qPA" firstAttribute="trailing" secondItem="lcl-9g-lev" secondAttribute="trailing" id="6gq-d0-Td0"/>
-                            <constraint firstItem="nUn-O7-6bH" firstAttribute="leading" secondItem="two-da-A26" secondAttribute="leading" id="Css-mT-g14"/>
-                            <constraint firstItem="XXC-re-YcZ" firstAttribute="leading" secondItem="two-da-A26" secondAttribute="leadingMargin" constant="31" id="CwM-ln-QAa"/>
-                            <constraint firstItem="XXC-re-YcZ" firstAttribute="trailing" secondItem="dJl-kL-a3z" secondAttribute="trailing" id="Dqw-6d-rq8"/>
-                            <constraint firstItem="lcl-9g-lev" firstAttribute="top" secondItem="JnY-uo-qPA" secondAttribute="bottom" constant="37" id="JBz-3r-NUJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="JnY-uo-qPA" secondAttribute="trailing" constant="21" id="L3K-sf-5fs"/>
-                            <constraint firstItem="lcl-9g-lev" firstAttribute="leading" secondItem="eg8-0l-5f7" secondAttribute="leading" id="NLa-gw-Y2f"/>
-                            <constraint firstItem="eg8-0l-5f7" firstAttribute="top" secondItem="lcl-9g-lev" secondAttribute="bottom" constant="35" id="PlK-U1-NXN"/>
-                            <constraint firstItem="nUn-O7-6bH" firstAttribute="top" secondItem="two-da-A26" secondAttribute="top" id="Pyc-3V-FQS"/>
-                            <constraint firstAttribute="bottom" secondItem="nUn-O7-6bH" secondAttribute="bottom" id="Utb-WT-nef"/>
-                            <constraint firstItem="JnY-uo-qPA" firstAttribute="leading" secondItem="two-da-A26" secondAttribute="leadingMargin" constant="36" id="VGL-bJ-69m"/>
-                            <constraint firstItem="0H0-P3-5Lc" firstAttribute="top" secondItem="dJl-kL-a3z" secondAttribute="bottom" constant="99" id="WaS-ny-wn1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XXC-re-YcZ" secondAttribute="trailing" constant="33" id="apH-sg-fdJ"/>
-                            <constraint firstItem="XXC-re-YcZ" firstAttribute="top" secondItem="cXO-Ye-ELn" secondAttribute="bottom" constant="85" id="b3P-S6-c0D"/>
-                            <constraint firstAttribute="trailing" secondItem="nUn-O7-6bH" secondAttribute="trailing" id="clr-18-eXa"/>
-                            <constraint firstItem="XXC-re-YcZ" firstAttribute="leading" secondItem="dJl-kL-a3z" secondAttribute="leading" id="grD-9Z-OJG"/>
-                            <constraint firstItem="JnY-uo-qPA" firstAttribute="leading" secondItem="lcl-9g-lev" secondAttribute="leading" id="hpt-rF-roH"/>
-                            <constraint firstItem="lcl-9g-lev" firstAttribute="trailing" secondItem="eg8-0l-5f7" secondAttribute="trailing" id="lJc-lA-cpx"/>
-                            <constraint firstItem="JnY-uo-qPA" firstAttribute="top" secondItem="XXC-re-YcZ" secondAttribute="bottom" constant="28" id="oxd-F3-pv4"/>
-                        </constraints>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -330,13 +317,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDV-gC-vJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="OVw-tC-cwR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="843.20000000000005" y="-439.88005997001505"/>
+            <point key="canvasLocation" x="842.39999999999998" y="-440.32983508245883"/>
         </scene>
         <!--Detail Body Table View Controller-->
         <scene sceneID="5J9-Jj-pla">
             <objects>
-                <viewController id="PpX-TC-qBj" customClass="DetailBodyTableViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PpX-TC-qBj" customClass="DetailBodyTableViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="91J-z4-Qaf"/>
                         <viewControllerLayoutGuide type="bottom" id="smn-6G-JAa"/>
@@ -430,7 +418,7 @@
         <!--Arm Table View Controller-->
         <scene sceneID="qof-8p-TAQ">
             <objects>
-                <viewController id="zIR-nM-vJG" customClass="ArmTableViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zIR-nM-vJG" customClass="ArmTableViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BSi-1h-yaS"/>
                         <viewControllerLayoutGuide type="bottom" id="rao-Uc-yC4"/>
@@ -501,7 +489,7 @@
         <!--Legs Table View Controller-->
         <scene sceneID="kMg-rw-GqG">
             <objects>
-                <viewController id="cFQ-9t-AyE" customClass="LegsTableViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cFQ-9t-AyE" customClass="LegsTableViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Yk-WY-P7E"/>
                         <viewControllerLayoutGuide type="bottom" id="EhK-u5-Uvn"/>
@@ -572,7 +560,7 @@
         <!--Calf Glutes Table Viewcontroller-->
         <scene sceneID="Pxy-EF-76I">
             <objects>
-                <viewController id="apM-Pm-6ux" customClass="Calf_GlutesTableViewcontroller" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="apM-Pm-6ux" customClass="Calf_GlutesTableViewcontroller" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q7J-9D-61f"/>
                         <viewControllerLayoutGuide type="bottom" id="zaE-JC-w0T"/>
@@ -646,7 +634,7 @@
         <!--Chest Table View Controller-->
         <scene sceneID="EuE-ei-0s3">
             <objects>
-                <viewController id="IbZ-4w-vIQ" customClass="ChestTableViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="IbZ-4w-vIQ" customClass="ChestTableViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1L1-8L-kf8"/>
                         <viewControllerLayoutGuide type="bottom" id="IS0-qh-ar2"/>
@@ -717,7 +705,7 @@
         <!--BodyBuilding-->
         <scene sceneID="DBB-Ps-sdR">
             <objects>
-                <viewController id="ZiL-nb-zhs" customClass="WorkoutPlanFrontBack" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZiL-nb-zhs" customClass="WorkoutPlanFrontBack" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VZu-8h-zlq"/>
                         <viewControllerLayoutGuide type="bottom" id="HfL-ZI-hNp"/>
@@ -845,7 +833,7 @@
         <!--Home Page-->
         <scene sceneID="aYK-Bg-dV3">
             <objects>
-                <viewController storyboardIdentifier="Home" modalTransitionStyle="flipHorizontal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FWS-SH-gaX" customClass="HomeViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" modalTransitionStyle="flipHorizontal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FWS-SH-gaX" customClass="HomeViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yto-dR-Bd9"/>
                         <viewControllerLayoutGuide type="bottom" id="ooQ-sY-UdK"/>
@@ -978,7 +966,7 @@
         <!--Add Calories View Controller-->
         <scene sceneID="Euq-Dr-jfy">
             <objects>
-                <viewController storyboardIdentifier="CalorieCounter" id="2Eo-yV-nxB" customClass="AddCaloriesViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalorieCounter" id="2Eo-yV-nxB" customClass="AddCaloriesViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Reg-ya-jMh"/>
                         <viewControllerLayoutGuide type="bottom" id="m7R-ps-iaq"/>
@@ -1115,11 +1103,11 @@
                                     <constraint firstAttribute="height" constant="277" id="7yi-WJ-xC6"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BreakfastCell" id="xM8-8h-Gp1" customClass="BreakfastCell" customModule="FitApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BreakfastCell" id="xM8-8h-Gp1" customClass="BreakfastCell" customModule="Fit_Geek" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xM8-8h-Gp1" id="mxc-BX-Z2g">
-                                            <frame key="frameInset" width="1000" height="44"/>
+                                            <frame key="frameInset" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FoodLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFp-eP-f76">
@@ -1377,7 +1365,7 @@
         <!--Count Cal View Controller-->
         <scene sceneID="f8M-Kg-uTy">
             <objects>
-                <viewController id="9ed-70-R5m" customClass="CountCalViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9ed-70-R5m" customClass="CountCalViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iUO-UV-BHB"/>
                         <viewControllerLayoutGuide type="bottom" id="WhE-z1-bGR"/>
@@ -1591,7 +1579,7 @@
         <!--Add Food-->
         <scene sceneID="1LV-4w-I9J">
             <objects>
-                <viewController id="0sD-ZC-Qet" customClass="FoodNutritionViews" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0sD-ZC-Qet" customClass="FoodNutritionViews" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jEV-gd-qpq"/>
                         <viewControllerLayoutGuide type="bottom" id="lDH-Fn-R9y"/>
@@ -1899,7 +1887,7 @@
         <!--Food Tracker -->
         <scene sceneID="zKG-lE-xZc">
             <objects>
-                <viewController storyboardIdentifier="CalCountingView" id="67W-iu-Du6" customClass="FoodTableViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalCountingView" id="67W-iu-Du6" customClass="FoodTableViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="foa-pl-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="pED-er-zbE"/>
@@ -2051,11 +2039,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Calories Counter" id="B26-eh-fsh">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Gcr-Fk-cVg">
-                                            <connections>
-                                                <segue destination="xJm-0S-MTt" kind="unwind" unwindAction="unwindForSegueHome:towardsViewController:" id="blP-p4-3kW"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Gcr-Fk-cVg"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -2069,6 +2053,7 @@
                                 </state>
                                 <connections>
                                     <action selector="ResetButtonClick:" destination="67W-iu-Du6" eventType="touchUpInside" id="fo1-lx-joF"/>
+                                    <segue destination="skh-uh-nid" kind="show" id="75D-s5-B9p"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2077,7 +2062,7 @@
                     <navigationItem key="navigationItem" title="Food Tracker " id="3ir-gE-sMO">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="Hnr-u1-EdA">
                             <connections>
-                                <segue destination="xJm-0S-MTt" kind="unwind" unwindAction="unwindForSegueHome:towardsViewController:" id="jXs-qU-eY8"/>
+                                <segue destination="xJm-0S-MTt" kind="unwind" unwindAction="unwindForSegueHome:towardsViewController:" id="YPI-14-H37"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="MAP" style="done" id="5xG-hN-Cy1">
@@ -2104,7 +2089,7 @@
         <!--Quick Add Cal-->
         <scene sceneID="A4b-e5-8of">
             <objects>
-                <viewController storyboardIdentifier="QuickFoodAddViewController" id="McY-mH-6hx" customClass="AddFoodCaloriesViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuickFoodAddViewController" id="McY-mH-6hx" customClass="AddFoodCaloriesViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YOQ-gg-fWg"/>
                         <viewControllerLayoutGuide type="bottom" id="MTX-kW-GcR"/>
@@ -2257,7 +2242,7 @@
         <!--Map Details Table View Controller-->
         <scene sceneID="PpQ-1L-HJv">
             <objects>
-                <viewController id="WQk-ln-fHR" customClass="MapDetailsTableViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WQk-ln-fHR" customClass="MapDetailsTableViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="crb-bq-CY2"/>
                         <viewControllerLayoutGuide type="bottom" id="blo-iG-3FF"/>
@@ -2289,7 +2274,7 @@
         <!--Table View Controller-->
         <scene sceneID="y0Y-uL-vSB">
             <objects>
-                <viewController id="VMg-GZ-beV" customClass="WODTableViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VMg-GZ-beV" customClass="WODTableViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2fk-LM-zu1"/>
                         <viewControllerLayoutGuide type="bottom" id="G89-EP-O7l"/>
@@ -2309,21 +2294,21 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CFWOD" textLabel="e0m-t4-lkn" detailTextLabel="HQf-a0-E3D" imageView="QyN-XA-PXK" rowHeight="58" style="IBUITableViewCellStyleSubtitle" id="cCo-k5-PQS">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="58"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cCo-k5-PQS" id="sal-25-pcT">
-                                            <frame key="frameInset" width="1000" height="58"/>
+                                            <frame key="frameInset" width="375" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e0m-t4-lkn">
-                                                    <frame key="frameInset" minX="164" minY="6" width="42.5" height="26.5"/>
+                                                    <frame key="frameInset" minX="15" minY="6" width="42.5" height="26.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <color key="textColor" red="0.34901961679999999" green="0.1647058874" blue="0.73219060899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HQf-a0-E3D">
-                                                    <frame key="frameInset" minX="164" minY="32.5" width="59" height="20.5"/>
+                                                    <frame key="frameInset" minX="15" minY="32.5" width="59" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.34901961679999999" green="0.1647058874" blue="0.73219060899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2396,7 +2381,7 @@
         <!--Detail Table View Controller-->
         <scene sceneID="TEx-Iq-kGy">
             <objects>
-                <viewController id="bOY-zI-smq" customClass="WODDetailTableViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bOY-zI-smq" customClass="WODDetailTableViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bZl-9F-MEC"/>
                         <viewControllerLayoutGuide type="bottom" id="LQf-Us-sPr"/>
@@ -2485,11 +2470,7 @@
                                 <segue destination="EYp-1B-DbD" kind="unwind" unwindAction="unwindForWodTableview:towardsViewController:" id="SnQ-sA-2Nu"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Clock" style="done" id="aTJ-n3-eAy">
-                            <connections>
-                                <segue destination="sYp-VK-d5x" kind="show" id="fAi-Qo-NIh"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Clock" style="done" id="aTJ-n3-eAy"/>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="750"/>
@@ -2592,7 +2573,7 @@
         <!--What is CrossFit-->
         <scene sceneID="LBY-mH-NN8">
             <objects>
-                <viewController id="H4I-Rx-Lbf" customClass="AboutAndInfoViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="H4I-Rx-Lbf" customClass="AboutAndInfoViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w4K-8u-dV6"/>
                         <viewControllerLayoutGuide type="bottom" id="0j8-nk-Yvd"/>
@@ -2667,7 +2648,7 @@
         <!--Personal Record-->
         <scene sceneID="heB-Tr-JZ9">
             <objects>
-                <viewController id="dRJ-Bi-gRg" customClass="PRViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dRJ-Bi-gRg" customClass="PRViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WuX-mw-xWt"/>
                         <viewControllerLayoutGuide type="bottom" id="T40-1x-gFI"/>
@@ -3367,7 +3348,7 @@
                     <navigationItem key="navigationItem" title="Personal Record" id="fgT-I2-SiK">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="4Kd-FF-AEi">
                             <connections>
-                                <segue destination="zDZ-6z-b09" kind="unwind" unwindAction="unwindForSegueMainCFView:towardsViewController:" id="STn-3m-dug"/>
+                                <segue destination="zDZ-6z-b09" kind="unwind" unwindAction="unwindForSegueHome:towardsViewController:" id="aLI-NX-xNu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -3404,12 +3385,12 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3119.1999999999998" y="3992.2038980509747"/>
+            <point key="canvasLocation" x="3018" y="4008"/>
         </scene>
         <!--Time Keeper View Controller-->
         <scene sceneID="XQK-Op-n6R">
             <objects>
-                <viewController id="sYp-VK-d5x" customClass="TimeKeeperViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sYp-VK-d5x" customClass="TimeKeeperViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1PV-HA-tRG"/>
                         <viewControllerLayoutGuide type="bottom" id="rjQ-DM-iVF"/>
@@ -3481,7 +3462,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Back" width="2" style="done" id="9zC-zl-Pgp">
                             <color key="tintColor" red="0.93441106799999996" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="Tq7-N9-Cuy" kind="unwind" unwindAction="unwindForSegueMainCFView:towardsViewController:" id="oP9-AH-yHU"/>
+                                <segue destination="O17-BC-y8M" kind="show" id="MVu-QM-tn9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -3494,10 +3475,9 @@
                         <outlet property="StopWatchLabel" destination="0CY-t5-wBO" id="QH0-L9-lK0"/>
                     </connections>
                 </viewController>
-                <exit id="Tq7-N9-Cuy" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc3-4G-unA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4768" y="4024.5877061469268"/>
+            <point key="canvasLocation" x="4661" y="4007"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IJa-5u-imV">
@@ -3522,7 +3502,7 @@
         <!--Shoulder Table View Controller-->
         <scene sceneID="gzF-wt-lEM">
             <objects>
-                <viewController id="1V0-d2-ju8" customClass="ShoulderTableViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1V0-d2-ju8" customClass="ShoulderTableViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zgW-Gd-Nre"/>
                         <viewControllerLayoutGuide type="bottom" id="kKN-fk-8j2"/>
@@ -3593,7 +3573,7 @@
         <!--Back Table View Controller-->
         <scene sceneID="ha6-nk-VXu">
             <objects>
-                <viewController id="FhF-DQ-eqT" customClass="BackTableViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FhF-DQ-eqT" customClass="BackTableViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AIZ-XV-W3X"/>
                         <viewControllerLayoutGuide type="bottom" id="JXl-HD-IfP"/>
@@ -3664,7 +3644,7 @@
         <!--Core Table View Controller-->
         <scene sceneID="OQh-Yo-Dgx">
             <objects>
-                <viewController id="2d6-t7-ujs" customClass="CoreTableViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2d6-t7-ujs" customClass="CoreTableViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WQz-oD-RLw"/>
                         <viewControllerLayoutGuide type="bottom" id="A6F-30-MZa"/>
@@ -3771,7 +3751,7 @@
         <!--Count View Controller-->
         <scene sceneID="VaW-pa-lf2">
             <objects>
-                <viewController id="Vif-aJ-ihQ" customClass="BMICountViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Vif-aJ-ihQ" customClass="BMICountViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b7M-SA-MWd"/>
                         <viewControllerLayoutGuide type="bottom" id="g34-qW-yCc"/>
@@ -4010,7 +3990,7 @@
         <!--Search Food Places-->
         <scene sceneID="28M-Mj-EzU">
             <objects>
-                <viewController id="aRD-bN-7hP" customClass="MapFoodViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aRD-bN-7hP" customClass="MapFoodViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mM4-Yn-lv9"/>
                         <viewControllerLayoutGuide type="bottom" id="esq-eO-z6Y"/>
@@ -4025,7 +4005,8 @@
                                     <outlet property="delegate" destination="aRD-bN-7hP" id="aMB-PL-Scb"/>
                                 </connections>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D85-5K-HbK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D85-5K-HbK">
+                                <frame key="frameInset" minY="71" width="375" height="107"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
                                 <color key="textColor" red="0.63137254901960782" green="0.15686274509803921" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -4056,12 +4037,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1A4-Iw-5Mf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3142" y="555"/>
+            <point key="canvasLocation" x="3141.5999999999999" y="554.57271364317842"/>
         </scene>
         <!--Map Search Table View Controller-->
         <scene sceneID="G3S-JL-jFQ">
             <objects>
-                <tableViewController storyboardIdentifier="LocationSearchTable" id="Wc3-UY-OVy" customClass="MapSearchTableViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LocationSearchTable" id="Wc3-UY-OVy" customClass="MapSearchTableViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iFA-BC-QsZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4105,7 +4086,7 @@
         <!--Map Pin Food Data Base View Controller-->
         <scene sceneID="l2n-Zp-gXb">
             <objects>
-                <viewController id="mve-hn-aCl" customClass="MapPinFoodDataBaseViewController" customModule="FitApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mve-hn-aCl" customClass="MapPinFoodDataBaseViewController" customModule="Fit_Geek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Chd-KT-DwQ"/>
                         <viewControllerLayoutGuide type="bottom" id="cTX-87-kCB"/>
@@ -4217,7 +4198,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="di6-47-r6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3420" y="1403"/>
+            <point key="canvasLocation" x="3543" y="1346"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dCP-yV-5B8">
@@ -4263,11 +4244,11 @@
         <image name="save button" width="34" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="g2t-WT-ebM"/>
-        <segue reference="W7j-w3-FbF"/>
-        <segue reference="YlX-rM-Vwi"/>
-        <segue reference="fAi-Qo-NIh"/>
-        <segue reference="COo-xY-Gm1"/>
+        <segue reference="MVu-QM-tn9"/>
         <segue reference="7PL-DN-rIf"/>
+        <segue reference="COo-xY-Gm1"/>
+        <segue reference="Zrc-1O-8cF"/>
+        <segue reference="75D-s5-B9p"/>
+        <segue reference="W7j-w3-FbF"/>
     </inferredMetricsTieBreakers>
 </document>

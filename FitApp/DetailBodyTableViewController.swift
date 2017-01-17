@@ -44,8 +44,7 @@ class DetailBodyTableViewController: UIViewController {
                                 UIImage(named: "BB7")!,
                                 UIImage(named: "BB8")!,
                                 UIImage(named: "BB9")!,
-                                UIImage(named: "BB10")!,
-                                UIImage(named: "BB11")!]
+                                UIImage(named: "BB10")!]
         
         //random image generating method
         let imagerange: UInt32 = UInt32(image.count)

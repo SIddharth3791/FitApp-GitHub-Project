@@ -264,7 +264,7 @@ class FoodNutritionViews: UIViewController, UITextFieldDelegate,UITableViewDeleg
             let NewFoodCal: String = FoodCalText.text!
             if newFood.utf16.count < 1  {
                 
-                let alert = UIAlertView(title: "Food Selection", message: "Your Selection", delegate: self, cancelButtonTitle: "OK")
+                let alert = UIAlertView(title: "Food has been selected", message: "Now You Can Change Serving Size", delegate: self, cancelButtonTitle: "OK")
                 alert.show()
                 
             }

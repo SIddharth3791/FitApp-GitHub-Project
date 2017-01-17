@@ -20,16 +20,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // MArks : Parse Intilization
         
-        Parse.enableLocalDatastore()
+                
+        //Connecting to Parse server to MonogoDB using AWS------------>
         
-        // Initialize Parse.
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = "utWrDDYtwnHBrzXABz2af6ArUYZo2oE3hfHGtILv"
+            $0.clientKey = "JXzEUAlUk0xIsTsipzcUMFT8miwUp21ZbrsjAswE"
+            $0.server = "http://ec2-50-112-23-88.us-west-2.compute.amazonaws.com/parse/"
+        }
+        // Swift 3.0
+        Parse.initialize(with: configuration)
+     
+        
+        /* parse website connection-------------->
+         
+         // Initialize Parse.
         Parse.setApplicationId("utWrDDYtwnHBrzXABz2af6ArUYZo2oE3hfHGtILv",
             clientKey: "JXzEUAlUk0xIsTsipzcUMFT8miwUp21ZbrsjAswE")
         //PFUser.enableRevocableSessionInBackground()
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpened(launchOptions: launchOptions)
-        
+        */
         return true
     }
     
